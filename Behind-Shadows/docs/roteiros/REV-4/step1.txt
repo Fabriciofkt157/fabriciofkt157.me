@@ -1,0 +1,112 @@
+Mike: Bom ... O que fazemos agora? ...
+Alan: [resmunga] Você fala de mais...
+Mike: A gente parou no meio de uma vila, tem alguma ideia?
+Alan: Escuta, primeiro, "a gente" não existe. Fui arrastado para cá sem ao menos falar uma palavra
+Mike: Eu pensei que ... Você tinha concordado ... Em vir para cá.
+Mike: Por isso está aqui agora.
+Alan: "Concordado"? Me ouviu falar algo a respeito?
+Mike: Bom ... Você tá aqui agora ... Nós estamos aqui ...
+Mike: Vamos ter que viver então ... 
+Mike: Seria melhor se estivesse-mos juntos
+Alan: ... Sem chance ... 
+Alan: Não vem com essa, cada um pra um lado.
+Alan: Não venha até mim. Curta sua "nova vida".
+Mike: ... Ok ...
+Mike: Te vejo por aí
+
+[jogador conhece o mapa com Mike até aparecer uma missão para ir ao Pub [ref= mission#1]
+
+----//----
+
+[Entardecer]
+[Mike entra no Pub]
+[Alan esta situado em uma mesa à direita próximo ao centro]
+[Enquanto caminha até uma mesa, Mike observa Alan - Alan o observa de canto]
+Mike:...
+[Mike vai até Alan]
+Mike: Alan ...
+Mike: Olha ... Vamos conversar? ...
+Alan: ... 
+Mike: Eu ... Olha, foi mal ... Não sabia que ... 
+Mike: ... Foi mal ... 
+Alan: ... "Foi mal" não resolve as coisas. Você é inconsequente, não pensa antes de agir.
+Mike: ... Eu não sabia que ... Você seria arrastado pra cá junto comigo. Pensei que seria só eu ... Ou sei lá.
+Alan: É melhor cada um seguir seu próprio caminho. Assim ninguém será afetado pelas escolhas um do outro. 
+Mike: ... Mas ... 
+Mike: Tá legal ... Só não queria ficar de mal contigo.
+Mike: Te vejo por aí 
+[Mike volta para sua mesa]
+[Passou-se cerca de 40 minutos, Alan foi embora]
+[Um cara se aproxima de Mike]
+[Mike aprenta-se um pouco chateado]
+?: Ei carinha. Vocẽ tá legal?
+Mike: Eu? Sim, sim, estou. Só sou meio novo por aqui.
+?: Posso me juntar a você?
+Mike: Claro, senta aí.
+?: Como se chama?
+Mike: Mike, me chamo Mike. E você?
+Rit: Rit, Ritain, ma prefiro que me chamem de Rit
+Mike: Legal
+Rit: Você disse que é novo por aqui, de onde veio?
+Mike: Eu morava em uma vila muito, muito longe daqui. 
+Rit: Entendo. O que está achando daqui?
+Mike: Interessante. Andei explorando as coisas por aqui, ainda não conheço tudo mas aos poucos vou conhecendo.
+Rit: Bom, acho que vai gostar daqui.
+Mike: É "diferente"
+Rit: Acho que nada é muito igual.
+Rit: Veio sozinho pra cá? Você parece mais novo que as pessoas por aí.
+Mike: Vim com um amigo. Mas ... Nós nos desentendemos hoje mais cedo e desde então não falo mais com ele.
+Rit: Quantos anos tu tem? 
+Mike: 14.
+Rit: Cacete ... Bom, tem onde ficar? 
+Mike: Pra falar a verdade não. Cheguei hoje aqui.
+Rit: Olha, se quiser, tem uma pequena associação de moradores com algumas casas ao lado aqui do centro. É lá onde moro, tem algumas casas livres. Você pode ficar com uma delas. 
+Rit: A associação é como uma parceria, em troca da casa você ajuda os outros moradores quando precisarem. O mesmo vale pra eles. Quando precisar, os mesmos ajudarão você.
+Rit:  As pessoas de lá são muito receptivas, acho que gostarão de ter você lá. 
+Rit: O que acha?
+Mike: Pera. Serio?
+Rit: Sim, sim.
+Mike: Ah, eu topo. 
+Rit: Que bom [sorrisinho] 
+Rit: QUando sairmos daqui te levo lá. Tu pode entrar hoje mesmo. Se quiser, é claro.
+Mike: Claro! [sorrisinho com a mão na nuca]
+Mike: Sempre morou lá? 
+Rit: Não, não. Eu morava com meus pais em uma cidade ao lado.
+Rit: Mas ... A vila em que moravamos foi atacada e então meu tio me trouxe pra cá com meu irmão. Pouco tempo depois, descobri que meus pais foram mortos tentando defender a vila.
+Mike: Nossa ... Eu ... sinto muito.
+Rit: Tá tudo bem, isso já faz muito, muito tempo.
+Rit: Melhor falarmos de algo mais "feliz".
+Mike: [sorrisinho] É.
+Mike: Você trabalha com algo?
+Rit: Eu? Eu sou ferreiro mas desde o ataque das sombras estou servindo ao exército. Eles precisavam de mais gente e então resolvi ir.
+Mike: Entendo.
+Mike: Queria ... Me juntar também.
+Rit: Você só precisa ir até o Centro de Combate, amanhã te levo lá se quiser.
+Mike: Pode ser.
+Rit: Só não sei se te deixam entrar por ser muito novo, mas vamos de qualquer forma. Vai ver eles não ligam.
+Mike: É [sorrisinho]
+Rit: ... Toma, é um mapa ... Você vai precisar disso ... [diz com a mão na nuca]
+Mike: Ah, valeu! [sorrisinho]
+[jogo mostra o mapa]
+Rit: Nós estamos aqui [flecha apontando para o Pub no mapa]
+Rit: Aqui fica a associação [o mesmo para ele]
+Rit: Aqui fica o centro [flecha apontando para o Centro de Combate]
+Mike: Ok, acho que entendi ... 
+[Interface = mapaBtn]
+Rit: Tá ficando meio tarde ... Quer ir conhecer o lugar?
+Mike: Ah ... sim. Bora lá.
+[escurece a tela e reaparece na casa do Mike]
+Rit: É aqui.
+Mike: ... ... É aqui? ...
+Rit: Gostou?
+Mike: Tudo isso pra mim? ...
+Rit: É
+Mike: É enorme.
+Mike: É incrivel
+Rit: Que bom que gostou.
+Mike: Eu ... tô meio que sem um lugar pra morar ...
+Rit: Dorme aí ... 
+Mike: Mas eu não preciso assinar algo, ou dizer que estou aqui? 
+Rit: Tecnicamente eu moro aí. Existe uma lista dos moradores, eu tinha assinado para essa aqui.
+Rit: Amanhã transferimos ela pra você.
+Mike: Certo.

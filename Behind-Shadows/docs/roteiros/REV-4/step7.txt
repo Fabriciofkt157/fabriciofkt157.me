@@ -1,0 +1,101 @@
+[Mike está no mesmo morro de sempre observando o curso do rio]
+Deni: Mike!
+Deni: Rit quer dar uma volta numa colina aqui perto. Dizem ter um mercante que chegará em breve, Rit queria comprar algumas coisas. Quer ir com a gente?
+Mike: Ah, bora.
+Deni: Passamos aqui daqui uma hora.
+Mike: Beleza.
+[Jogador pode se preparar, comprar coisas e etc]
+Rit: Mike tá pronto?
+Mike: Bora.
+[Escurece a tela e reaparece no morro onde Alan mora]
+[Os três estão subindo o morro]
+Mike: Onde fica o mercante?
+Rit: Um pouco mais à frente.
+[Os três estão subindo - Alan está lutando contra três sombras]
+Mike: Porra! É o Alan.
+[Rit põe a mãe a frente do Mike]
+Rit: Mike ... Já era, é isso que acontece quando se é pego por uma sombra.
+Mike: Eu não vou deixar ele ali.
+Rit: Mike ... Vamos embora ... Antes que venham até a gente.
+Mike: Eu não ...
+[Uma das sombras avista os três]
+Rit: Vam'bora Mike!
+Mike: Sem chance.
+Rit: Tá legal. Se a gente morrer a culpa a sua.
+Mike: Alan!
+Alan: Mike?
+Alan: Mike cai fora daqui!
+Mike: Não vou deixar você aqui.
+[jogador enfrentará as 3 sombras, [mec/lutasEmGrupo]]
+[Após derrotar 2 sombras]
+[Deni tenta finalizar a última com magia de fogo]
+[A sombra absorve e se torna Boss#1]
+Deni: [Abismado] Ca ... Ce ... Te
+Mike: ...
+Alan: ...
+Rit: Vamos meter o pé!
+Rit: A gente não tem chance contra isso.
+Rit: [assustado] Vam'bora Mike!
+Alan: Mike se manda! Eu me viro com ele.
+Mike: Sem chance, eu tô junto nessa.
+Rit: Deni...
+Deni: Vamos deixar eles aí?
+Rit: Não vou arriscar sua vida nisso.
+[Rit e Deni fogem]
+Alan: Tá legal Mike. Vamos nessa.
+[jogador deverá derrotar o boss. Modo 2 direções, grupo: Alan, Mike; jogador poderá intercalar entre os dois]
+[falas paralelas]
+[caso jogador estiver com Mike e ataque o boss diretamente com espada]
+Alan: Sem efeito Mike.
+[caso jogador estiver com Alan e ataque o boss diretamente com espada]
+Mike: Alan ... 
+Alan: Tô ganhando tempo.
+[Caso jogador realize um combo completo pela primeira vez]
+Alan: Tá legal Mike, ele tá parado.
+Mike: Como se mata uma coisa dessas?
+Alan: Se usarmos força o suficiente a armadura quebra.
+Mike: Vamos nessa!
+[cena mostrando Mike correndo na direção da sombra e a atacando violentamente]
+[sombra segura Mike e o joga no chão]
+Alan: Mike!
+[Alan ataca o tornozelo da sombra por meio de uma rasteira e puxa o Mike de volta]
+Mike: Não vai rolar.
+Alan: A única forma de dissipar é arremeçando algo maior que ela.
+Mike: Como vamos jogar algo maior que essa coisa?
+Alan: Eu não sei Mike.
+[volta do foco em gameplay]
+[Caso jogador realize um combo completo pela terceira vez]
+Alan: Mike, a gente pode derrubar ela do penhasco. [câmera mostra penhasco]
+Mike: Tá legal, não é possível que continue inteira depois de cair de um penhasco.
+[Agora o objetivo do jogador é empurrar a sombra próximo à queda do penhasco e em seguida realizar um combo completo]
+Alan: Agora Mike!
+[Os dois pulam em direção à sombra, a mesma cai.]
+[cena mostrando os dois olhando a sombra cair]
+[uma outra sombra ataca Alan e o perfura com uma espada das sombras]
+Alan: Arh!
+Mike: [assustado] Alan?
+[Alan olha para a espada saíndo de seu torax - a sombra começa tomar o corpo de Alan]
+Mike: Alan!
+[Mike segura a sombra com as mãos e a arremeça do penhasco]
+Mike: Como fazemos pra isso parar? Tem alguma ideia? 
+Alan: ...
+Mike: Porra Alan, fala alguma coisa!
+Alan: Acabou pra mim Mike, eu sabia que não ía durar muito.
+Mike: Do que você tá falando? Começou agora, se fizermos alguma coisa ainda dá pra parar.
+Alan: Já era Mike, agora é com você ... 
+Mike: Alan? 
+Alan: Toma, não vou precisar mais disso.
+[Alan entrega sua espada]
+Alan: Dentro da caverna, encontrei muitas escrituras, você vai precisar delas ...
+Mike: ... ... ...
+Alan: Se manda ... Não vai ser legal ter que atacar o primeiro amigo que fiz em toda minha vida.
+Mike: Eu não vou te deixar aqui pra morrer.
+Alan: ... 
+[a sombra continuou a tomar o corpo de Alan até possuí-lo completamente.]
+Mike: Alan ... Fala comigo ... 
+Mike: Vai logo ... 
+Mike: Fala alguma coisa.
+[Alan (sombra) começa a atacar Mike]
+Mike: Cacete, Alan!
+Mike: Eu vou arranjar um jeito de te trazer de volta ...
+[Escurece a tela]

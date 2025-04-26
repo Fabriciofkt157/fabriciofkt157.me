@@ -1,0 +1,6 @@
+#model-1{
+    nome da interface {cor(proporção) ^ número de divisões}
+    estrutura {
+        barra horizontal com divisões: área de risco, área de alerta, área safe;
+    }
+}

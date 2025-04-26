@@ -1,0 +1,92 @@
+Alan: Até que o Mike não é tão idiota assim, ao menos ele é legal - um pouco ...
+Alan: E se ... Eu aceitasse a proposta dele? 
+Alan: Melhor não, eu me viro aqui. Tento pelo menos.
+Alan: Seria legal ... Ter alguém além de mim.
+Alan: Já que vou ficar aqui seria bom explorar essa caverna. Evitar morrer de novo.
+[Alan entra na caverna]
+Alan: Nunca tinha chego até aqui.
+Alan: Sinistro.
+Alan: De qualquer forma não cheguei ao final dela, então vou continuar explorando.
+[falas paralelas]
+[jpgador encontra um minério pela primeira vez]
+Alan: Me parece interessante, vou ver o que consigo com isso. Vai ver um ferreiro ou algo do tipo pode querer.
+[jogador encontra um pergaminho pela primeira vez]
+Alan: Parece umas escrituras, vou dar uma olhada depois.
+[ref= mec/pergaminhos, mec/listagemDePergaminhos, mec/pergaminhosContents]
+[Jogador chega no nível 3 da caverna]
+Alan: Aquilo é ... Uma pessoa? 
+Alan: Por que teria alguém aqui?
+Alan: Achei que estivesse abandonado.
+Alan: Não ... Seja lá o que for, não é uma pessoa.
+Alan: Vou tentar chegar mais perto, espero que não me veja. De qualquer forma, vim até aqui pra deixar o lugar mais seguro.
+[O que o Alan viu é uma sombra, a mesma começa a ataca-lo]
+Alan: Porra!
+[ref= mec/combateAlan]
+[Alan tenta atacar a sombra com a espada algumas vezes]
+Alan: É, não vai funcionar.
+Alan: Vou ter que bolar outro plano.
+Alan: Se ataques diretos não funcionam, talves aprisiona-lo possa resolver.
+[câmera mostra um buraco na caverna]
+Alan: Vou tentar jogar ele ali.
+Alan: Depois derrubar algumas coisas, pedras ou coisas do tipo.
+[Mapa 8 direções, jogador precisa atrair a sombra para o buraco]
+[Quando o jogador conseguir derrubar a sombra]
+Alan: Pronto.
+[Câmera mostra alguns pedregulhos]
+[Alan vai até eles]
+Alan: Preciso ser rápido
+[Jogador precisa derrubar a pedra com Alan, Alan coloca a espada de modo a fazer uma alavanca. Jogador precisa pressionar a tecla 'Q' várias vezes]
+[Ao todo são 8 pedras, jogador tem um tempo limite pra derrubar as pedras ou a sombra escapa e ele terá que derrubar de novo.]
+[Quando Alan derrubar]
+Alan: Boa! Funcionou. [mão na cabeça, suor, sorrisinho]
+Alan: Pelo visto ele se dissipou. Então é assim que se mata essas coisas.
+Alan: Acho que deu por hoje. 
+Alan: Vou fechar as entradas desse lugar, não vai ser nada bom se um desses me atacar de novo.
+[Escurece a tela e reaparece na superfície]
+[Entardecer]
+[câmera mostra a barricada de madeira na entrada a fundo da caverna]
+Alan: Acho que é isso.
+Alan: Vou descansar um pouco e depois vou pro Pub.
+[fim da cena, reaparece no Pub]
+[Alan e Mike estão nos mesmos lugares de sempre]
+[Mike está sozinho]
+Alan: Mike está sozinho, deve ter rolado alguma coisa.
+Alan: Acho que vou lá falar com ele. 
+[Alan se levanta e vai até lá]
+Alan: [com os braçoes atrás da cabeça] Mike ... Você tá legal?
+Mike: Hm? [Olha pra trás e vê Alan - sorrisinho]
+Mike: Tô sim. Você ... Tá bem? 
+Mike: Nunca veio falar comigo, então ...
+Alan: É, eu tô ligado. É só que ... Você tava aqui sozinho - o que não é muito comum - então passei aqui pra saber se não rolou alguma coisa.
+Mike: Tendi. Bom, senta aí, só pra bater papo 
+Alan: Tá legal.
+Mike: ...
+Mike: Não sei sobre o que falar ... 
+Alan: [sorrinho de canto]
+Alan: Você curte beber algo?
+Mike: Nada alcoólico. As pessoas parecem meio viciadas aqui. 
+Alan: Eu curto cerveja mas não sou muito fã.
+Alan: O problema é que não tem nada melhor por aqui.
+Mike: Nunca cheguei a experimentar na verdade.
+Alan: Fez certo, no começo tu diz que não gosta mas quando vê tu já tá no quarto copo.
+Mike: [riso leve]
+Alan: Olha ... Foi mal por ter sido rude contigo antes.
+Mike: Tá de boa.
+[Garçonete passa na mesa]
+Garçonete: Precisam de alguma coisa?
+Alan: Me vê uma cerveja, por favor.
+Garçonete: Claro!
+Alan: Quer uma também? Eu pago uma pra ti.
+Mike: Acho que passo essa.
+Alan: Tá bom [sorrisinho]
+Alan: Só isso por hora.
+Garçonete: Ok!
+Mike: Tenta não ficar bebâdo, vou te jogar no lago se ficar.
+Alan: [risada leve]
+Alan: Relaxa, não vou ficar chapadão.
+Mike: Espero. [riso]
+Garçonete: Aqui!
+[Alan toma um gole]
+Mike: Cacete, metade de uma vez só.
+Alan: [Gargalhada] Só um pouquinho.
+[escurece a tela com a mensagem: "Continuaram a conversar por um tempo, a noite acobou bem e os dois foram pra casa."]

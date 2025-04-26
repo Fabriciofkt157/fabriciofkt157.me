@@ -1,0 +1,69 @@
+[cutscene = "iniciando no combate"]
+
+General: Olá, como vai?
+Mike: Olá
+General: Opa Rit, como vai?
+Rit: Tudo certo?
+General: O que traz vocês aqui hoje?
+Rit: Esse é o Mike, ele queria entrar aqui pro centro.
+General: Entendo. Vamos lá então.
+General: Mike, me acompanhe por favor.
+Rit: Só vou até aqui. Vai levar um tempo até vocês terminarem tudo. 
+Rit: Vou ficar ali fora treinando.
+Mike: Ah, beleza. Te vejo depois então.
+[Escurece a tela com a mensagem "papéis e mais papéis preenchidos ..."]
+General: Agora a etapa final.
+General: Para você ser recrutado, deverá cumprir alguns requisitos.
+General: Se me derrotar, você entra.
+General: Para isso, usaremos selos.
+[General anexa uma runa ao braço de Mike]
+Mike: O ... O que é isso?
+General: Essa runa é responsável por te manter vivo durante essa batalha.
+General: Ela te protegerá de 3 golpes fatais, imediatamente te teleportando para outro local.
+General: O mesmo vale para mim.
+General: Seu objetivo é estourar a minha runa 3 vezes.
+Mike: Tá legal.
+[Mike e o General estão ambos com os mesmos equipamentos - espada e arremessaveis]
+General: Pode vir!
+
+Combate {
+    runas: 3 usos, podendo ser rompido por um golpe crítico extremo ou quando a barra de vida atingir 0% (romper = 1 uso);
+    
+    falas paralelas {
+        Usos restantes runa General:
+        [2]: Mike: Uma já foi, faltam duas.
+        [1]: Mike: Ele não morre não?
+             General: Já chega disso.
+             [General realiza uma investida, se atingir Mike: golpe crítico extremo]
+        [0]: Mike: Eu ... Consegui?
+             General: Sim, você passou.
+        Usos restantes runa Mike:
+        [2]: Mike: Porra! Estou vivo.
+             General: Hmf, fracote.
+             [Mike se irrita; velocidade de movimento e ataque aumentaram, chance de acerto crítico +10%; duração 2 minutos]
+        [1]: General: Você tá legal Mike?
+             Mike: Foda-se, bobão.
+             [General ri com deboche]
+        [0]: General: Fim da linha, Mike.
+             Mike [cansado]: Droga! 
+             General: Vamos lá Mike, descansa e tenta de novo!
+            
+    }
+}
+[Ao vencer o combate o jogador libera o Centro de Combate, podendo ir lá para praticar e realizar missões]
+[Mike está saindo do Centro de Combate, Rit o avista]
+Rit: E aí Mike? Conseguiu?
+Mike[sorrisinho feliz]: Sim!
+Rit: Boa!
+Rit: Tá afim de ir no PUB?
+Mike: Claro.
+Rit: Vou passar buscar o Deni e vamos lá.
+Mike: Quem é Deni?
+Rit: Não te contei? Deni é o meu irmão.
+Mike: O que veio com você quando...
+Rit: É.
+Rit: Ele é legal, você vai gostar dele.
+Mike: É, eu acho que sim.
+Rit: Vou lá buscar ele, te encontro no PUB, beleza?
+Mike: Ok.
+[Jogador controla Mike até chegar no PUB. Quando chegar, Rit e seu irmão estarão na porta]

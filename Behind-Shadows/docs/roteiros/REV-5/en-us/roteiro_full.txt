@@ -1,0 +1,300 @@
+------{New World}------
+[cutscene = "The End?";]
+
+Mike: Wh...Where am I?
+Mysterious Man: He finally woke up.
+Mike: Wh...Who are y...you?
+Mysterious Man: You must be wondering what happened.
+Mysterious Man: The past you knew ceased to exist just moments ago.
+Mysterious Man: The one speaking to you is the being responsible for guiding the souls of all beings that once lived in the universe.
+Mike: A...Am I dead? And... Who is this guy?
+Mysterious Man: Maicon Jousan, at the age of 14 years, 4 months, and 22 days, lost his life due to bleeding after an episode of violence.
+Mike: ...I remember being attacked but... I think I passed out before realizing...
+Mysterious Man: Alan Dount, passed away due to a myocardial infarction at the age of 17 years, 8 months, and 6 days.
+Alan: ...
+Mysterious Man: You are now in the valley of forgetfulness, and there is nothing that can reverse it.
+Mysterious Man: What remains for you now is to follow the natural order of things. However, I propose some alternatives:
+Mysterious Man: The first one, you will remain here, in the course of this river, slowly fading away and being forgotten.
+Mysterious Man: The second, you will live a new life, starting over as a new person. Therefore, you will not remember who you were in the past life; this was the choice made by you previously.
+Mysterious Man: The third and final alternative, you will continue from where you left off, but in an alternate reality and with a goal: to defeat the Army of Shadows whose integrity is unknown, all that is known is that it aims to take control of the entire multiverse.
+Mysterious Man: In this reality, nothing of what you have seen so far will be the same - see this as a chance for a new beginning, it will be like a new life, however, your memories and personalities will remain intact.
+Mysterious Man: Initially, I will grant some benefits:
+Mysterious Man: You will have no difficulty communicating with the inhabitants, and you will easily be able to find housing.
+Mysterious Man: Don't worry, if you die again in this reality, you can still choose one of the other alternatives.
+Mysterious Man: Take all the time you need to make your decision.
+Mike: I... choose the... New World...
+Mysterious Man: Excellent choice! Have a good journey.
+Alan: Wait... you mean... me too?
+Alan: WHAT DO YOU MEAN "HAVE"? I don't...
+ 
+[screen darkens and end of cutscene]
+[cutscene = "Arrival in the New World"]
+Mike: ... This is...
+Alan [angry]: YOU!
+Alan: I DON'T EVEN KNOW YOU AND YOU DRAGGED ME HERE ALONG WITH YOU!
+Mike: Hey, hey, calm down...
+Mike: I didn't... know that...
+Alan: Did you even stop to wonder why there's a guy you've never seen before with you in who knows where we are now?
+Mike: ... I didn't know this would affect both of us, and anyway, I thought if you came along, it was because you agreed to it.
+Alan: "Agreed," I didn't say a word. I couldn't choose what happens to my life, not even at the end of it.
+Mike: ...
+Mike: Look, we... we're here, there's nothing that can be done. Anyway, when this is over, you can choose one of the other options, like that guy said.
+Alan: ...
+Mike: We'll have to live, whether you want to or not.
+Alan: You talk as if I'm going to stick with you.
+Mike: We have to defeat that army; it would be better if we were together, wouldn't it?
+Alan: No chance, don't even try, each goes their own way. Get lost.
+Alan: Enjoy your "new world."
+Mike: Okay...
+Mike: But... if you need me for anything, just... look for me.
+Mike: See you around.
+Alan: Get lost.
+
+[End of cutscene, beginning of gameplay]
+[Player will be playing as Mike and can explore the map, guided by some missions to gather information; the final mission will be to go to the PUB when it's 6:00 PM (time will progress until 7:00 PM, when it reaches that time, it will pause)]
+
+[Player enters the PUB with Mike]
+
+[Mike enters the PUB]
+[Alan is seated at a table to the right near the center]
+[As he walks toward a table, Mike notices Alan - Alan glances at him from the corner of his eye]
+Mike:...
+[Mike approaches Alan]
+Mike: Alan...
+Mike: Look, can we talk?
+Alan: I said everyone should go their own way.
+Mike: I know, I know, I just wanted to check if you're okay.
+Alan:...
+Mike: My bad, if I knew that...
+Mike: Forget it, there's no way to justify.
+Mike: I just didn't want things to be awkward between us.
+Alan:...
+Mike: I'll go my way, try to take care of yourself, okay?
+[Mike turns around]
+Alan: I'm okay, Maicon, just...
+[Mike looks back at Alan]
+Alan: I...
+Mike: Want to talk?
+Alan: No. But I'm fine.
+Mike: Alright. See you around.
+[Mike goes to one of the tables and stays there for a while, the screen darkens with "40 minutes have passed"]
+[Mike remains at the same table]
+[A guy approaches Mike]
+?: Hey buddy. You okay?
+Mike: Me? Yeah, yeah, I'm fine. Just new around here.
+?: Mind if I join you?
+Mike: Sure, have a seat.
+?: What's your name?
+Mike: Mike, I'm Mike. And you?
+Rit: Rit, Ritain, but I prefer to be called Rit.
+Mike: Cool.
+Rit: You said you're new here, where are you from?
+Mike: I used to live in a village far from here. Kind of had to leave there.
+Rit: Something happened?
+Mike: The village was attacked, luckily I managed to get out of there.
+Rit: I see. What do you think of this place?
+Mike: Interesting. I've been exploring some things, don't know everything yet but from what I've seen, it's cool.
+Mike: It's "different."
+Rit: I guess nothing is quite the same.
+Rit: Did you come here alone? You seem younger than the folks around here.
+Mike: I came with a friend. But... We had a falling out earlier today and I haven't spoken to him since.
+Rit: How old are you?
+Mike: 14.
+Rit: Damn... Well, do you have a place to stay?
+Mike: Truth is, no. I arrived here today.
+Rit: Look, if you want, there's a small residents' association with some houses next to the center here. Some are vacant, you could take one. That's where I live.
+Rit: The association is like a partnership, in exchange for the house, you help other residents when they need it. The same goes for them. When you need it, they'll help you too.
+Rit: The people there are very welcoming, I think they'll be glad to have you there.
+Rit: What do you think?
+Mike: Wait. Seriously?
+Rit: Yes, yes.
+Mike: Ah, I'm in.
+Rit [smiling]: Great.
+Rit: When we leave here, I'll take you there. You can move in today if you want, of course.
+Mike [smiling with hand on the back of his neck]: Sure!
+Mike: Have you always lived there?
+Rit: No, no. I used to live with my parents in a nearby town.
+Rit: But... The village where we lived was attacked, and then my uncle brought me here with my brother. Not long after, I found out my parents were killed trying to defend the village.
+Mike: Wow... I... I'm sorry.
+Rit: It's okay, that was a long, long time ago.
+Rit: Let's talk about something happier.
+Mike [smiling]: Yeah.
+Mike: Do you work with something?
+Rit: Me? I'm a blacksmith, but since the shadow attack, I've been serving in the army. They needed more people, so I decided to go.
+Mike: I see.
+Mike: I wanted... to join too.
+Rit: You just need to go to the Combat Center, I'll take you there tomorrow if you want.
+Mike: Sounds good.
+Rit: I'm not sure if they'll let you in because you're too young, but we'll go anyway. Maybe they won't mind.
+Mike [smiling]: Yeah.
+Rit [rubbing the back of his neck]: ... Here, take this, it's a map... You'll need it...
+Mike [smiling]: Oh, thanks!
+[game shows the map]
+Rit: We're here [arrow pointing to the Pub on the map]
+Rit: Here's the association [arrow pointing]
+Rit: Here's the center [arrow pointing to the Combat Center]
+Mike: Okay, I think I got it...
+Rit: It's getting kind of late... Wanna go check out the place?
+Mike: Ah... yeah. Let's go.
+[Player will leave the PUB with Mike and follow Rit to the house]
+
+Rit: Here it is.
+Mike: ... ... Here? ...
+Rit: Do you like it?
+Mike [very impressed]: All of this for me? ...
+Rit: Yes.
+Mike: It's huge.
+Mike: It's amazing.
+Rit: I'm glad you like it.
+Rit: You'll sleep here...
+Mike: Don't I need to sign something? Or say that I'm here?
+Rit: Technically, I live here. There's a list of residents, I signed it for this one.
+Rit: Tomorrow we'll transfer it to you, and then I'll show you around the association.
+Mike: Okay.
+Rit: Well... That's it...
+Rit: See you tomorrow, okay?
+Mike: Okay.
+
+[time = 9 PM]
+
+[end of cutscene, player can explore the house and its surroundings, along with some functionalities; ref = "mechanics.txt" #"buildings/Mike's house"]
+
+[Player can explore the house and surroundings until 11 PM. Mike will occasionally mention that he should go to bed (every hour):
+parallel dialogues {
+    #1[9 PM]: Mike: I think I should go to bed.
+    #2[10 PM]: Mike: Hm, it's going to take a while for me to get used to this place, better go to sleep.
+    #3[11 PM]: Mike: Okay, that's enough. I'm going to sleep. [screen darkens with the message: "Mike went to bed"]
+    [After Mike goes to bed (regardless of the time), the story will continue] 
+}]
+
+[Loading screen with the message: "Screwed and Friendless"]
+
+[Active character = Alan]
+
+[Alan slept in a cave and didn't discover anything particularly relevant]
+[Alan is at the entrance of the cave with the camera pointing outside]
+[Player can walk with Alan and explore the area]
+
+parallel dialogues {
+    Alan: Damn, slept so poorly.
+    Alan: "Easy living": a cave in the middle of nowhere.
+    Alan: Still gotta survive in this damn new world.
+    Alan: Can't even cease to exist. There's always some idiot messing things up.
+    Alan: Damn it! This sucks.
+    Alan: Should find something useful to do.
+    Alan: Put this map to use.
+    [interface showing how the map works]
+    Alan: Maybe gather some information, or... fix up this place...
+    [camera points towards the direction of the city {
+      Alan: The city is in that direction.
+    }]
+}
+[player controls Alan, can choose to go to the city or stay and explore the area until 6 PM. When it's 6 PM {
+  Alan: Alright, I guess that's it for here. I'll see what I can get at the center.
+  [player can go or not to the PUB (controlling Alan there), reaching at most 9 PM {
+
+    If it exceeds this time, hours will progress until 1 AM {
+      Alan: Enough, I'm going to sleep.
+      [screen darkens, loading screen with the message: "Beginner"]
+    }
+
+    If the player decides to go to the center {
+      [When player reaches the city, map pointer points to the PUB]
+      parallel dialogues {
+        Alan: Looks like the Pub is one of the places to get information.
+        Alan: Maybe I should join that idiot.
+        Alan: No, no chance.
+        Alan: He's right. I won't last long here. Not alone.
+        Alan: Forget it, I'll keep to myself and try something.
+        Alan: I'll go to that tavern, maybe I'll find someone dumb enough to help me. Or at least, find out where things I need are located.
+      }
+      [When player reaches the PUB: cutscene = "Followers of an idiot"]
+      ?: Hey! Would you happen to know a place to spend the night around here?
+      Alan: Sorry, I'm new here too...
+      ?: I see, thanks anyway.
+      Alan: I'm kind of... Sleepy.
+      Alan: Makes sense, haven't eaten anything in a good while.
+      Alan: [Checks pockets] Yeah, no luck.
+      Alan: Apparently people here are money-crazy.
+      Alan: Seriously... Expected... to find things to eat around, but...
+      Alan: I'll have to figure out a way to get money.
+      Alan: Steal? No chance, people kill for way less than that. Not keen on dying, not again. 
+      [muffled voices]
+      Alan: Oh, that's just great.
+      Alan: Looks like the "smart guy" found others like him.
+      Alan: And if I went there to talk to him? No chance.
+      Alan: Dam...
+      [Camera blurs and Alan faints]
+      [Alan opens his eyes, camera blurry]
+      Mike: Alan? Alan, are you okay?
+      [Alan squints and stares at Mike]
+      Alan: Do I look okay to you?
+      Mike: ...
+      Mike: Is there anything I can do?
+      Alan: Could've just left me there.
+      Mike: ...
+      Mike: Come on. I'll take you home. [Mike holds Alan's arm]
+      Alan: You don't have to, Maicon. I'll manage.
+      Mike: Yes, I do. You're not okay.
+      Alan: Obviously not... Just leave me alone, okay?
+      Mike: ... Fine ... Just ...
+      [end of cutscene]
+
+      [Alan will be outside the PUB (looking drowsy, as if drunk), player must walk with Alan to the cave. {
+          Alan: Damn life.
+          Alan: Why is he like this?
+          Alan: Could've just left me there.
+          [Blurry camera]
+          Alan: My vision's messed up again, that's all I needed.
+          [Alan stumbles, faints, and camera fades to black]
+          [loading screen with the message: "Beginner"]
+      }]
+    }
+  }]
+}
+
+[active character = Mike]
+[Rit and Mike are walking to the Combat Center]
+parallel dialogues {
+    Rit: The Center is just over there.
+    Rit: Brought you here early so you can practice a bit before, took me 8 tries to pass, so...
+    Mike: Ah, okay. Got it. - Could be sleeping but... Anyway
+    Rit [light laugh]: Oh, come on.
+}
+[When player arrives at the Combat Center]
+Rit: Alright. I'll be your opponent.
+Mike: You're kidding, right?
+Rit: Come on. You got this.
+[Rit grabs an axe]
+Mike: You're... You're gonna attack me with that thing?...
+Rit [laughs]: Relax, Mike. Look behind you there.
+[Camera shows weapon rack behind Mike, player can choose a main weapon and a throwing weapon]
+Mike: Ah, okay. Take it easy, alright?
+Rit (smirking): Don't worry, it's just a training.
+Rit: How about a bet?
+Mike: What do you mean?
+Rit: If I win, tonight's drinks at the Pub are on you. If you win...
+Mike: But I...
+Rit: Better beat me then.
+Mike: Okay, okay.
+[The fight begins]
+[player manages to reduce Rit's health by 75% (variable according to difficulty)]
+Rit: Whoa there. Alright. You won this... This time...
+Rit: Don't get too cocky, okay?
+Mike [Smirks]: Sure.
+[Mike's health = 25%]
+[scene of the two glaring at each other, with "dead" expressions]
+[Mike tries to hit Rit with the sword, trips and falls]
+Rit: Giving up?
+Mike: No...
+Mike: I can't... Okay, you win.
+Rit: Tonight's on you, hehe.
+Mike [grumbles]: I'm screwed.
+[scene of the gate opening]
+Rit: It's time.
+Rit: Don't feel bad if you don't make it on your first try. It took me 8 attempts, so...
+Mike: It's all good.
+[in case the bet is lost {
+    Rit: By the way, I was just kidding about the bet. Relax.
+    Mike [Smirks]: Okay.
+}]

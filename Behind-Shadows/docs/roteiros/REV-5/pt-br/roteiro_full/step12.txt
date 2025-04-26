@@ -1,0 +1,56 @@
+Rit: A gente pode ir em outras lojas ver se tem algo a mais. O que quer fazer?
+[Escolha do jogador]
+ |-> 1: Mike: Acho que deu.
+ |-> 2: Mike: Pera aí. Acho que deveríamos ir atrás de mais coisas.
+        Rit: Tá legal. Vou buscar o Deni, me encontra no PUB 17h
+        Mike: Beleza.
+[Caso o jogador escolha 1 {
+    Rit: Vamo' lá buscar o Deni.
+    Mike: Belê.
+    [Jogador seguirá Rit até sua casa.] {
+        Rit: Gosta de fazer alguma coisa Mike?
+        Mike: Tipo o que?
+        Rit: Caçar, tiro ao alvo, escalada; algo assim.
+        Mike: Gosto de nadar, mas não faço muito frequentemente.
+        Rit: Nadar? É algo legal.
+        Rit: Gosto de escalada.
+        Mike: Nunca pratiquei, mas parece legal.
+        Rit: É, um pouco.
+    }
+    [Chegaram na casa de Rit]
+    Rit: Vou lá ver o Deni, não sai daí.
+    Mike: Certo.
+    [Rit entra na casa]
+    Mike: Agora é esperar.
+    Mike: Minha casa fica por aqui, não?
+    [Câmera aponta para o morro onde fica a casa de Mike]
+    Mike: É ali.
+    Mike: Bom, o Rit mora aqui perto, é legal.
+    [Rit e Deni saem da casa]
+    Rit: Pronto, a "dama" já se arrumou.
+    Deni: Ah Rit, dá um tempo!
+    Mike [riso leve]
+}]
+
+[Caso o jogador escolha 2 {
+    [Jogador está livre pra andar pela cidade, ir atrás de itens e entre outros]
+    [interface mostra a opção "pronto na caixa de falas, que quando clicada dá inicio a missão"]
+    [Para dar inicio a missão o jogador precisa clicar em "pronto" na caixa de falas]
+    [Caso horário {
+        [16h]: Mike: Melhor eu ir, o Rit já deve estar me esperando.
+        [17] {
+            Mike: Ah droga! Já são 17 horas.
+            Mike: O Rit vai me esganar ... Já era pra eu estar lá a essa hora.
+            Mike: Melhor eu correr.
+            [Escurece a tela e aparece no PUB; horário = 17:20h]
+            Mike: Cheguei, cheguei.
+            Deni: Demorou hein Mike.
+            Mike: Foi mal.
+            Rit: Tá tranquilo, a gente só vai 18h.
+            Mike: Ah, tá bom.
+            Rit: Veio correndo até aqui?
+            Mike: É, eu achei que a gente ia sair 17h.
+            Rit: não, relaxa.
+        } 
+    }]
+}

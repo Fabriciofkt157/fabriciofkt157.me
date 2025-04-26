@@ -1,0 +1,64 @@
+[independente da escolha]
+
+Rit: Vam'bora, deu a hora. 
+Deni: Vamo' lá.
+
+[Escurece a tela com a mensagem: "Rit, Deni e Mike foram até o local da missão"]
+
+[descrição do cenário {
+     Várias construções antigas e destruídas. 
+     O cenário é uma antiga vila que foi atacada, posteriormente habitada por sombras e desabrigado.
+}]
+
+General: Escutem: Essa área foi tomada por Avadest, há indícios de sombras habitando essa região, além de possíveis pessoas desabrigadas.
+General: Não ataquem se não forem atacados, essas pessoas também estão tentando sobreviver.
+?: Certo!
+
+[interface introduz ao jogador as mecânicas de combate em grupo]
+
+General: Dispersar!
+[esquadrão de 6 pessoas]
+[Rit ficou com o General, Mike ficou com Deni, os outros dois ficaram juntos]
+
+Deni: Tá bem, vamos lá.
+[câmera mostra algumas sombras vagando]
+Deni: Mike tá vendo ali? 2 sombras.
+Deni: Não dá pra matar.
+Deni: Mas elas temem a luz, isso não se aplica se formos vistos - elas atacam mesmo assim.
+Mike: E o que a gente faz?
+[Deni pega um taco de madeira e atira fogo]
+Deni: Fogo.
+Deni: Quando ficam expostas por um tempo à luz do fogo se dissipam.
+Deni: Mas se não fizermos isso até a sombra se dissipar, ela se adapta.
+Deni: E aí, ela absorve o fogo e fica mais forte.
+Mike: Certo. 
+Mike: O que acontece se virem a gente?
+Deni: Começam a nos perseguir, se nos pegar, viramos sombras - iguais a elas.
+Mike: Ah ... 
+Mike: Tá, vamo' lá.
+Mike: O que a gente faz especificamente? 
+Deni: Limpar a barra por aqui. 
+Deni: Os outros grupos vão avançar e lidar com a fronteira. Eles querem retomar o lugar.
+Mike: Certo.
+
+[O objetivo do jogador será se livrar de 8 sombras.]
+[Jogador pode alternar entre Deni e Mike]
+[Se forem vistos, a sombra desaparece e em seguida mostra uma cena do personagem ativo sendo pego e em seguida mostra a tela de derrota; Jogador voltará do último checkpoint (início da missão)]
+
+[falas paralelas {
+    #1: [Caso jogador se esponha de mais ao usar Mike]
+        Deni: Calma aí Mike, você vai matar a gente.
+    #2: [Se o personagem ativo for visto pela primeira vez]
+        [Deni/Mike: puxam o outro]
+        Deni/Mike: Quase ...
+        Mike/Deni: Valeu!
+    #3: [Quando jogador dissipar a primeira sombra]
+        Mike: Cacete! Funcionou.
+        Deni: É. Faltam 7.
+    #4: [Quando jogador dissipar 5]
+        Deni: Isso aí, tamo' quase lá.
+    #5: [Ao dissipar todas]
+        [Mike e Deni se encontram com os outros grupos]
+        Rit[riso sarcástico]: Boa! Continuaram vivos.
+        Mike: É.
+}]

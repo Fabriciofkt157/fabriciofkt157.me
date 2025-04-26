@@ -1,0 +1,51 @@
+Mike: O que a gente faz agora?
+Rit: Agora é a pior parte ...
+Mike: Qual?
+Deni: Pessoas...
+Rit: Mais precisamente, aquelas pessoas.
+[Câmera mostra alguns guardas de armaduras, posicionadas estratégicamente]
+Mike: O que tem elas?
+Rit: Essas coisas não existem por acaso Mike.
+Rit: Algo ou alguém controla onde estão e o que fazem.
+Mike [Apontando para um dos guardas discretamente]: Eles fazem isso?
+Rit: Não. Nós chamamos eles de "observadores".
+Mike: Mas por que não atacaram a gente? Não nos viram?
+Rit: Eles sabem que estamos aqui, sabem o que fizemos.
+Deni: Mas eles não têm ordens para intervir, por isso não entraram em ação.
+Deni: Eles vêm as sombras apenas como peões.
+Rit: É como um jogo de xadrez.
+Rit: Não vale a pena sacrificar peças de maior valor por um ou dois peões.
+Mike: Então eles são as peças de maior valor?
+Rit: Não exatamente, mas eles têm as informações de como chegar até elas.
+Mike: Certo.
+Mike: E como conseguimos essas informações? Eles não vão simplesmente nos falar assim né?
+[
+  Se {idade} < 18{
+      Rit: Deixa isso com a gente Mike.
+  } Se {idade} >= 18{
+      Deni: A gente vai macetar eles até eles abrirem o bico.
+      Mike [assustado]
+      Rit: Deni! ... Ele não precisava saber disso ...
+      Mike: Tá de boa.
+      General: Deixa essa parte comigo e o Rit, Mike.
+      Mike [tédio]: tá.
+  }
+]
+
+General: Certo. Vamos lá.
+General: Mike e Deni, vocês dois vão pela direita. Vão dar cobertura e surpreender a cobertura deles.
+Mike: Certo.
+General: Eu e Rit vamos ao confronto direto.
+General: Vocês dois cuidam da retaguarda.
+?: Ok.
+General: Dispersar!
+
+Deni: Vem comigo Mike.
+[Jogador seguirá Deni] {
+    Mike: Como a gente vai surpreender eles?
+    Deni: Contornando, nosso objetivo é a cobertura deles.
+    Deni: Acho que você não faria algo assim, mas não custa falar: não mate ninguém.
+    Deni: Mortos não falam.
+    Deni: Mas pode descer a porrada a vontade.
+    Mike [riso leve]: Tá.
+}

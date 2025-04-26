@@ -1,0 +1,137 @@
+[submundo]
+Alan: ... ? 
+Alan: Então é isso que acontece quando se é pego por aquilo.
+?: Até que enfim acordou
+Alan: ? 
+?: Você está em uma realidade alternativa, as pessoas que são corrompidas são trazidas para cá.
+Alan: Quem é você?
+?: Pode me chamar de Raika.
+Raika: Deve estar se perguntando se há como sair daqui.
+Alan: Exato.
+Raika: O único jeito de sair daqui é derrotando o General e contando com ajuda externa.
+Alan: Quem é esse tal "General"?
+Raika: É o ser responsável por mandar as pessoas pra esse lugar.
+Alan: O que seria a ajuda externa?
+Raika: Alguém do mundo dos vivos precisa fazer um ritual, isso garante que você consiga passar pelo portal.
+Alan: Que portal?
+Raika: Quando derrotar o General o portal para o mundo dos vivos estará aberto, no entanto quem está aqui não pode passar pelo portal.
+Alan: Onde fica o tal General?
+Raika: Ele não "fica" em um local acessível por sombras desse lugar.
+Raika: A única forma de derrota-lo é no torneio que acontece a cada 10 anos, para vencer você terá que matar um imortal.
+Raika: O torneio acontecerá daqui a três dias. Esse é o tempo que temos. 
+Alan: Tá legal.
+Alan: Como entro em contato com alguém no mundo dos vivos?
+Raika: Não faço ideia, é por isso que ainda estou presa aqui.
+Raika: Existe uma região isolada, conhecida por ser "A Ruína dos Traidores". 
+Raika: Nunca fui até essa parte, mas sei que existe uma pessoa lá que pode nos ajudar com isso. Merlin.
+Alan: Tá legal. Vou até lá.
+Raika: Não vou até essa parte, é com você agora. Vou atrás de algumas coisas.
+Raika: Toma, vai precisar disso. 
+Alan: Valeu.
+[Raika entrega um mapa pro Alan]
+Raika: Te encontro aqui, mesmo lugar, amanhã.
+Alan: Tá legal.
+[jogador precisa andar com Alan até o ponto apontado no mapa]
+
+[Falas paralelas]
+[Caso jogador esteja 1/4 do ponto]
+#1: Alan: Devo estar longe ainda.
+#2: Alan: Faz falta ter alguém apesar de tudo.
+#3: Alan: Não dá pra se arrepender agora.
+[1/2 do caminho]
+#4: Alan: Não consegui nem conhecer o Mike direito.
+#5: Alan: Vou dar uma chance, não pode ser tão ruim assim.
+[Caso jogador esteja a 4/5 do caminho]
+#6: Alan: Já estou quase lá.
+#7: Alan: Vou ter que dar um jeito de falar com o carinha.
+#8: Alan: Espero que ele tope me ajudar com isso.
+#9: Alan: Não tenho certeza, fui muito rude com ele no início.
+#10: Estavamos bem no final, mas ...
+
+[Quando terminar o caminho]
+Alan: Acho que é aqui.
+Alan: Devia ver com outras pessoas sobre esse tal Merlin.
+
+[quest para o jogador, ele deverá falar com os NPCs do local.]
+[Os primeiros 4 serão falas aleatórias, o 5° será um NPC específico.]
+
+[falas aleatórias {
+    #1: ?: Acho que ... Talvez ... É, não tenho ideia.
+        Alan: tranquilo.
+    #2: ?: Talvez na *área norte*, ouvi dizer sobre um Merlin que morava por lá.
+        Alan: Certo, valeu.
+    #3: ?: Não sei ao certo, mas algumas pessoas dizem que ele mora em uma *caverna* - não tenho ideia de onde fica.
+        Alan: Certo, valeu.
+    #4: ?: Nunca ouvi falar de um Merlin, sinto muito.
+        Alan: Tranquilo. Valeu.
+}]
+
+[Após as quatro falas serem exibidas e jogador interagir com o 5° NPC]
+?: Caverna 5 na área norte, apesar dele não gostar muito de companhia.
+Alan: Sabe como chego lá?
+?: Você é novo por aqui certo?
+Alan: Sim ...
+?: Use o teleporte das sombras pra esse ponto no mapa. [mostra o mapa]
+Alan: Como faço isso?
+?: Comece fechando os olhos e concentrando sua raiva, agora direcione ela para esse ponto - como se a origem dela fosse ali.
+?: Deixe as sombras se fundirem em você. 
+?: Agora dissipe.
+[mostra Alan teleportando]
+
+Alan: Cacete, deu certo.
+Alan: Agora preciso encontrar a tal caverna.
+[Mostra a caverna]
+Alan: Acho que é aqui.
+[Alan entra na caverna]
+[mostra Alan sendo pego por uma armadilha mágica e ficando preso com a cabeça para baixo.]
+?: Acho bom ter uma boa razão para estar aqui.
+Alan: Eu ... posso explicar.
+?: É melhor explicar rápido.
+?: O que faz aqui?
+Alan: Raika ... Raika me mandou atrás do Merlin, disse que ele poderia ajudar.
+?: Ajudar com o que?
+Alan: A falar com os vivos.
+Merlin: Infelizmente não posso ajudar. Adeus. [Aponta a espada em direção ao pescoço de Alan - indicando corta-lo]
+Alan: Espera! Espera!
+Alan: Você é o Merlin, certo?
+?: Não, e não o conheço.
+Alan: Ah, qual é. Você disse "não posso", logo você é o Merlin.
+Merlin: Tá legal, mas não tenho o que procura. Adeus.
+[acelera a espada e para assim que encosta no pescoço de Alan]
+Merlin: Tenho algo, mas não acho que comsiga usa-lo.
+Alan: E por que não?
+Merlin: Lhe faltam muitas coisas, entre elas a habilidade.
+Alan: Luta comigo, se eu vencer ...
+Merlin: Certo, se perder será meu escravo.
+
+[começa o combate com cena em modo Imersão]
+[Alan ainda está preso e jogador deve desviar dos golpes de Merlin]
+
+Alan: Calma aí, me tira daqui primeiro!
+Merlin: Você me desafiou pra uma luta, acha que vou facilitar as coisas pra você?
+Alan: Droga.
+[Merlin ataca com a espada - jogador deve usar as teclas de movimento para desviar]
+[fala-pensamento:
+  Alan: Vou ter que fazer me tirar daqui.
+  [Quando jogador desviar pela 3 vez (Merlin usa magia em Alan na 3°):]
+  Alan: É isso, a magia que me segura aqui enfraquece quando ele usa outras magias.
+  Alan: Por enquanto só preciso desviar então. Uma hora ele vai usar a ponto de me soltar.
+]
+[Merlin ataca Alan 5 vezes, se jogador desviar as 5 Alan estará livre.]
+Alan: Certo, agora é acabar com ele.
+[Combate: Alan x Merlin]
+[Jogador tentará atacar Merlin com Alan, porém nenhum surgirá efeito]
+[Após 3 tentativas falhadas]
+Alan: Vou ter que pegar ele desprevinido. Ele bloqueia todos os meus ataques.
+[Alan corre na direção de Merlin e o ataca com a espada, Merlin o bloqueia e lança a espada para longe]
+Alan: Droga!
+Alan: Espero que isso funcione.
+[Alan ataca Merlin novamente, dessa vez desarmado tentando atingi-lo o mais rápido possível.]
+[Alan usa as sombras para arremessar a espada que havia sido derrubada na direção de Merlin, acertando-o em cheio.]
+[Merlin com a espada fincada em suas costas.]
+Merlin: Droga. Melhor lutar a sério com ele.
+Alan: [bufa]
+Alan: Então é assim que funciona, só preciso me concentrar e desejar que as sombras façam. 
+Alan: Ele não consegue se proteger de várias direções pelo visto.
+[tela mostrando os combos com Alan(submundo)]
+[ref="mec/combos/#'Alan (submundo)'"]

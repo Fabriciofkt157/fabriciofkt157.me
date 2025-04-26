@@ -1,0 +1,73 @@
+------{Nuovo Mondo}------
+
+[cutscene = "La fine?";]
+
+Mike: Do… dove sono?
+Uomo misterioso: Si é svegliato, finalmente.
+Mike: C… chi sei t… tu?
+Uomo misterioso: Ti starai sicuramente chiedendo cosa sia successo.
+Uomo misterioso: Il passato che conoscevi ha cessato di esistere giusto qualche momento
+fa.
+Uomo misterioso: Colui che ti sta parlando è l'essere responsabile per guidare le anime che
+hanno vissuto nell'universo .
+Mike: S… sono morto? E… chi é questo tizio?
+Uomo misterioso: Maicon Jousan, all'età di 14 anni, 4 mesi, and 22 giorni, ha perso la sua
+vita per sanguinamento a seguito di un episodio di violenza.
+Mike: ...Io mi ricordo di essere stato attaccato ma… credo di essere svenuto prima di
+realizzarlo…
+Uomo misterioso: Alan Dount, morto di infarto al miocardio all'età di 17 anni, 8 mesi e 6
+giorni.
+Alan: …
+Uomo misterioso: Voi ora siete nella valle della perdita delle memorie e non c'è nulla che
+possa invertirlo.
+Uomo misterioso: Ciò che rimane di voi deve seguire l'ordine naturale delle cose.
+Comunque, vi propongo delle alternative:
+Uomo misterioso: La prima, rimarrete qui, seguendo il corso di questo fiume, lentamente
+sparendo e essendo dimenticai.
+Uomo misterioso: La seconda, vivrete una nuova vita, ricominciando come persone nuove.
+Ma, non ricorderete chi eravate nella vostra vita precendente; questa fu la vostra precedente
+scelta.
+Uomo misterioso: la terza e ultima alternativa, continuerete da dove avete lasciato, ma in
+una realtà alternativa con un obbiettivo: sconfiggere l'armata delle ombre la quale integrità é
+sconosciuta, tutto ciò che si sa é che mirano alla conquista dell'intero multiverso.
+Uomo misterioso: In questa realtà, nulla di ciò che avete visto fin'ora sarà uguale - vedetelo
+con una chance ad un nuovo inizio, sarà come una nuova vita, comunque, i vostri ricordi e
+personalità rimarranno intatti.
+Uomo misterioso: Inizialmente, vi darò qualche beneficio:
+Uomo misterioso: Voi non avrete difficoltà a parlare con gli abitanti e sarà molto facile
+trovare vitto e alloggio.
+Uomo misterioso: Non preoccupatevi, se doveste morire nella nuova realtà potrete sempre
+scegliere una delle altre alternative.
+Uomo misterioso: Prendetevi tutto il tempo che vi serve per decidere.
+Mike: Io… scelgo il… Nuovo Mondo…
+Uomo misterioso: scelta eccellente! Facciate buon viaggio.
+Alan: CISA INTENDI CON "FACCIATE"? Io non…
+
+[Lo schermo si scurisce e finisce la cutscene]
+[cutscene = "Arrivo nel nuovo mondo"]
+
+Mike: … Questo é...
+Alan [arrabbiato]: TU!
+Alan: IO NON TI CONOSCO NEMMENO E MI HAI TRASCINATO QUI CON TE!
+Mike: Hey, hey, calmati...
+Mike: Io non… lo sapevo...
+Alan: Ti sei per caso fermato a considerare perché ci fosse un tizio che non hai mai visto in
+chissà quale buco ci troviamo ora?
+Mike: ... Io non sapevo che avrebbe avuto effetto su entrambi, e comunque, Io credevo che
+dato che mi hai seguito, era perché avevi acconsentito.
+Alan: "Acconsentito," io non ho aperto aperto bocca. Io non ho potuto scegliere cosa fare
+della mia vita, nemmeno alla fine.
+Mike: ...
+Mike: Guarda, noi… noi siamo qui, non possiamo farci niente. Comunque, quando qui sarà
+finita, potrai scegliere una delle altre opzioni, come ha detto lui lì.
+Alan: ...
+Mike: dobbiamo vivere, che ti piaccia o no.
+Alan: mi parli come se io ti volessi ascoltare.
+Mike: dobbiamo sconfiggere l'esercito, sarebbe meglio se fossimo assieme,, no?
+Alan: ma neanche a pagarmi, non ci provare nemmeno, ognuno segue la propria strada. Va
+via..
+Alan: divertiti nel tuo "nuovo mondo."
+Mike: Okay...
+Mike: ma… se ti dovessi servire per qualcosa, semplicemente… cercami.
+Mike: ci vediamo.
+Alan: va via.

@@ -1,0 +1,85 @@
+[tela de carregamento com a mensagem: "Ferrado e sem amigos"]
+
+[Personagem ativo = Alan]
+
+[Alan dormiu em uma caverna e não conheceu nem descobriu nada muito relevante]
+[Alan está na entrada da caverna com a câmera apontando para o exterior]
+[jogador poderá andar com Alan e conhecer o lugar]
+
+falas paralelas {
+    Alan: Cacete, dormi muito mal.
+    Alan: "Fácil moradia": uma caverna no meio do nada.
+    Alan: Ainda tenho que sobreviver a essa droga de novo mundo.
+    Alan: Nem se quer posso deixar de existir. Sempre tem um idiota estragando as coisas.
+    Alan: Droga! Isso é um saco.
+    Alan: Devia arrumar algo útil pra fazer.
+    Alan: Dar um uso pra esse mapa.
+    [interface mostrando como funciona o mapa]
+    Alan: Talvez conseguir informações, ou ... arrumar esse lugar...    
+    [câmera mostra aponta para a direção da cidade {
+      Alan: A cidade fica naquela diração.
+    }]
+}
+[jogador controla Alan, pode escolher ir para a cidade ou ficar e explorar a área até as 18h. Quando der 18h {
+  Alan: Tá legal, acho que deu por aqui. Vou ver o que consigo no centro.  
+  [jogador pode ir ou não até o PUB (controlando Alan até lá), pondendo chegar no máximo 21h {
+
+    Se ultrapassar este horário, as horas seguirão até 1h {
+      Alan: Chega, vou dormir.
+      [escurece a tela, tela de carregamento com a mensagem: "Iniciante"]
+    }
+
+    Se o jogador decidir ir até o centro {
+      [Quando jogador chegar a cidade, direcionador no mapa apontará para o PUB]
+      falas paralelas {
+        Alan: Pelo visto o Pub é um dos lugares onde se consegue informações.
+        Alan: Talvez eu devesse me juntar a aquele idiota.
+        Alan: Não, sem chance.
+        Alan: Ele tá certo. Não vou durar muito tempo aqui. Sozinho não.
+        Alan: Esquece, vou ficar na minha e tentar alguma coisa.
+        Alan: Vou pra aquela taverna, vai ver encontro alguém tapado o suficiente pra me ajudar. Ou pelo menos, descubra onde ficam as coisas para quais preciso.
+      }
+      [Quando jogador cheagar ao PUB: cutscene = "Seguidores de um idiota"]
+      ?: Ei! Você saberia me dizer algum lugar para passar a noite por aqui? 
+      Alan: Foi mal, também sou novo por aqui...
+      ?: Entendo, obrigado de qualquer forma.
+      Alan: Estou meio ... Sonolento.
+      Alan: Faz sentido, não como nada há um bom tempo.
+      Alan: [Checa os bolsos] É, não vai rolar.
+      Alan: Aparentemente as pessoas aqui são maníacas por dinheiro.
+      Alan: Fala sério ... Esperava ... encontrar coisas pra comer por aí, mas ...
+      Alan: Vou ter que dar um jeito de arrumar dinheiro.
+      Alan: Roubar? Sem chance, as pessoas se matam por bem menos que isso. Não tô afim de morrer, de novo não.
+      [vozes abafadas]
+      Alan: Ah era tudo que faltava. 
+      Alan: Pelo visto o "espertão" arrumou outros da laia dele.
+      Alan: E se eu fosse lá falar com ele? Sem chance.
+      Alan: Drog...
+      [Câmera embassa e Alan desmaia]
+      [Alan abre os olhos, câmera turva]
+      Mike: Alan? Alan, você tá legal?
+      [Alan pressiona os olhos e encara Mike]
+      Alan: Pareço bem pra você?
+      Mike: ... 
+      Mike: Tem algo que eu posso fazer? 
+      Alan: Podia não ter me arrastado pra cá.
+      Mike: ...
+      Mike: Vem. Vou te levar pra casa. 
+      [Mike segura o braço de Alan]
+      Alan: Não precisa Maicon. Eu me viro.
+      Mike: Preciso sim, você não tá bem.
+      Alan: É óbvio que não ... Só me deixa em paz, tá legal?
+      Mike: ... Certo ... Só ...  
+      [fim da cutscene]
+      [Alan estará do lado de fora do PUB (aspecto de sonolência, como se estivesse bêbado), jogador deverá andar com Alan até a caverna. {
+          Alan: Droga de vida.
+          Alan: Por que ele é assim?
+          Alan: Podia só ter me deixado lá.
+          [Câmera turva]
+          Alan: Minha visão tá ferrada de novo, era tudo que faltava.
+          [Alan tropeça, desmaia e câmera escurece]
+          [tela de carregamento com a mensagem: "Iniciante"]
+      }]
+    }
+  }] 
+}]

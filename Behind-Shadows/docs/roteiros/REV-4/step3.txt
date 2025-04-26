@@ -1,0 +1,137 @@
+[Cena mostra Rit e Mike indo em direção ao Centro de Combate]
+[ref= locais/centroDeComabate]
+Rit: O Centro fica logo ali.
+Rit: Te trouxe mais cedo para que possa praticar um pouco antes, levei 8 tentativas para passar, então ... 
+Mike: Ah, beleza. Tá legal. - Podia estar dormindo mas ... Enfim 
+[cutscene dos dois chegando no campo de treinamento externo]
+Rit: Tá legal. Vou ser seu oponente.
+Mike: Tá me zoando, né?
+Rit: Ah, vai lá. Você consegue.
+[Rit pega um machado]
+Mike: ... Me ... Sinto em desvantagem ... 
+Rit: [Riso leve] Atrás de você. Pode usar aquelas coisas ali.
+[Mike pega uma espada e algumas facas de arremesso]
+Mike: É ... Pega leve, tá bom? ... 
+[ref= mecanicas/lutaComEspada; mecanicas/arremessaveis]
+[variaveis de fala]
+Rit: QUe tal uma aposta?
+Mike: Como assim?
+Rit: Se eu ganhar, o Pub hoje é por sua conta. Se você ganhar ...
+Mike: Mas eu ...
+Rit: Melhor me vencer então.
+Mike: Ok, ok.
+[Começa a luta]
+[jogador consegue retirar 75% (variavel de acordo com a dificuldade) da vida de Rit]
+Rit: Calma ae. Tá legal. Você ganhou essa... Dessa vez ...
+Rit: Não fica "se achando", tá legal?
+Mike: [Sorrisinho] Tá bom.
+[Vida de Mike = 25%]
+[cena dos dois se encarando, com cara de "mortos"]
+[Mike tenta acertar Rit com a espada, tropeça e cai]
+Rit: Desiste?
+Mike: Não ... 
+Mike: Não dá ... Tá legal, você venceu.
+Rit: Hoje é por sua conta.
+Mike: Tô ferrado [resmunga]
+[cena do portão se abrindo]
+Rit: É chegou a hora.
+Rit: Não se sinta mal se não passar de primeira. Eu levei 8 tentativas, então ... 
+Mike: Tá de boa.
+Rit: Aliás, eu tava "zoando" sobre a aposta. Relaxa.
+Mike: [Sorrisinho] Tá legal 
+[cena de iniciação no centro]
+General: Olá, como vai?
+Mike: Olá
+General: Opa Rit, como vai?
+Rit: Bom?
+Rit: Esse é o Mike, ele queria entrar aqui pro centro.
+General: Entendo. Vamos lá então.
+General: Mike, me acompanhe por favor.
+Rit: Só vou até aqui. Vai levar um tempo até terminar tudo. 
+Rit: Vou ficar ali fora treinando.
+Mike: Ah, beleza. Te vejo depois então.
+[Escurece a tela, mensagem "papeis e mais papeis preenchidos ..."]
+General: Agora a etapa final.
+General: Se me derrotar, você entra.
+Mike: Tá legal.
+[começa a luta, Mike e o General estão ambos com os mesmos equipamentos - espada e arremessaveis]
+[falas paralelas]
+[vida de Mike = 75%]
+General: É só isso que você tem?
+Mike: ...
+[vida de Mike = 50%]
+General: Pelo visto isso vai ser rápido
+Mike: [Resmunga] Velho do karai.
+[vida de Mike = 25%]
+General: Você não tem chance
+Mike: [resmunga] Vou matar esse cara ...
+[vida de Mike = 0%]
+Mike: Porra, não dá.
+[escurece a tela e o jogador pode tentar de novo]
+[vida General = 75%]
+Mike: Ainda falta muito ... 
+[vida General = 50%]
+Mike: Ele não ... Desiste?
+[vida General = 25%]
+Mike: Morre logo ...
+[vida General = 0%]
+General: Ok, você passou.
+[liberou mecânica Centro de Combate]
+[escurece a tela e reaparece com Rit e Mike na frente do Centro]
+Rit: Boa! De primeira ...
+Mike: É, pode crer [sorrisinho]
+Rit: E então, quer ir no Pub?
+Mike: Pode ser.
+Rit: Vai na frente, vou passar buscar o Deni.
+Mike: Quem?
+Mike: Ah é, seu irmão. Beleza.
+[fim da cena]
+[cena Pub]
+Mike: Cacete ... 
+Rit: O que foi?
+Mike: É o Alan.
+Rit: Quem?
+Mike: É o amigo que veio comigo quando me mudei pra cá, mas a gente meio que se desentendeu e agora ele não fala mais comigo.
+Deni: Puts, vai lá falar com ele. Vai que.
+Mike: Não rola, ele não me ouve. Tentei falar com ele mas ...
+Deni: Tenta de novo, vai ver ele te ouve agora.
+Mike: Tá legal.
+[Mike se aproxima de Alan]
+Mike: Alan ... Você tá legal?
+Alan: Pensei ter dito pra cada um seguir seu rumo.
+Mike: É mas ... Você não parece bem. 
+Alan: Eu me viro, não sou tão bom igual você com pessoas.
+Mike: ... 
+Mike: Se ... Tu quiser ... A gente pode se ajudar, tu não precisa nem falar comigo. É só que, não é legal te ver assim.
+Mike: Eu não ... Queria que as coisas fossem assim.
+Alan: Mike, falar com você não é problema. 
+Mike: Então ... Qual é?
+Alan: É só que ... Eu não queria estar aqui, entende?
+Mike: ... Foi mal ... 
+Alan: Tá tudo bem, você não tinha como saber que afetaria nós dois.
+Mike: É, mas ... 
+Alan: É bom conversar com alguém depois de tanto tempo, mas não sobre isso. 
+Mike: Ah ... Pode falar, qualquer coisa ... 
+Alan: Deixa, fica com seus amigos, eu me viro aqui. 
+Mike: Alan ... 
+Alan: Tá tudo bem. Relaxa.
+Mike: Tá bem. Posso ... Vir ver como tu tá de vez em quando? 
+Alan: Pode. [sorrisinho]
+Alan: Te vejo por aí.
+Mike: Tenta não morrer, quero lutar com você um dia. 
+Alan: Tá legal. [sorrinho]
+[Mike volta a mesa com Rit e Deni]
+Deni: E aí, como foi?
+Mike: Bem, melhor que das últimas vezes. Aparentemente ele tá mais "sociável" agora.
+Deni: Que bom. Aos poucos ele ...
+Mike: É ...
+Mike: Posso ... Fazer uma pergunta pra vocês?
+Rit: Fala.
+Mike: Vocês são irmãos de sangue? 
+Rit: Sim? ...
+Mike: Ah é que vocês são um pouco diferentes, então ... 
+Deni: É ...
+Mike: Ou, como consigo ... Dinheiro?
+Rit: Lá no Centro? Tem um quadro de missões lá, tu cumpre elas e eles te pagam. 
+Mike: Entendi.
+[escurece a tela com a mensagem: "Mike continuou fazendo perguntas sobre como viver no novo mundo. Rit tomou alguns copos de cerveja e os três foram pra casa."]

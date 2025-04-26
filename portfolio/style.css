@@ -31,9 +31,11 @@ main {
     text-align: center;
     background-position: center;
 }
+
 #sobre {
     padding: 15px;
 }
+
 body {
     font-family: 'MedievalFonts', sans-serif;
     background-color: #4F5760;

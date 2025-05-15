@@ -18,6 +18,114 @@ ESTILO MUSICAL: Não definido, mas algo como:
 
 Informações necessárias para a narrativa:
 
+Personagens principais (protagonistas):
+
+-Mike:
+  ∗ Nome completo: Maicon Jousan;
+  ∗ Apelido: Mike;
+  ∗ Sexo: Masculino;
+  ∗ Idade: 14 anos;
+  * Aniversário: 17/12;
+  * Natureza: Hunano (renascido);
+  * Natural de: Eards (realidade);
+  * Parentesco: Alan (melhor amigo / irmão (vida real));
+  * Personalidade: Mike é geralmente alegre e espontâneo. Ele é uma pessoa extrovertida, com uma mentalidade um pouco imatura e impulsiva. Ao contrário de Alan, Mike costuma expressar tudo o que pensa e adora socializar. Ele tem uma facilidade natural para fazer amigos, o que, por vezes, incomoda algumas pessoas;
+  * Curiosidade: Alan e Mike são irmãos por parte de mãe, mas têm pais diferentes, o que explica seus sobrenomes distintos. Alan carrega o sobrenome ”Dount” de seu pai, enquanto Mike herda o sobrenome ”Jousan”. O Homem Misterioso menciona apenas os sobrenomes aos quais os personagens têm maior vínculo, refletindo a tradição em que cada pessoa representa uma família em batalhas. Alan, portanto, luta pela família ”Dount”, enquanto Mike luta pela família ”Jousan”, reforçando a ideia de que eles pertencem a linhagens diferentes, apesar de serem irmãos;
+  * Sobre: Mike passa por algumas situações estressantes na vida real, essas situações são retratadas no sonho de Mike sob outra perspectiva, dessa vez, esses problemas podem ser resolvidos.
+
+-Alan:
+  * Nome completo: Alan Dount;
+  * Apelido: Lon;
+  * Sexo: Masculino;
+  * Idade: 17 anos;
+  * Aniversário: 14/02;
+  * Natureza: Humano (renascido);
+  * Natural de: Eards (realidade);
+  * Parentesco: Mike (melhor amigo / irmão (vida real)), Raika (cônjuge);
+  * Aliados: Mike, Raika, Deni, Rit;
+  * Personalidade: Alan é reservado, um pouco rabugento e geralmente muito inteligente. Ele pode parecer sombrio as vezes, mas é, no fundo, uma boa pessoa. No entanto, se algo se colocar entre ele e seus objetivos, Alan não hesitará em mostrar um lado menos amigável. Alan pode se mostrar um pouco ”fofinho” em alguns diálogos, contrapondo seu lado rabugento;
+  * Curiosidade: Em uma das cenas com Mike, Alan revela que seu irmão costumava chamá-lo de ”Lon” e sugere que Mike também pode usar esse apelido se quiser. Eventualmente, Mike chama o Alan por esse nome;
+  * Sobre: Alan é irmão mais velho de Mike, na vida real está se preparando para viver sua própria vida, o que Mike distorce e enxerga como um "adeus". Alan foi abusado por seu tio Mark quando tinha 4 anos, no entando, quando realta isso a sua família, todos acham que Alan está tentando "chamar atenção" e ignoram. Isso torna Alan quieto e desconfiado de todos, muitas vezes preferindo ficar sozinho; no sonho de Mike, Mark é o Homem Misterioso (sua identidade será revelada apenas no final do jogo) que também é o antagonista principal da história, além de se infiltrar como um aliado de Mike e Alan, mostrando a realidade traiçoeira da confiança.
+
+
+Personagens secundários I (primeiros aliados e companheiros dos protagonistas (antes de Sky ser formada)):
+
+– Rit:
+  * Nome completo: Ritain Mourk;
+  * Apelido: Rit;
+  * Sexo: Masculino;
+  * Idade: 23 anos;
+  * Aniversário: 21/02
+  * Natureza: Humano;
+  * Natural de: Median (realidade);
+  * Parentesco: Deni (irmão), Mike (melhor amigo);
+  * Personalidade: Rit é uma pessoa emocionalmente forte, raramente se deixa abalar por qualquer situação Ele não é excessivamente alegre, nem propenso à melancolia; em vez disso, Rit sente exatamente o que o momento exige. Sua empatia é uma característica notável, permitindo que ele se sensibilize profundamente com as dificuldades dos outros, o que o leva frequentemente a ajudar aqueles que o cercam;
+  * Sobre: Rit fugiu com Deni para Avalest (cidade principal) após um ataque a antiga vila onde moravam (na época, Deni tinha 3 anos e Rit 10), nele, seus amigos e familiares foram mortos;
+
+– Deni:
+  * Nome completo: Deniel Mourk;
+  * Apelido: Deni;
+  * Sexo: Masculino;
+  * Idade: 16 anos;
+  * Aniversário: 01/04
+  * Natureza: Humano;
+  * Natural de: Median (realidade);
+  * Parentesco: Rit (irmão), Mike (melhor amigo);
+  * Personalidade: Deni é amigável na maior parte do tempo, mostrando maturidade na maioria das situações, embora ocasionalmente cometa alguns deslizes. 
+  * Curiosidade: Deni tem o hábito de fazer piadas ruins de vez em quando ou ”pregar peças” em seus companheiros durante longas jornadas, trazendo um toque de humor às suas interaçõoes.
+  * Sobre: Deni foi levado por Rit a Avalest após o ataque, no entanto, não tem lembranças disso por ser muito pequeno quando aconteceu.
+
+- Raika:
+  * Nome completo: Raika Tirouf;
+  * Apelido: não possui;
+  * Sexo: Feminino;
+  * Idade: 21 anos;
+  * Aniversário: 15/07;
+  * Natureza: Humano;
+  * Natural de: Median (realidade);
+  * Parentesco: Alan (cônjuge);
+  * Personalidade: Raika é uma pessoa de temperamento ”bravo” e ”raivoso”, o que a leva a agir e atacar impulsivamente em diversas situações. No entanto, ela demonstra uma inteligência afiada em combate e na criação de estratégias. Geralmente, Raika é um pouco infeliz e raramente sorri, o que deixa de acontecer ao lado de Alan.
+  * Curiosidade: Raika se apaixona por Alan depois de um tempo convivendo juntos; uma das cenas do jogo mostra os dois dançando juntos, Raika revela seu interesse amoroso e os dois ficam juntos (um pouco antes de metade do jogo).
+  * Sobre: Raika foi uma dos generais do Exército das Sombras como um agente duplo entre o Império de Median e o Exército. Em um tempo ajudava o Exército a tomar posse dos recursos de Median, em outro, ajudava Median fornecendo informaçōes em troca de sua liberdade; essa relação é desfeita oficialmente quando a Sky (organização) é formada, agora Raika deixa seu posto como General. Após seu interesse romântico com Alan ser revelado, Raika conta que ela era o verdadeiro General do Submundo e não o cara que eles derrotaram no torneio quando Alan estava corrompido.
+
+
+Personagens secundários II (aliados e companheiros que se juntaram um pouco mais tarde — início de Sky, foram os primeiros membros a se juntarem):
+- Jhonata:
+  * Nome completo: Jhonatas Thaif;
+  * Apelido: Jhonata, loiro (eventualmente, Otto e Amanda chamam eles assim), Jhon (Alan chama ele assim);
+  * Sexo: Masculino;
+  * Idade: 21 anos;
+  * Aniversário: 12/01;
+  * Natureza: Humano;
+  * Natural de: Eards (realidade);
+  * Parentesco: Otto e Amanda (melhores amigos);
+  * Personalidade: extremamente amigável com seus amigos e "pavio curto" com aqueles que estão no seu caminho.
+  * Curiosidades: Jhonata, Amanda e Otto morreram ao mesmo tempo e foram juntos pro Novo Mundo. Nele, eles se juntam ao Império de Avalest.
+
+- Otto:
+  * Nome completo: Otto Wern;
+  * Apelido: Cenoura (Jhonata e Amanda chamam ele assim devido ao cabelo ruivo);
+  * Sexo: Masculino;
+  * Idade: 24 anos;
+  * Aniversário: 21/07;
+  * Natureza: Humano;
+  * Natural de: Eards (realidade);
+  * Parentesco: Jhonata e Amanda (melhores amigos);
+  * Personalidade: tranquilo e "desligado" a maior parte do tempo. Quando cercado por muitas pessoas que não conhece, tende a ficar retraído e tímido.
+  * Curiosidades: Jhonata, Amanda e Otto morreram ao mesmo tempo e foram juntos pro Novo Mundo. Nele, eles se juntam ao Império de Avalest.
+
+- Amanda: 
+  * Nome completo: Amanda Mullef;
+  * Apelido: Mand, Mands, Mandinha;
+  * Sexo: Feminino;
+  * Idade: 22 anos;
+  * Aniversário: 19/05;
+  * Natureza: Humano;
+  * Natural de: Eards (realidade);
+  * Parentesco: Otto e Jhonata (melhores amigos);
+  * Personalidade: sorridente a maior parte do tempo.
+  * Curiosidades: Jhonata, Amanda e Otto morreram ao mesmo tempo e foram juntos pro Novo Mundo. Nele, eles se juntaram ao Império de Avalest.
+
 O mundo do jogo:
 
 -O mundo do jogo existe em um multiverso, nele existem 7 realidades e um "verso" que agrupa todas elas no mesmo plano (o Homem Misterioso habita nesse plano, algumas vezes pode ser referenciado como "Dimensão Entre os Reinos".
@@ -221,118 +329,22 @@ Uma Sombra (entidade) é um fragmento de alma controlado por um usuário do elem
 -Sky: Organização formada incialmente por Alan, Mike, Raika, Rit e Deni com o objetivo de eliminar o Império.
 -> História: 
    * No decorrer da história, Mike e Alan constroem uma casa (pagam construtores) muito maior do que a casa inicial no Distrito (Alan desejava um espaço maior para suas invenções); quando finalizada, os dois chegam a conclusão de que o espaço era grande demais para apenas os dois, nesse caso, convidam seus amigos diretos (Rit, Deni e Raika) para morarem com eles.
-   * Em uma das tradicionais conversas entre os 5 em volta da fogueira, Raika sugere que o Império não era mais necessário: a defesa fornecida não é eficaz, somando as sombras que invadem facilmente, gangues assaltando camponeses e praticando terrorismo, o Império cobra um preço muito alto pro pouco que oferece.
+   * Em uma das tradicionais conversas entre os 5 em volta da fogueira, Raika sugere que o Império não era mais necessário: a defesa fornecida não é eficaz, somando as sombras que invadem facilmente, gangues assaltando camponeses e praticando terrorismo; o Império cobra um preço muito alto pro pouco que oferece.
    * Pouco tempo depois, o Império se torna mais agressivo com a sucessão do trono pelo filho do antigo imperador.
    * Mais uma vez durante uma das conversas na fogueira, Rit menciona a criação de uma organização com o objetivo de demonstrar a ineficiência do Império para os moradores —realizando o trabalho que eles deveriam estar fazendo — na ideia de provocar uma revolta. A revolta aconteceu (Revolta Camponês), mas foi reprimida pelo Império.
    * No início, Sky não tinha nome e não possuía um líder. 
-      -> Após a Revolta Camponês, a pressão sobre os moradores continuou a aumentar. Com isso, Alan decide agir por conta própria e atacar o Império diretamente —não obteve sucesso e foi capturado.
+      -> Após a Revolta Camponês, a pressão sobre os moradores continuou a aumentar. Com isso, Raika decide agir por conta própria e atacar o Império diretamente —não obteve sucesso e foi capturada.
+      -> Em 2 dias, os outros integrantes sentem a ausência de Raika (Raika costuma sair frequentemente e voltar no outro dia). Devido as últimas conversas que Alan e Raika tiveram, Alan deduz que Raika teria atacado o Império.
+      -> Dado os acontecimentos, Alan e os outros se organizam para recuperar Raika. Obtiveram sucesso e nesse processo Alan se destacou por sua liderança. Obs: também foi nessa missão que os personagens conheceram os Personagens Secundários II.
+      -> Após recuperar Raika, os 5 se reuniram e decidiram que era hora de nomear a Organização e nomear um líder. Embora relutante, Alan foi escolhido e aceitou o posto.
+   * Sky era formada apenas pelas 5 personagens principais, mas ao decorrer do tempo e a medida que novas alianças são formadas, a organização foi crescendo e novos membros se juntaram, não apenas de Median, mas de todas as realidades que Mike e Alan passaram.
+   * O fim de Sky se dá no último grande embate do jogo: Sky contra o Exército do Homem Misterioso (inclui todo seu repertório de sombras, generais, armas mágicas, etc). Nessa luta, todos os participantes foram mortos, tanto de Sky, quanto do Homem Misterioso, restando apenas o embate final entre Mike e Alan contra o Homem Misterioso.
+
+
 
 A narrativa é construída por capítulos, a cada capitulo haverá um ponto considerável no avanço da história.
 
-Personagens principais (protagonistas):
 
--Mike:
-  ∗ Nome completo: Maicon Jousan;
-  ∗ Apelido: Mike;
-  ∗ Sexo: Masculino;
-  ∗ Idade: 14 anos;
-  * Aniversário: 17/12;
-  * Natureza: Hunano (renascido);
-  * Natural de: Eards (realidade);
-  * Parentesco: Alan (melhor amigo / irmão (vida real));
-  * Personalidade: Mike é geralmente alegre e espontâneo. Ele é uma pessoa extrovertida, com uma mentalidade um pouco imatura e impulsiva. Ao contrário de Alan, Mike costuma expressar tudo o que pensa e adora socializar. Ele tem uma facilidade natural para fazer amigos, o que, por vezes, incomoda algumas pessoas;
-  * Curiosidade: Alan e Mike são irmãos por parte de mãe, mas têm pais diferentes, o que explica seus sobrenomes distintos. Alan carrega o sobrenome ”Dount” de seu pai, enquanto Mike herda o sobrenome ”Jousan”. O Homem Misterioso menciona apenas os sobrenomes aos quais os personagens têm maior vínculo, refletindo a tradição em que cada pessoa representa uma família em batalhas. Alan, portanto, luta pela família ”Dount”, enquanto Mike luta pela família ”Jousan”, reforçando a ideia de que eles pertencem a linhagens diferentes, apesar de serem irmãos;
-  * Sobre: Mike passa por algumas situações estressantes na vida real, essas situações são retratadas no sonho de Mike sob outra perspectiva, dessa vez, esses problemas podem ser resolvidos.
-
--Alan:
-  * Nome completo: Alan Dount;
-  * Apelido: Lon;
-  * Sexo: Masculino;
-  * Idade: 17 anos;
-  * Aniversário: 14/02;
-  * Natureza: Humano (renascido);
-  * Natural de: Eards (realidade);
-  * Parentesco: Mike (melhor amigo / irmão (vida real)), Raika (cônjuge);
-  * Aliados: Mike, Raika, Deni, Rit;
-  * Personalidade: Alan é reservado, um pouco rabugento e geralmente muito inteligente. Ele pode parecer sombrio as vezes, mas é, no fundo, uma boa pessoa. No entanto, se algo se colocar entre ele e seus objetivos, Alan não hesitará em mostrar um lado menos amigável. Alan pode se mostrar um pouco ”fofinho” em alguns diálogos, contrapondo seu lado rabugento;
-  * Curiosidade: Em uma das cenas com Mike, Alan revela que seu irmão costumava chamá-lo de ”Lon” e sugere que Mike também pode usar esse apelido se quiser. Eventualmente, Mike chama o Alan por esse nome;
-  * Sobre: Alan é irmão mais velho de Mike, na vida real está se preparando para viver sua própria vida, o que Mike distorce e enxerga como um "adeus". Alan foi abusado por seu tio Mark quando tinha 4 anos, no entando, quando realta isso a sua família, todos acham que Alan está tentando "chamar atenção" e ignoram. Isso torna Alan quieto e desconfiado de todos, muitas vezes preferindo ficar sozinho; no sonho de Mike, Mark é o Homem Misterioso (sua identidade será revelada apenas no final do jogo) que também é o antagonista principal da história, além de se infiltrar como um aliado de Mike e Alan, mostrando a realidade traiçoeira da confiança.
+------{INICIO DA NARRATIVA ATRAVÉS DAS FALAS}------
 
 
-Personagens secundários I (primeiros aliados e companheiros dos protagonistas (antes de Sky ser formada)):
-
-– Rit:
-  * Nome completo: Ritain Mourk;
-  * Apelido: Rit;
-  * Sexo: Masculino;
-  * Idade: 23 anos;
-  * Aniversário: 21/02
-  * Natureza: Humano;
-  * Natural de: Median (realidade);
-  * Parentesco: Deni (irmão), Mike (melhor amigo);
-  * Personalidade: Rit é uma pessoa emocionalmente forte, raramente se deixa abalar por qualquer situação Ele não é excessivamente alegre, nem propenso à melancolia; em vez disso, Rit sente exatamente o que o momento exige. Sua empatia é uma característica notável, permitindo que ele se sensibilize profundamente com as dificuldades dos outros, o que o leva frequentemente a ajudar aqueles que o cercam;
-  * Sobre: Rit fugiu com Deni para Avalest (cidade principal) após um ataque a antiga vila onde moravam (na época, Deni tinha 3 anos e Rit 10), nele, seus amigos e familiares foram mortos;
-
-– Deni:
-  * Nome completo: Deniel Mourk;
-  * Apelido: Deni;
-  * Sexo: Masculino;
-  * Idade: 16 anos;
-  * Aniversário: 01/04
-  * Natureza: Humano;
-  * Natural de: Median (realidade);
-  * Parentesco: Rit (irmão), Mike (melhor amigo);
-  * Personalidade: Deni é amigável na maior parte do tempo, mostrando maturidade na maioria das situações, embora ocasionalmente cometa alguns deslizes. 
-  * Curiosidade: Deni tem o hábito de fazer piadas ruins de vez em quando ou ”pregar peças” em seus companheiros durante longas jornadas, trazendo um toque de humor às suas interaçõoes.
-  * Sobre: Deni foi levado por Rit a Avalest após o ataque, no entanto, não tem lembranças disso por ser muito pequeno quando aconteceu.
-
-- Raika:
-  * Nome completo: Raika Tirouf;
-  * Apelido: não possui;
-  * Sexo: Feminino;
-  * Idade: 21 anos;
-  * Aniversário: 15/07;
-  * Natureza: Humano;
-  * Natural de: Median (realidade);
-  * Parentesco: Alan (cônjuge);
-  * Personalidade: Raika é uma pessoa de temperamento ”bravo” e ”raivoso”, o que a leva a agir e atacar impulsivamente em diversas situações. No entanto, ela demonstra uma inteligência afiada em combate e na criação de estratégias. Geralmente, Raika é um pouco infeliz e raramente sorri, o que deixa de acontecer ao lado de Alan.
-  * Curiosidade: Raika se apaixona por Alan depois de um tempo convivendo juntos; uma das cenas do jogo mostra os dois dançando juntos, Raika revela seu interesse amoroso e os dois ficam juntos (um pouco antes de metade do jogo).
-  * Sobre: Raika foi uma dos generais do Exército das Sombras como um agente duplo entre o Império de Median e o Exército. Em um tempo ajudava o Exército a tomar posse dos recursos de Median, em outro, ajudava Median fornecendo informaçōes em troca de sua liberdade; essa relação é desfeita oficialmente quando a Sky (organização) é formada, agora Raika deixa seu posto como General. Após seu interesse romântico com Alan ser revelado, Raika conta que ela era o verdadeiro General do Submundo e não o cara que eles derrotaram no torneio quando Alan estava corrompido.
-
-
-Personagens secundários II (aliados e companheiros que se juntaram um pouco mais tarde — início de Sky, foram os primeiros membros a se juntarem):
-- Jhonata:
-  * Nome completo: Jhonatas Thaif;
-  * Apelido: Jhonata, loiro (eventualmente, Otto e Amanda chamam eles assim), Jhon (Alan chama ele assim);
-  * Sexo: Masculino;
-  * Idade: 21 anos;
-  * Aniversário: 12/01;
-  * Natureza: Humano;
-  * Natural de: Eards (realidade);
-  * Parentesco: Otto e Amanda (melhores amigos);
-  * Personalidade: extremamente amigável com seus amigos e "pavio curto" com aqueles que estão no seu caminho.
-  * Curiosidades: Jhonata, Amanda e Otto morreram ao mesmo tempo e foram juntos pro Novo Mundo. Nele, eles se juntam ao Império de Avalest.
-
-- Otto:
-  * Nome completo: Otto Wern;
-  * Apelido: Cenoura (Jhonata e Amanda chamam ele assim devido ao cabelo ruivo);
-  * Sexo: Masculino;
-  * Idade: 24 anos;
-  * Aniversário: 21/07;
-  * Natureza: Humano;
-  * Natural de: Eards (realidade);
-  * Parentesco: Jhonata e Amanda (melhores amigos);
-  * Personalidade: tranquilo e "desligado" a maior parte do tempo. Quando cercado por muitas pessoas que não conhece, tende a ficar retraído e tímido.
-  * Curiosidades: Jhonata, Amanda e Otto morreram ao mesmo tempo e foram juntos pro Novo Mundo. Nele, eles se juntam ao Império de Avalest.
-
-- Amanda: 
-  * Nome completo: Amanda Mullef;
-  * Apelido: Mand, Mands, Mandinha;
-  * Sexo: Feminino;
-  * Idade: 22 anos;
-  * Aniversário: 19/05;
-  * Natureza: Humano;
-  * Natural de: Eards (realidade);
-  * Parentesco: Otto e Jhonata (melhores amigos);
-  * Personalidade: sorridente a maior parte do tempo.
-  * Curiosidades: Jhonata, Amanda e Otto morreram ao mesmo tempo e foram juntos pro Novo Mundo. Nele, eles se juntaram ao Império de Avalest.

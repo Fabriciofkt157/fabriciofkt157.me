@@ -46,8 +46,8 @@ Personagens principais (protagonistas):
   * Aliados: Mike, Raika, Deni, Rit;
   * Personalidade: Alan é reservado, um pouco rabugento e geralmente muito inteligente. Ele pode parecer sombrio as vezes, mas é, no fundo, uma boa pessoa. No entanto, se algo se colocar entre ele e seus objetivos, Alan não hesitará em mostrar um lado menos amigável. Alan pode se mostrar um pouco ”fofinho” em alguns diálogos, contrapondo seu lado rabugento;
   * Curiosidade: Em uma das cenas com Mike, Alan revela que seu irmão costumava chamá-lo de ”Lon” e sugere que Mike também pode usar esse apelido se quiser. Eventualmente, Mike chama o Alan por esse nome;
-  * Sobre: Alan é irmão mais velho de Mike, na vida real está se preparando para viver sua própria vida, o que Mike distorce e enxerga como um "adeus". Alan foi abusado por seu tio Mark quando tinha 4 anos, no entando, quando realta isso a sua família, todos acham que Alan está tentando "chamar atenção" e ignoram. Isso torna Alan quieto e desconfiado de todos, muitas vezes preferindo ficar sozinho; no sonho de Mike, Mark é o Homem Misterioso (sua identidade será revelada apenas no final do jogo) que também é o antagonista principal da história, além de se infiltrar como um aliado de Mike e Alan, mostrando a realidade traiçoeira da confiança.
-
+  * Sobre: Alan é irmão mais velho de Mike, na vida real está se preparando para viver sua própria vida, o que Mike distorce e enxerga como um "adeus". Alan foi abusado por seu tio Mark quando tinha 4 anos, no entanto, quando relata isso a sua família, todos acham que Alan está tentando "chamar atenção" e ignoram. Isso torna Alan quieto e desconfiado de todos, muitas vezes preferindo ficar sozinho; no sonho de Mike, Mark é o Homem Misterioso (sua identidade será revelada apenas no final do jogo) que também é o antagonista principal da história, além de se infiltrar como um aliado de Mike e Alan, mostrando a realidade traiçoeira da confiança.
+  * Nota: Após ser corrompido e posteriormente controlar as Sombras, Alan não precisa dormir, no entanto, é comum encontra-lo dormindo por aí (ele apenas gosta).
 
 Personagens secundários I (primeiros aliados e companheiros dos protagonistas (antes de Sky ser formada)):
 
@@ -344,8 +344,12 @@ Uma Sombra (entidade) é um fragmento de alma controlado por um usuário do elem
 
 
 A narrativa é construída por capítulos, a cada capitulo haverá um ponto considerável no avanço da história.
-O tempo no jogo funciona baseado em horários: 5 minutos na vida real = 1 hora no jogo.
-  -> Quando o jogador dorme, as horas avançam até 8h do dia seguinte.
+O tempo no jogo funciona baseado em horários: 2,5 minutos na vida real = 1 hora no jogo.
+Todos os personagens precisam dormir, exceto Alan e o Homem Misterioso.
+Dormir concede 18 horas de imunidade a sonolência; cochilar concede 6. Após o tempo imune, o personagem tem a probabilidade
+  -> Quando o jogador dorme: 
+       -> Caso durma entre 21 e 23h: as horas avançam até 8h do dia seguinte.
+       -> Caso entre 8 e 21h: o jogador pode escolher entre duas possibilidades: tirar um cochilo (o tempo avança 4 horas; o personagem ativo pode passar a noite acordado, mas 6 horas depois ficará sonolento) ou dormir (o tempo avança 8 horas).
   -> O mesmo personagem pode ficar até 3 dias sem dormir, caso mais, ele desmaia. As 23h, o personagem ativo fica sonolento (velocidade de movimento é reduzida em 25%, seus ataques causam 30% menos dano e ataques surpresa são 40% mais efetivos). e a sonolência permanece até que ele durma.
   -> A iluminação do cenário varia de acordo com o horário do dia. Esses horários influenciam a ocorrência de algumas cenas opcionais; se uma cena não acontecer em um dia, ela acontecerá do dia seguinte.
 
@@ -456,16 +460,27 @@ as falas seguem a seguinte estrutura:
     O jogador começa o jogo em uma área chamada "A Fazenda" [identificador: "Fazenda Thomp's" ], uma das áreas afastadas de Avalest. 
     Avançando um pouco, indo na direção onde Alan foi (plantação a dentro), o jogador encontra uma nova área chamada "O Rio" [identificador: "Caverna Submersa"].
     Seguindo a rua de terra (onde o jogador começou o jogo):
-      -> Em um dos lados o jogador se depara com um grande morro que impede sua passagem. Se o jogador for para a esquerda, chegará em "O Rio" [identificador: "Caverna Submersa"]; se for para a direita, chegará em uma mina de extração de carvão nomeada de "A Mina de Carvão" [identificador: "Mina de Kalgrun"] por Mike.
-      -> Para o outro lado, o jogador chegará aos muros de Avalest, Mike chama de "A Muralha" e depois de entrar no reino, "A Muralha de Avalest". Ao entrar no reino, a primeira coisa que se vê é um letreiro escrito Avalest. 
+      -> Em um dos lados o jogador se depara com um grande morro que impede sua passagem. Se o jogador for para a esquerda, chegará em "O Rio" [identificador: "Caverna Submersa"]; se for para a direita, chegará em uma mina de extração de carvão nomeada de "A Mina de Carvão" [identificador: "Mina de Kalgrun"] por Mike.      
+      -> Para o outro lado, o jogador chegará aos muros de Avalest, Mike chama de "A Muralha" e depois de entrar no reino, "A Muralha de Avalest" [identificador: "Portão 4"]. Ao entrar no reino, a primeira coisa que se vê é um letreiro escrito Avalest. 
     Ao entrar em Avalest, o jogador encontrará muitos NPCs e poderá conseguir informações.
   ]
   [Para a continuação da história, o jogador deve entrar em Avalest. Quando for 16h e o jogador esteja explorando outras áreas do mapa, Mike dirá essas falas progressivamente a cada 2 minutos:
-  - Mike: Eu tô perdido? É, eu tô perdido.
-  - Mike: Acho que pra cá só vai ter mais um monte de nada, pro outro lado deve ter alguma coisa útil.
-  - Mike: Eu devia procurar uma cidade ou algo assim.
-  - Mike: Alan tem cara de que saberia o que fazer aqui.
-  - Mike: Droga! Tô ficando com fome.
-  [O tempo continua progredindo até as 18h e trava até que o jogador chegue em Avalest]
-]
+    - Mike: Eu tô perdido? É, eu tô perdido.
+    - Mike: Acho que pra cá só vai ter mais um monte de nada, pro outro lado deve ter alguma coisa.
+    - Mike: Eu devia procurar uma cidade ou algo assim.
+    - Mike: Alan tem cara de que saberia o que fazer aqui.
+    - Mike: Droga! Tô ficando com fome.
+    [O tempo continua progredindo até as 18h e trava até que o jogador chegue em Avalest]
+  ]
+</gameplay>
+
+<cutscene: "A Chegada em Avalest">
+  (cena curta mostrando Mike boquiaberto com o tamanho de Avalest, em seguida a câmera sobe e mostra Avalest de cima)
+</cutscene>
+
+<gameplay: exploração livre no mapa de Avaleat com Mike>
+  [
+    Avançando em direção ao centro de Avalest, Mike se depara com "O Mercadão" [identificador: "Mercado Central"]
+      -> A rua do Mercadão é em formato circular, nela uma série de lojas de produtos orgânicos (frutas, verduras, carnes, entre outros) estão montadas.
+  ]
 </gameplay>

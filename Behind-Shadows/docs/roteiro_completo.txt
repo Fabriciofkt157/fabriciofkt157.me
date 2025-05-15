@@ -344,6 +344,10 @@ Uma Sombra (entidade) é um fragmento de alma controlado por um usuário do elem
 
 
 A narrativa é construída por capítulos, a cada capitulo haverá um ponto considerável no avanço da história.
+O tempo no jogo funciona baseado em horários: 5 minutos na vida real = 1 hora no jogo.
+  -> Quando o jogador dorme, as horas avançam até 8h do dia seguinte.
+  -> O mesmo personagem pode ficar até 3 dias sem dormir, caso mais, ele desmaia. As 23h, o personagem ativo fica sonolento (velocidade de movimento é reduzida em 25%, seus ataques causam 30% menos dano e ataques surpresa são 40% mais efetivos). e a sonolência permanece até que ele durma.
+  -> A iluminação do cenário varia de acordo com o horário do dia. Esses horários influenciam a ocorrência de algumas cenas opcionais; se uma cena não acontecer em um dia, ela acontecerá do dia seguinte.
 
 LEGENDA:
 "---{texto aqui}---": indica um capítulo dentro do jogo.
@@ -441,13 +445,27 @@ as falas seguem a seguinte estrutura:
 </cutscene>
 
 <gameplay: exploração livre com Mike>
+  Mike: Tá... eu tô num mundo novo.
+  Mike: O que eu deveria fazer?
+  Mike: Eu não conheço o lugar, nem ninguém por aqui.
+  Mike: Acho que é por aí que eu começo.
   [ 
     Obs: os nomes das áreas vão mudar futuramente no jogo, nesse momento, Mike conhece elas por esses nomes.
+    O jogador começará com a missão "Conseguir informações"
+    A hora do dia que o jogo começa é 8h
     O jogador começa o jogo em uma área chamada "A Fazenda" [identificador: "Fazenda Thomp's" ], uma das áreas afastadas de Avalest. 
     Avançando um pouco, indo na direção onde Alan foi (plantação a dentro), o jogador encontra uma nova área chamada "O Rio" [identificador: "Caverna Submersa"].
     Seguindo a rua de terra (onde o jogador começou o jogo):
       -> Em um dos lados o jogador se depara com um grande morro que impede sua passagem. Se o jogador for para a esquerda, chegará em "O Rio" [identificador: "Caverna Submersa"]; se for para a direita, chegará em uma mina de extração de carvão nomeada de "A Mina de Carvão" [identificador: "Mina de Kalgrun"] por Mike.
       -> Para o outro lado, o jogador chegará aos muros de Avalest, Mike chama de "A Muralha" e depois de entrar no reino, "A Muralha de Avalest". Ao entrar no reino, a primeira coisa que se vê é um letreiro escrito Avalest. 
-
+    Ao entrar em Avalest, o jogador encontrará muitos NPCs e poderá conseguir informações.
   ]
+  [Para a continuação da história, o jogador deve entrar em Avalest. Quando for 16h e o jogador esteja explorando outras áreas do mapa, Mike dirá essas falas progressivamente a cada 2 minutos:
+  - Mike: Eu tô perdido? É, eu tô perdido.
+  - Mike: Acho que pra cá só vai ter mais um monte de nada, pro outro lado deve ter alguma coisa útil.
+  - Mike: Eu devia procurar uma cidade ou algo assim.
+  - Mike: Alan tem cara de que saberia o que fazer aqui.
+  - Mike: Droga! Tô ficando com fome.
+  [O tempo continua progredindo até as 18h e trava até que o jogador chegue em Avalest]
+]
 </gameplay>

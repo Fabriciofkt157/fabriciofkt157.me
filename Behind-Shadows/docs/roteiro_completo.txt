@@ -162,6 +162,7 @@ Uma Sombra (entidade) é um fragmento de alma controlado por um usuário do elem
       *exorcismo/banimento: aqueles que controlam o elemento Sombra ou Luz podem controlar/extinguir a sombra que controla o fragmento corrompido, para isso, o poder daquele que realizará o procedimento deve ser maior de quem conjurou a corrupção.
         ->Quando Alan possuir o controle das Sombras (domínio do elemento Sombra), ele fará o processo para extinguir o fragmento corrompido e posteriormente desfragmentar a alma dele.
 
+
 -Império de Avalest: forma de governo autoritária, consiste em um imperador de poder absoluto controlando a vida e a segurança dos habitantes.
   -> Ao mesmo tempo que fornece segurança aos habitantes (Centro de Combate e Exército Ariam), exige custos absurdos: 95% dos seus ganhos com trabalho devem ser pagos ao Império, sua vida não pertence a você, em outras palavras, em caso de crise, você pode ser morto para poupar recursos para a alta sociedade.
   -> A história do Império se dá em sucessões familiares:
@@ -194,7 +195,8 @@ Uma Sombra (entidade) é um fragmento de alma controlado por um usuário do elem
       * A defesa da comunidade é feita por ela mesma.
       * Embora sejam autônomos, não possuem recursos da alta sociedade como água encanada e tratamentos médicos. A água encanada será resolvida quando Alan for morar com Mike, já a eletricidade só chegará à comunidade após a volta de Mike e Alan para a realidade Assolyam (cyberpunk).
    -> Economia: 
-      *
+      * Baseada em favores ou troca, não possuem uma moeda física. Em outras palavras, realizam acordos entre eles.
+      * A comunidade em si é muito unida, ou seja, confiam uns nos outros.
 
 -Sky: Organização formada incialmente por Alan, Mike, Raika, Rit e Deni com o objetivo de eliminar o Império.
 -> História: 

@@ -181,11 +181,20 @@ Uma Sombra (entidade) é um fragmento de alma controlado por um usuário do elem
           -> Junto com ele, muitas mudanças foram feitas:
              * Os impostos sobre os moradores que antes era 40% de seus ganhos, agora passa para 85% e posteriormente 95%.
              * A filiação militar que antes era opcional, agora passa a ser obrigatória para homens e mulheres com 21 anos tendo a duração de 3 anos, sendo 1 para formação geral e 2 para formação específica (magia, longa distância, armadilheiro, estrategista, entre outros).
-             * Os agregados ao Império (como a comunidade que Mike e Alan ficaram no início do jogo)
+             * Os agregados ao Império (como a comunidade que Mike e Alan ficaram no início do jogo) passaram a ser perseguidos por não pagarem impostos.
 
 -Comunidade Maghin: Refere-se a um agrupamento de ex-habitantes do Império de Avalest. 
--> História:
+-> História (78 anos antes da chegada de Mike e Alan):
    Devido aos inúmeros abusos vindos do Império, alguns habitantes se rebelaram e se uniram para se tornarem independentes.
+   O funcionamento dessa comunidade é tradicionalista no geral, eles buscam os valores do Império original (antes de ser reerguido). Em outras palavras, possuem uma economia própria, são receptivos e amigáveis, e são autonomos.
+-> Funcionamento:
+   -> Moradia: são flexíveis, você pode servir ao Império e morar ali, desde que cumpra suas obrigações com a comunidade.
+   -> Autonomia: 
+      * A comunidade é dotada de pessoas de todas as áreas, isso significa que tudo que uma pessoa pode precisar para viver casualmente pode ser encontrado dentro da comunidade, sem recorrer ao Império. 
+      * A defesa da comunidade é feita por ela mesma.
+      * Embora sejam autônomos, não possuem recursos da alta sociedade como água encanada e tratamentos médicos. A água encanada será resolvida quando Alan for morar com Mike, já a eletricidade só chegará à comunidade após a volta de Mike e Alan para a realidade Assolyam (cyberpunk).
+   -> Economia: 
+      *
 
 -Sky: Organização formada incialmente por Alan, Mike, Raika, Rit e Deni com o objetivo de eliminar o Império.
 -> História: 

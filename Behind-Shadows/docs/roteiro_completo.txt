@@ -542,5 +542,47 @@ as falas seguem a seguinte estrutura:
   [
     Avançando em direção ao centro de Avalest, Mike se depara com "O Mercadão" [identificador: "Mercado Central"]
       -> A rua do Mercadão é em formato circular, nela uma série de lojas de produtos orgânicos (frutas, verduras, carnes, entre outros) estão montadas.
+      -> O jogador poderá encontrar NPCs que estão descansando e lhe darão dicas de onde ir.
   ]
+  <dialogo: "Vendedores do Mercado Central">
+    - Vendedor de tomates: 
+        Mike: Olá! Ah... Eu cheguei recentemente por aqui, tô meio perdido. Pode me localizar?
+        Vendedor: Claro!
+        Vendedor: Nós estamos no Mercado Central [identificador: "Mercado Central"], aqui você pode comprar frutas, verduras e outros vegetais, além de algumas produções particulares.
+        Vendedor: É uma área um pouco afastada do Centro, devido a proximidade com os agricultores. Aqui ao redor, fora da muralha, há várias propriedades e seus donos se reúnem aqui para vender seus produtos.
+        Vendedor: Dando a volta aqui (no Mercadão) e seguindo reto nessa estrada, você chega na Área Central [identificador: "Área Central de Avalest"].
+    - Vendedor de carnes:
+        Mike: É... Oi, eu sou novo aqui em Avalest. Pode me explicar um pouco sobre o lugar?
+        Vendedor: Posso sim!
+        Vendedor: Acredito que esteja procurando um lugar pra morar.
+        Mike: Também (sorriso de canto).
+        Vendedor: Bom. Há quatro áreas vínculadas a Avalest:
+                  - O Castelo que fica bem ao centro. O Imperador e a Família Real, juntamente com seus servos e subordinos, moram aqui. 
+                  - A Área Nobre é toda a parte que fica ao redor dele. Aqui moram pessoas "importantes" (simboliza aspas com as mãos).
+        Mike (expressão inocente): Por que das aspas? 
+        Vendedor: São um bando de pessoas que pensam ser superiores a nós por terem dinheiro. Ele se dizem importantes, quando na verdade não contribuem com absolutamente nada no Império.
+        Mike: É, faz sentido.
+        Vendedor: Bom, continuando:
+                  - A área central é voltada aos mercados, nele você encontra magos, vendas de artigos de luxo, ferreiros importantes, treinamentos militares, tavernas, salões de chá e por aí vai.
+        Vendedor: Tem um PUB nessa área chamado "Casa da Canela" [identificador: "PUB"], se tiver procurando gente pra fazer amizade, é pra lá que você vai.
+                  - A última área é essa em que nós estamos, basicamente, vivem as pessoas mais humildes. Aqui você encontra mercados, vendas, casas mais simples — tem até algumas que você pode pagar e ficar alguns dias nelas —, ferreiros, magos... Acho que você entendeu. São as pessoas que não se encaixam no alto padrão do Império.
+        Mike: Entendi! Muito obrigado!
+        Vendedor: Toma, você tá muito 'magrelo'.
+        (Vendedor entrega 3 sanduíches pro Mike)
+        Mike: Uau, valeu!
+        Mike: Eu vou indo nessa, até mais!
+        Vendedor: Até! Volte aqui quando precisar comprar algo.
+        Mike: Claro!
+    - Vendedor de ferramentas [identificador: "Rit"]:
+         Mike: Oi! Eu sou novo por aqui... tô tentando entender melhor esse lugar.
+         Vendedor: Aoba! Tinham me falado que algumas pessoas novas estavam chegando, você deve ser uma delas.
+         Mike (sorriso tímido): Acho que sim.
+         Vendedor: Foi mal, carinha. Tô um pouco ocupado agora, então não vou conseguir te ajudar muito. 
+         Mike: Tranquilo!
+         Vendedor: Mas toma, um mapa vai te ajudar.
+         (Vendedor entrega um mapa para Mike)
+         Mike (impressionado): Nossa! Valeu demais!
+         Vendedor: Precisando, volta aqui outra hora!
+         Mike: Beleza! Te vejo por aí.
+  </dialogo>
 </gameplay>

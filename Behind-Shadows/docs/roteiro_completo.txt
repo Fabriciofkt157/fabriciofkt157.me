@@ -343,12 +343,25 @@ Uma Sombra (entidade) é um fragmento de alma controlado por um usuário do elem
 
 Recursos no jogo:
   * Vida:
-    -> Descrição: representa o quanto o personagem é capaz de aguentar antes de desmaiar.
+    -> Descrição: representa o quanto o personagem é capaz de aguentar antes de desmaiar. Os pontos de vida sofrem alteração de acordo com a realidade que o personagem está.
+    -> Vida é representada por um ícone de coração, a área vermelha representa a vida restante.
+  * Defesa:
+    -> Descrição: resistência a redução de vida ao ser atingido por um golpe inimigo.
+    -> Defesa não impede o personagem de receber dano, apenas reduz o dano recebido.
+    -> Ataques críticos são imunes a armadura, ou seja, afetam a vida diretamente, no entanto, a defesa reduz a ocorrência de ataques críticos.
+    -> Defesa é representada por um ícone de armadura peitoral variável de acordo com os pontos de armadura (o ícone muda conforme os pontos de armadura).
+       -> O ícone de defesa também representa a durabilidade da armadura através de rachaduras no ícone.
+  * Stamina:
+    -> Descrição: indica o quanto o personagem pode correr ou realizar ataques consecutivos sem ter que reduzir a movimentação.
+    -> A quantidade de stamina varia de personagem pra personagem.
+    -> Algumas comidas e poções podem aumentar ou diminuir a velocidade de recuperação de stamina.
+    -> A velocidade da degradação da stamina é influenciada pela armadura e quantidade de itens no inventário.
+    -> Stamina é representado visualmente por uma barra horizontal abaixo do ícone de vida.
   * Mana: 
     -> Descrição: indispensável para conjurar magias em Median, cada magia possui um custo de mana variável.
     -> Pode ser obtido através de trocas com curandeiras e magos ou comprando em Avalest. 
     -> Mana é um item armazenado no inventário do jogador, cada slot armazena 100 unidades.
-       -> É representado visualmente por uma barra horizontal azul abaixo da barra de vida.
+    -> É representado visualmente por uma barra vertical azul a esquerda da barra de vida (quando aplicável).
   
 
 Efeitos ao personagem ativo: 

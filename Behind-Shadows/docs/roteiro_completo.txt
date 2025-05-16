@@ -341,17 +341,64 @@ Uma Sombra (entidade) é um fragmento de alma controlado por um usuário do elem
    * Sky era formada apenas pelas 5 personagens principais, mas ao decorrer do tempo e a medida que novas alianças são formadas, a organização foi crescendo e novos membros se juntaram, não apenas de Median, mas de todas as realidades que Mike e Alan passaram.
    * O fim de Sky se dá no último grande embate do jogo: Sky contra o Exército do Homem Misterioso (inclui todo seu repertório de sombras, generais, armas mágicas, etc). Nessa luta, todos os participantes foram mortos, tanto de Sky, quanto do Homem Misterioso, restando apenas o embate final entre Mike e Alan contra o Homem Misterioso.
 
+Recursos no jogo:
+  * Vida:
+    -> Descrição: representa o quanto o personagem é capaz de aguentar antes de desmaiar.
+  * Mana: 
+    -> Descrição: indispensável para conjurar magias em Median, cada magia possui um custo de mana variável.
+    -> Pode ser obtido através de trocas com curandeiras e magos ou comprando em Avalest. 
+    -> Mana é um item armazenado no inventário do jogador, cada slot armazena 100 unidades.
+       -> É representado visualmente por uma barra horizontal azul abaixo da barra de vida.
+  
 
+Efeitos ao personagem ativo: 
+  * Sonolência: velocidade de movimento é reduzida em 25%, seus ataques causam 30% menos dano e ataques surpresa contra ele são 40% mais efetivos.
+  * Disposto: concede 10% de velocidade de movimento e velocidade de ataque, resistência de 2 horas a sonolência.
+  * Fome:
+    -> Nível 1 – Leve desconforto  
+       -> Descrição: O estômago ronca e o personagem se sente levemente distraído (10% de vulnerabilidade a ataques surpresa).  
+       -> Efeitos:  
+          - -5% de regeneração de stamina.  
+          - Pequenos tremores ao mirar com armas de precisão ou magias.
+
+    -> Nível 2 – Fome moderada  
+       -> Descrição: O personagem sente dificuldades para focar e começa a perder reflexos.  
+       -> Efeitos:  
+          - 10% de redução na velocidade de ataque.  
+          - Ataques especiais consomem 15% mais stamina ou mana.  
+          - Opções de fala podem ser alteradas ("está com fome demais para pensar direito").
+
+    -> Nível 3 – Fome intensa  
+       -> Descrição: O corpo começa a mostrar sinais físicos — fraqueza, tontura e desorientação.  
+       -> Efeitos:  
+          - 15% de redução no dano físico.  
+          - 10% de chance de errar ataques corpo a corpo simples.  
+          - Tela levemente tremida e som ambiente abafado.
+
+    -> Nível 4 – Quase em colapso  
+       -> Descrição: A fraqueza é visível. O personagem anda encurvado e respira com dificuldade.  
+       -> Efeitos:  
+          - 25% de redução na velocidade de movimento.  
+          - Custo de stamina para correr, saltar ou esquivar é dobrado.  
+          - +3 segundos no tempo de conjuração de magias.
+
+    -> Nível 5 – Exaustão total  
+       -> Descrição: O corpo não suporta mais. O personagem desmaiará em breve.  
+       -> Efeitos:  
+          - Após 2 horas nesse estado, há risco de desmaio (1/4 para cada hora a mais).  
+          - Redução geral de 40% nas estatísticas (ataque, defesa, velocidade).  
+          - Se desmaiar, acorda com efeito de sonolência, fraqueza e metade da vida restante.
 
 A narrativa é construída por capítulos, a cada capitulo haverá um ponto considerável no avanço da história.
 O tempo no jogo funciona baseado em horários: 2,5 minutos na vida real = 1 hora no jogo.
 Todos os personagens precisam dormir, exceto Alan e o Homem Misterioso.
-Dormir concede 18 horas de imunidade a sonolência; cochilar concede 6. Após o tempo imune, o personagem tem a probabilidade
+Dormir concede 18 horas de imunidade a sonolência e cochilar concede 6. Após o tempo imune, o personagem tem a probabilidade de ficar com o efeito de sonolência (1/8 × número de horas sem dormir).
   -> Quando o jogador dorme: 
        -> Caso durma entre 21 e 23h: as horas avançam até 8h do dia seguinte.
        -> Caso entre 8 e 21h: o jogador pode escolher entre duas possibilidades: tirar um cochilo (o tempo avança 4 horas; o personagem ativo pode passar a noite acordado, mas 6 horas depois ficará sonolento) ou dormir (o tempo avança 8 horas).
-  -> O mesmo personagem pode ficar até 3 dias sem dormir, caso mais, ele desmaia. As 23h, o personagem ativo fica sonolento (velocidade de movimento é reduzida em 25%, seus ataques causam 30% menos dano e ataques surpresa são 40% mais efetivos). e a sonolência permanece até que ele durma.
-  -> A iluminação do cenário varia de acordo com o horário do dia. Esses horários influenciam a ocorrência de algumas cenas opcionais; se uma cena não acontecer em um dia, ela acontecerá do dia seguinte.
+          -> Algumas missões são noturnas, ou seja, o jogador deve se planejar para dormir antes da missão.
+  -> O mesmo personagem pode ficar até 3 dias sem dormir, caso mais, ele desmaia e fica com efeito de sonolência por 2 dias.
+A iluminação do cenário varia de acordo com o horário do dia. Esses horários influenciam a ocorrência de algumas cenas opcionais; se uma cena não acontecer em um dia, ela acontecerá do dia seguinte.
 
 LEGENDA:
 "---{texto aqui}---": indica um capítulo dentro do jogo.

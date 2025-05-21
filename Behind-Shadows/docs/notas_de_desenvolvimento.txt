@@ -64,4 +64,8 @@ https://fabriciofkt157.github.io/Behind-Shadows/docs/roteiro_completo.txt
 Falou, volte aqui de vez em quando!
 -Fabricio :D
 
+20/05/2025 - 23:06
+É ... um mês se passou e nada de anotações. Isso não significa que o projeto não avançou :)
+A história está cada vez mais desenvolvida. Ultimamente peguei o hábito de escrever bastante; quase todo dia eu avanço alguma coisa.
+E de novo a indecisão: 2D ou 3D? Acredito que eu, inconscientemente, esteja querendo ir pelo caminho mais fácil, aquele que eu já sei como trabalhar e não vou ter que estudar muito —libGDX, 2D. É... os primórdios. Mas não, eu resisto a todas essas inquietações e miro no objetivo que quero alcançar. O caminho mais fácil não me provém resultados melhores; bom seria se fosse.
 

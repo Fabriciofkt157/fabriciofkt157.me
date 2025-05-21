@@ -69,5 +69,5 @@ Falou, volte aqui de vez em quando!
 A história está cada vez mais desenvolvida. Ultimamente peguei o hábito de escrever bastante; quase todo dia eu avanço alguma coisa.
 E de novo a indecisão: 2D ou 3D? Acredito que eu, inconscientemente, esteja querendo ir pelo caminho mais fácil, aquele que eu já sei como trabalhar e não vou ter que estudar muito —libGDX, 2D. É... os primórdios. Mas não, eu resisto a todas essas inquietações e miro no objetivo que quero alcançar. O caminho mais fácil não me provém resultados melhores; bom seria se fosse.
 
-Além da história, alguns avanços foram feitos quanto a parte web do projeto. Agora tenho um domínio próprio (pode ver que o link de antes até mudou).
+Além da história, alguns avanços foram feitos quanto a parte web do projeto. Agora tenho um domínio próprio (pode ver que o link de antes até mudou) e o site aparece nas pesquisas do Google.
 Preciso dar uma repaginada naquele site. Ele tá com um visual bem antigo, embora eu tenha arrumado alguns problemas que tinha com ele.

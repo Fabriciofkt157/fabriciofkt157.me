@@ -429,6 +429,7 @@ as falas seguem a seguinte estrutura:
 - padrão: Personagem: Fala.
 - múltipla escolha: 
   #id -> Personagem: Fala tal. (esse padrão se repete para as múltiplas possibilidades)
+Quando houver uma fala dentro de <gameplay>, significa que aquela fala é exibida enquanto o jogador controla o personagem no mapa.
 
 ------/INICIO DA NARRATIVA ATRAVÉS DAS FALAS\------
 
@@ -536,6 +537,7 @@ as falas seguem a seguinte estrutura:
 
 <cutscene: "A Chegada em Avalest">
   (cena curta mostrando Mike boquiaberto com o tamanho de Avalest, em seguida a câmera sobe e mostra Avalest de cima)
+  [O tempo avança até as 20h e trava até o jogador chegar no PUB]
 </cutscene>
 
 <gameplay: exploração livre no mapa de Avaleat com Mike>
@@ -550,7 +552,8 @@ as falas seguem a seguinte estrutura:
         Vendedor: Claro!
         Vendedor: Nós estamos no Mercado Central [identificador: "Mercado Central"], aqui você pode comprar frutas, verduras e outros vegetais, além de algumas produções particulares.
         Vendedor: É uma área um pouco afastada do Centro, devido a proximidade com os agricultores. Aqui ao redor, fora da muralha, há várias propriedades e seus donos se reúnem aqui para vender seus produtos.
-        Vendedor: Dando a volta aqui (no Mercadão) e seguindo reto nessa estrada, você chega na Área Central [identificador: "Área Central de Avalest"].
+        Vendedor: Aí, dando a volta aqui (no Mercadão) e seguindo reto nessa estrada, você chega na Área Central [identificador: "Área Central de Avalest"].
+        Mike: Beleza, muito obrigado!
     - Vendedor de carnes:
         Mike: É... Oi, eu sou novo aqui em Avalest. Pode me explicar um pouco sobre o lugar?
         Vendedor: Posso sim!
@@ -574,15 +577,33 @@ as falas seguem a seguinte estrutura:
         Vendedor: Até! Volte aqui quando precisar comprar algo.
         Mike: Claro!
     - Vendedor de ferramentas [identificador: "Rit"]:
-         Mike: Oi! Eu sou novo por aqui... tô tentando entender melhor esse lugar.
-         Vendedor: Aoba! Tinham me falado que algumas pessoas novas estavam chegando, você deve ser uma delas.
-         Mike (sorriso tímido): Acho que sim.
-         Vendedor: Foi mal, carinha. Tô um pouco ocupado agora, então não vou conseguir te ajudar muito. 
-         Mike: Tranquilo!
-         Vendedor: Mas toma, um mapa vai te ajudar.
-         (Vendedor entrega um mapa para Mike)
-         Mike (impressionado): Nossa! Valeu demais!
-         Vendedor: Precisando, volta aqui outra hora!
-         Mike: Beleza! Te vejo por aí.
+        Mike: Oi! Eu sou novo por aqui... tô tentando entender melhor esse lugar.
+        Vendedor: Aoba! Tinham me falado que algumas pessoas novas estavam chegando, você deve ser uma delas.
+        Mike (sorriso tímido): Acho que sim.
+        Vendedor: Foi mal, carinha. Tô um pouco ocupado agora, então não vou conseguir te ajudar muito. 
+        Mike: Tranquilo!
+        Vendedor: Mas toma, um mapa vai te ajudar.
+        (Vendedor entrega um mapa para Mike)
+        Mike (impressionado): Nossa! Valeu demais!
+        Vendedor: Precisando, volta aqui outra hora!
+        Mike: Beleza! Te vejo por aí.
   </dialogo>
+  [
+    O jogo só terá seguimento após o jogador entrar na estrada em direção ao Centro.
+    Avançando um pouco na estrada, o jogador se deparará com um mural.
+  ]
+  [
+    Caso o jogador tenha avançado sem falar com Rit, a cena a seguir acontece.
+    <cutscene: "Mural início">
+      (Mike se depara com uma caixa com mapas no mural)
+      Mike: São mapas? Acho que não tem problema eu pegar um.
+      (Mike abre o mapa)
+      Mike: Tá, eu tô aqui. Acho que vou pra essa parte, tem várias casas e lojas aqui (Mike aponta pra região do PUB).
+    </cutscene>
+  ]
+  [Nova missão principal: "Vá até o Centro"]
+  [
+    Andando pelo decorrer da rua, Mike está cercado por plantações e casas distantes.A medida que o jogador se aproxima do Centro, o cenário passa a ser mais urbano, com chão de pedra, casas melhores, lojas e muitas pessoas.
+    Ao final da rua, o jogador se encontra na Praça Principal, um pouco a esquerda está o PUB. A cena seguinte acontece quando o jogador olhar diretamente para a entrada do PUB.
+  ]
 </gameplay>

@@ -59,7 +59,7 @@ Eu tinha feito alguns modelos 3D dos personagens anteriormente (não vou mostrar
 Decidi que vou fazer os desenhos dos personagens de novo, dessa vez, vou fazer um molde certo pros modelos e não só um desenho mal feito. — Vou aproveitar o tempo de sobra na faculdade pra fazer isso e trabalhar no Roteiro de Produção. Embora ainda fique meio teimoso em insistir com o Encoder enquanto estou lá; por que diabos eu quero compilar um projeto do Android Studio pelo celular? É óbvio que nada muito útil vai sair desses 40 minutos que equivalem a 10 trabalhando pelo PC.
 
 Bom, é isso. Dê uma olhada no Roteiro de Produção (link abaixo).
-https://fabriciofkt157.github.io/Behind-Shadows/docs/roteiro_completo.txt
+https://fabriciofkt157.me/Behind-Shadows/docs/roteiro_completo.txt
 
 Falou, volte aqui de vez em quando!
 -Fabricio :D
@@ -69,3 +69,5 @@ Falou, volte aqui de vez em quando!
 A história está cada vez mais desenvolvida. Ultimamente peguei o hábito de escrever bastante; quase todo dia eu avanço alguma coisa.
 E de novo a indecisão: 2D ou 3D? Acredito que eu, inconscientemente, esteja querendo ir pelo caminho mais fácil, aquele que eu já sei como trabalhar e não vou ter que estudar muito —libGDX, 2D. É... os primórdios. Mas não, eu resisto a todas essas inquietações e miro no objetivo que quero alcançar. O caminho mais fácil não me provém resultados melhores; bom seria se fosse.
 
+Além da história, alguns avanços foram feitos quanto a parte web do projeto. Agora tenho um domínio próprio (pode ver que o link de antes até mudou).
+Preciso dar uma repaginada naquele site. Ele tá com um visual bem antigo, embora eu tenha arrumado alguns problemas que tinha com ele.

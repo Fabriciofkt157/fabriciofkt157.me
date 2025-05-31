@@ -302,6 +302,28 @@
             from { opacity: 0; transform: scale(0.95); }
             to { opacity: 1; transform: scale(1); }
         }
+
+        .delete-confirm-icon {
+            position: absolute;
+            width: 36px;
+            height: 36px;
+            background-color: #ef4444;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            z-index: 1002;
+            animation: bounceIn 0.2s ease-out;
+        }
+
+        @keyframes bounceIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -311,7 +333,7 @@
             <button id="addCutsceneBtn" class="tool-btn bg-indigo-600 hover:bg-indigo-700">Adicionar Cena</button>
             <button id="addGameplayBtn" class="tool-btn bg-green-600 hover:bg-green-700">Adicionar Gameplay</button>
             <button id="addDecisionBtn" class="tool-btn bg-orange-600 hover:bg-orange-700">Adicionar Decisão</button>
-            <div class="border-t border-gray-700 pt-4 mt-4">
+            <div class="border-t border-gray-700 pt-4 mt-4 flex flex-col gap-4">
                 <button id="connectNodesBtn" class="tool-btn bg-blue-600 hover:bg-blue-700">Conectar Nós</button>
                 <button id="clearAllBtn" class="tool-btn bg-red-600 hover:bg-red-700">Limpar Tudo</button>
             </div>
@@ -391,6 +413,7 @@
         let tempArrowElement = null;
 
         let currentViewerOverlay = null;
+        let currentDeleteConfirmOverlay = null;
 
         function showMessage(message, duration = 3000) {
             messageDisplay.textContent = message;
@@ -500,7 +523,7 @@
 
             nodeEl.querySelector('.delete-node-btn').addEventListener('click', (e) => {
                 e.stopPropagation();
-                deleteNode(node.id);
+                showDeleteConfirm(node.id, e.currentTarget);
             });
 
             nodeEl.querySelector('.view-content-btn').addEventListener('click', (e) => {
@@ -658,17 +681,27 @@
             }
         });
 
-        window.addEventListener('mouseup', () => {
+        window.addEventListener('mouseup', (e) => {
             draggedNodeId = null;
             isFlowContainerDragging = false;
             flowContainer.classList.remove('dragging');
             flowContainer.querySelectorAll('.node').forEach(el => el.style.cursor = 'grab');
+
+            // Clicou fora do overlay de confirmação? Cancela a exclusão.
+            if (currentDeleteConfirmOverlay && !currentDeleteConfirmOverlay.contains(e.target) && e.target !== document.getElementById(currentDeleteConfirmOverlay.dataset.sourceBtnId)) {
+                closeDeleteConfirm();
+            }
         });
 
         window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && connectingMode) {
-                resetConnectionMode();
-                showMessage('Modo de conexão cancelado.');
+            if (e.key === 'Escape') {
+                if (connectingMode) {
+                    resetConnectionMode();
+                    showMessage('Modo de conexão cancelado.');
+                }
+                if (currentDeleteConfirmOverlay) {
+                    closeDeleteConfirm();
+                }
             }
         });
 
@@ -742,53 +775,48 @@
         addGameplayBtn.addEventListener('click', () => addNode('gameplay'));
         addDecisionBtn.addEventListener('click', () => addNode('decision'));
 
-        function deleteNode(nodeId) {
-            if (confirm('Tem certeza que deseja excluir este nó e suas conexões?')) {
-                nodesData = nodesData.filter(node => node.id !== nodeId);
-                nodesData.forEach(node => {
-                    node.outputs = node.outputs.filter(outputId => outputId !== nodeId);
-                });
-                if (currentViewerOverlay && currentViewerOverlay.dataset.nodeId === nodeId) {
-                    closeNodeViewer();
-                }
-                renderAll();
+        function deleteNodeConfirmed(nodeId) {
+            nodesData = nodesData.filter(node => node.id !== nodeId);
+            nodesData.forEach(node => {
+                node.outputs = node.outputs.filter(outputId => outputId !== nodeId);
+            });
+            if (currentViewerOverlay && currentViewerOverlay.dataset.nodeId === nodeId) {
+                closeNodeViewer();
             }
+            renderAll();
+            showMessage('Nó excluído!');
+            closeDeleteConfirm();
         }
 
-        connectNodesBtn.addEventListener('click', () => {
-            connectingMode = true;
-            connectionSourceNodeId = null;
-            showMessage('Modo de Conexão: Clique no nó de ORIGEM (porta de saída). Pressione ESC para cancelar.');
-            flowContainer.querySelectorAll('.node-port').forEach(port => port.classList.add('connecting'));
-        });
+        function showDeleteConfirm(nodeId, sourceButton) {
+            closeDeleteConfirm();
 
-        function handlePortClick(nodeId, portType) {
-            if (!connectingMode) {
-                return;
-            }
+            const confirmOverlay = document.createElement('div');
+            confirmOverlay.classList.add('delete-confirm-icon');
+            confirmOverlay.innerHTML = '<i class="fas fa-trash-alt"></i>';
+            confirmOverlay.dataset.nodeId = nodeId;
+            confirmOverlay.dataset.sourceBtnId = sourceButton.id || generateUniqueId();
+            sourceButton.id = confirmOverlay.dataset.sourceBtnId;
 
-            if (portType === 'output') {
-                connectionSourceNodeId = nodeId;
-                showMessage(`Nó de origem selecionado: ${nodesData.find(n => n.id === nodeId).title}. Agora clique no nó de DESTINO (porta de entrada).`);
-            } else if (portType === 'input' && connectionSourceNodeId) {
-                const sourceNode = nodesData.find(n => n.id === connectionSourceNodeId);
-                const targetNode = nodesData.find(n => n.id === nodeId);
+            const btnRect = sourceButton.getBoundingClientRect();
+            const flowContainerRect = flowContainer.getBoundingClientRect();
 
-                if (sourceNode && targetNode && sourceNode.id !== targetNode.id) {
-                    if (!sourceNode.outputs.includes(targetNode.id)) {
-                        sourceNode.outputs.push(targetNode.id);
-                        showMessage(`Conexão criada de "${sourceNode.title}" para "${targetNode.title}"!`);
-                    } else {
-                        showMessage('Esta conexão já existe.');
-                    }
-                } else if (sourceNode.id === targetNode.id) {
-                    showMessage('Não é possível conectar um nó a si mesmo.');
-                }
-                
-                resetConnectionMode();
-                renderAll();
-            } else if (portType === 'input' && !connectionSourceNodeId) {
-                showMessage('Você precisa selecionar um nó de ORIGEM (porta de saída) primeiro.');
+            confirmOverlay.style.left = `${btnRect.left + btnRect.width / 2 - flowContainerRect.left - 18}px`;
+            confirmOverlay.style.top = `${btnRect.top - flowContainerRect.top - 40}px`;
+
+            flowContainer.appendChild(confirmOverlay);
+            currentDeleteConfirmOverlay = confirmOverlay;
+
+            confirmOverlay.addEventListener('click', (e) => {
+                e.stopPropagation();
+                deleteNodeConfirmed(nodeId);
+            });
+        }
+
+        function closeDeleteConfirm() {
+            if (currentDeleteConfirmOverlay) {
+                currentDeleteConfirmOverlay.remove();
+                currentDeleteConfirmOverlay = null;
             }
         }
 
@@ -797,6 +825,7 @@
                 nodesData = [];
                 renderAll();
                 closeNodeViewer();
+                closeDeleteConfirm();
             }
         });
 

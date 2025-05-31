@@ -86,10 +86,10 @@
             min-height: 120px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
             cursor: grab;
-            transition: border-color 0.2s ease, width 0.2s ease;
+            transition: border-color 0.2s ease, width 0.2s ease, height 0.2s ease; /* Adicionado height à transição */
             display: flex;
             flex-direction: column;
-            overflow: hidden;
+            /* overflow: hidden; Removido para permitir expansão sem cortar sombras de elementos internos se necessário, mas pode ser mantido se preferir clipping estrito */
             user-select: none;
             z-index: 10;
         }
@@ -142,14 +142,17 @@
             color: #c0c0c0;
             flex-grow: 1;
             text-align: left;
-            overflow: hidden;
+            /* overflow: hidden; Removido para permitir expansão do corpo */
             transition: font-size 0.2s ease;
+            display: flex; /* Adicionado para melhor controle do conteúdo interno se necessário */
+            flex-direction: column; /* Adicionado para melhor controle do conteúdo interno se necessário */
         }
 
         .node-description-text {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            white-space: normal; /* Permite quebra de linha */
+            word-break: break-word; /* Quebra palavras longas para evitar overflow horizontal */
+            /* text-overflow: ellipsis; Removido */
+            /* overflow: hidden; Removido */
         }
 
         .node-port {
@@ -319,8 +322,8 @@
             color: #63b3ed;
             margin-bottom: 1rem;
             transition: font-size 0.2s ease;
-            cursor: move; /* Adicionado cursor de movimento */
-            user-select: none; /* Impede seleção de texto no header ao arrastar */
+            cursor: move;
+            user-select: none;
         }
         .node-viewer-overlay pre {
             background-color: #1a1a1a;
@@ -1070,7 +1073,7 @@
 
         function openNodeViewer(nodeId, contentType) {
             closeNodeViewer();
-            viewerOverlayHasBeenDragged = false; // Reset drag state for new overlay
+            viewerOverlayHasBeenDragged = false;
 
             const node = nodesData.find(n => n.id === nodeId);
             if (!node) return;
@@ -1082,19 +1085,17 @@
             overlay.dataset.nodeId = nodeId;
 
             const titleEl = document.createElement('h3');
-            titleEl.textContent = contentType === 'content' ? `Conteúdo: ${node.title}` : `Notas: ${node.title}`;
+            titleEl.textContent = contentType === 'content' ? node.title : `Notas: ${node.title}`;
             overlay.appendChild(titleEl);
 
             titleEl.addEventListener('mousedown', (e) => {
-                if (e.target !== titleEl) return; // Garante que o clique foi no H3, não em filhos (se houver)
+                if (e.target !== titleEl) return;
                 isViewerOverlayDragging = true;
-                viewerOverlayHasBeenDragged = true; // Marcar que foi arrastado manualmente
+                viewerOverlayHasBeenDragged = true;
                 const overlayRect = overlay.getBoundingClientRect();
-                const flowContainerRect = flowContainer.getBoundingClientRect();
-                // Calcular offset em relação ao flowContainer, pois left/top do overlay são relativos a ele
                 viewerOverlayOffsetX = e.clientX - overlayRect.left;
                 viewerOverlayOffsetY = e.clientY - overlayRect.top;
-                e.stopPropagation(); // Impede que o flowContainer seja arrastado
+                e.stopPropagation();
             });
 
 
@@ -1112,11 +1113,13 @@
             flowContainer.appendChild(overlay);
             currentViewerOverlay = overlay;
 
-            updateOverlayPosition(overlay, nodeEl);
+            if (!viewerOverlayHasBeenDragged) {
+                updateOverlayPosition(overlay, nodeEl);
+            }
         }
 
         function updateOverlayPosition(overlayEl, nodeEl) {
-            if (!overlayEl || !nodeEl) return;
+            if (!overlayEl || !nodeEl || viewerOverlayHasBeenDragged) return;
 
             const nodeRect = nodeEl.getBoundingClientRect();
             const flowCanvasRect = flowCanvas.getBoundingClientRect();
@@ -1153,7 +1156,7 @@
                 currentViewerOverlay.remove();
                 currentViewerOverlay = null;
             }
-            isViewerOverlayDragging = false; // Garante que o estado de arraste seja resetado
+            isViewerOverlayDragging = false;
             viewerOverlayHasBeenDragged = false;
         }
 

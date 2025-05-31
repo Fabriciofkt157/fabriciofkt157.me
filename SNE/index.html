@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas de Roteiro - Behind Shadows</title>
+    <title>Story Node Editor</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -245,29 +245,62 @@
             opacity: 1;
         }
 
-        #viewerModal .viewer-section {
-            background-color: #3a3a3a;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
-            border: 1px solid #555;
+        .node-viewer-overlay {
+            position: absolute;
+            background-color: #2a2a2a;
+            border: 2px solid #63b3ed;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+            z-index: 20;
+            width: 400px;
+            max-width: 90vw;
+            max-height: 80vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            color: #e0e0e0;
+            animation: fadeIn 0.2s ease-out;
         }
-        #viewerModal .viewer-section h3 {
-            font-size: 1.2rem;
+
+        .node-viewer-overlay h3 {
+            font-size: 1.5rem;
             font-weight: bold;
             color: #63b3ed;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
-        #viewerModal .viewer-section p {
-            white-space: pre-wrap; /* Preserve line breaks */
-            font-size: 0.95rem;
-            line-height: 1.5;
+
+        .node-viewer-overlay pre {
+            background-color: #1a1a1a;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            white-space: pre-wrap;
+            word-break: break-word;
+            font-family: monospace;
+            font-size: 0.9rem;
             color: #c0c0c0;
+            max-height: 60vh;
+            overflow-y: auto;
         }
-        #viewerModal .viewer-nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 1rem;
+
+        .node-viewer-overlay .close-overlay-btn {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            background: none;
+            border: none;
+            color: #a0a0a0;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        .node-viewer-overlay .close-overlay-btn:hover {
+            color: #e0e0e0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
@@ -283,7 +316,6 @@
                 <button id="clearAllBtn" class="tool-btn bg-red-600 hover:bg-red-700">Limpar Tudo</button>
             </div>
             <div class="flex-grow"></div>
-            <button id="viewRoteiroBtn" class="tool-btn bg-purple-600 hover:bg-purple-700">Visualizar Roteiro</button>
             <button id="saveBtn" class="tool-btn bg-gray-700 hover:bg-gray-600">Exportar Roteiro (JSON)</button>
             <button id="loadBtn" class="tool-btn bg-gray-700 hover:bg-gray-600">Importar Roteiro (JSON)</button>
             <input type="file" id="fileInput" accept=".json" class="hidden">
@@ -321,29 +353,6 @@
             </div>
         </div>
 
-        <div id="viewerModal" class="modal">
-            <div class="modal-content">
-                <h2 id="viewerTitle" class="text-2xl font-bold mb-4 text-purple-300"></h2>
-                <div class="viewer-section">
-                    <h3>Descrição</h3>
-                    <p id="viewerDescription"></p>
-                </div>
-                <div class="viewer-section">
-                    <h3>Conteúdo Principal (Roteiro)</h3>
-                    <p id="viewerContent"></p>
-                </div>
-                <div class="viewer-section">
-                    <h3>Explicação/Notas do Desenvolvedor</h3>
-                    <p id="viewerExplanation"></p>
-                </div>
-                <div class="viewer-nav-buttons">
-                    <button id="prevNodeBtn" class="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-md">Anterior</button>
-                    <button id="closeViewerBtn" class="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md">Fechar</button>
-                    <button id="nextNodeBtn" class="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-md">Próximo</button>
-                </div>
-            </div>
-        </div>
-
         <div id="messageDisplay" class="hidden"></div>
     </div>
 
@@ -369,16 +378,6 @@
         const fileInput = document.getElementById('fileInput');
         const messageDisplay = document.getElementById('messageDisplay');
 
-        const viewRoteiroBtn = document.getElementById('viewRoteiroBtn');
-        const viewerModal = document.getElementById('viewerModal');
-        const viewerTitle = document.getElementById('viewerTitle');
-        const viewerDescription = document.getElementById('viewerDescription');
-        const viewerContent = document.getElementById('viewerContent');
-        const viewerExplanation = document.getElementById('viewerExplanation');
-        const prevNodeBtn = document.getElementById('prevNodeBtn');
-        const nextNodeBtn = document.getElementById('nextNodeBtn');
-        const closeViewerBtn = document.getElementById('closeViewerBtn');
-
         let nodesData = [];
         let selectedNodeId = null;
         let draggedNodeId = null;
@@ -391,7 +390,7 @@
         let tempLineElement = null;
         let tempArrowElement = null;
 
-        let currentViewerNodeIndex = 0;
+        let currentViewerOverlay = null;
 
         function showMessage(message, duration = 3000) {
             messageDisplay.textContent = message;
@@ -461,6 +460,8 @@
                 <div class="node-header">
                     <h3 class="node-title">${node.title}</h3>
                     <div class="node-actions">
+                        <i class="fas fa-file-alt node-action-icon view-content-btn" title="Visualizar Conteúdo"></i>
+                        <i class="fas fa-info-circle node-action-icon view-explanation-btn" title="Visualizar Notas"></i>
                         <i class="fas fa-edit node-action-icon edit-node-btn" title="Editar"></i>
                         <i class="fas fa-trash-alt node-action-icon delete-node-btn" title="Excluir"></i>
                     </div>
@@ -473,7 +474,7 @@
             `;
 
             nodeEl.addEventListener('mousedown', (e) => {
-                if (e.target.classList.contains('node-action-icon') || e.target.classList.contains('node-port')) {
+                if (e.target.closest('.node-action-icon') || e.target.classList.contains('node-port')) {
                     return;
                 }
                 draggedNodeId = node.id;
@@ -500,6 +501,16 @@
             nodeEl.querySelector('.delete-node-btn').addEventListener('click', (e) => {
                 e.stopPropagation();
                 deleteNode(node.id);
+            });
+
+            nodeEl.querySelector('.view-content-btn').addEventListener('click', (e) => {
+                e.stopPropagation();
+                openNodeViewer(node.id, 'content');
+            });
+
+            nodeEl.querySelector('.view-explanation-btn').addEventListener('click', (e) => {
+                e.stopPropagation();
+                openNodeViewer(node.id, 'explanation');
             });
 
             flowContainer.appendChild(nodeEl);
@@ -564,12 +575,13 @@
         }
 
         flowContainer.addEventListener('mousedown', (e) => {
-            if (e.target === flowContainer || e.target === connectionsSvg) {
-                isFlowContainerDragging = true;
-                flowContainer.classList.add('dragging');
-                flowContainerOffsetX = e.clientX - flowContainer.getBoundingClientRect().left;
-                flowContainerOffsetY = e.clientY - flowContainer.getBoundingClientRect().top;
+            if (e.target.closest('.node') || e.target === connectionsSvg) {
+                return;
             }
+            isFlowContainerDragging = true;
+            flowContainer.classList.add('dragging');
+            flowContainerOffsetX = e.clientX - flowContainer.getBoundingClientRect().left;
+            flowContainerOffsetY = e.clientY - flowContainer.getBoundingClientRect().top;
         });
 
         window.addEventListener('mousemove', (e) => {
@@ -588,6 +600,9 @@
                         nodesData[nodeIndex].y = newY;
                     }
                     renderConnections();
+                    if (currentViewerOverlay && currentViewerOverlay.dataset.nodeId === draggedNodeId) {
+                        updateOverlayPosition(currentViewerOverlay, nodeEl);
+                    }
                 }
             } else if (isFlowContainerDragging) {
                 const newX = e.clientX - flowContainerOffsetX;
@@ -596,6 +611,12 @@
                 flowContainer.style.left = `${newX}px`;
                 flowContainer.style.top = `${newY}px`;
                 renderConnections();
+                if (currentViewerOverlay) {
+                    const associatedNodeEl = document.getElementById(currentViewerOverlay.dataset.nodeId);
+                    if (associatedNodeEl) {
+                        updateOverlayPosition(currentViewerOverlay, associatedNodeEl);
+                    }
+                }
             } else if (connectingMode && connectionSourceNodeId) {
                 const sourceNodeEl = document.getElementById(connectionSourceNodeId);
                 if (sourceNodeEl) {
@@ -727,6 +748,9 @@
                 nodesData.forEach(node => {
                     node.outputs = node.outputs.filter(outputId => outputId !== nodeId);
                 });
+                if (currentViewerOverlay && currentViewerOverlay.dataset.nodeId === nodeId) {
+                    closeNodeViewer();
+                }
                 renderAll();
             }
         }
@@ -772,6 +796,7 @@
             if (confirm('Tem certeza que deseja limpar todo o roteiro? Esta ação não pode ser desfeita.')) {
                 nodesData = [];
                 renderAll();
+                closeNodeViewer();
             }
         });
 
@@ -779,55 +804,70 @@
         loadBtn.addEventListener('click', () => fileInput.click());
         fileInput.addEventListener('change', importNodesData);
 
-        // --- Funções do Visualizador ---
-        function openViewerModal() {
-            if (nodesData.length === 0) {
-                showMessage('Nenhum nó para visualizar. Adicione alguns nós primeiro!');
-                return;
-            }
-            currentViewerNodeIndex = 0; // Começa sempre do primeiro nó
-            updateViewerContent();
-            viewerModal.style.display = 'flex';
+        function openNodeViewer(nodeId, contentType) {
+            closeNodeViewer();
+
+            const node = nodesData.find(n => n.id === nodeId);
+            if (!node) return;
+
+            const nodeEl = document.getElementById(nodeId);
+            if (!nodeEl) return;
+
+            const overlay = document.createElement('div');
+            overlay.classList.add('node-viewer-overlay');
+            overlay.dataset.nodeId = nodeId;
+
+            const title = document.createElement('h3');
+            title.textContent = contentType === 'content' ? `Conteúdo: ${node.title}` : `Notas: ${node.title}`;
+            overlay.appendChild(title);
+
+            const contentPre = document.createElement('pre');
+            contentPre.textContent = contentType === 'content' ? node.content : node.explanation;
+            overlay.appendChild(contentPre);
+
+            const closeBtn = document.createElement('button');
+            closeBtn.classList.add('close-overlay-btn');
+            closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+            closeBtn.addEventListener('click', closeNodeViewer);
+            overlay.appendChild(closeBtn);
+
+            flowContainer.appendChild(overlay);
+            currentViewerOverlay = overlay;
+
+            updateOverlayPosition(overlay, nodeEl);
         }
 
-        function updateViewerContent() {
-            if (nodesData.length === 0) {
-                viewerTitle.textContent = 'Nenhum Conteúdo';
-                viewerDescription.textContent = '';
-                viewerContent.textContent = 'Adicione nós ao canvas para visualizá-los aqui.';
-                viewerExplanation.textContent = '';
-                prevNodeBtn.disabled = true;
-                nextNodeBtn.disabled = true;
-                return;
+        function updateOverlayPosition(overlayEl, nodeEl) {
+            const nodeRect = nodeEl.getBoundingClientRect();
+            const containerRect = flowContainer.getBoundingClientRect();
+            const overlayWidth = overlayEl.offsetWidth;
+            const overlayHeight = overlayEl.offsetHeight;
+
+            let newX = nodeRect.left + nodeRect.width - containerRect.left + 20;
+            let newY = nodeRect.top - containerRect.top;
+
+            if (newX + overlayWidth > containerRect.width + flowContainer.scrollLeft) {
+                newX = nodeRect.left - containerRect.left - overlayWidth - 20;
             }
 
-            const node = nodesData[currentViewerNodeIndex];
-            viewerTitle.textContent = node.title;
-            viewerDescription.textContent = node.description;
-            viewerContent.textContent = node.content;
-            viewerExplanation.textContent = node.explanation || 'Nenhuma nota do desenvolvedor.';
-
-            prevNodeBtn.disabled = currentViewerNodeIndex === 0;
-            nextNodeBtn.disabled = currentViewerNodeIndex === nodesData.length - 1;
-        }
-
-        function navigateViewer(direction) {
-            currentViewerNodeIndex += direction;
-            updateViewerContent();
-        }
-
-        viewRoteiroBtn.addEventListener('click', openViewerModal);
-        prevNodeBtn.addEventListener('click', () => navigateViewer(-1));
-        nextNodeBtn.addEventListener('click', () => navigateViewer(1));
-        closeViewerBtn.addEventListener('click', () => {
-            viewerModal.style.display = 'none';
-        });
-
-        viewerModal.addEventListener('click', (e) => {
-            if (e.target === viewerModal) {
-                viewerModal.style.display = 'none';
+            if (newY < 0) {
+                newY = 0;
             }
-        });
+            if (newY + overlayHeight > containerRect.height + flowContainer.scrollTop) {
+                newY = containerRect.height + flowContainer.scrollTop - overlayHeight - 20;
+                if (newY < 0) newY = 0;
+            }
+
+            overlayEl.style.left = `${newX}px`;
+            overlayEl.style.top = `${newY}px`;
+        }
+
+        function closeNodeViewer() {
+            if (currentViewerOverlay) {
+                currentViewerOverlay.remove();
+                currentViewerOverlay = null;
+            }
+        }
 
         window.onload = renderAll;
     </script>

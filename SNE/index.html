@@ -86,10 +86,9 @@
             min-height: 120px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
             cursor: grab;
-            transition: border-color 0.2s ease, width 0.2s ease, height 0.2s ease; /* Adicionado height à transição */
+            transition: border-color 0.2s ease, width 0.2s ease, height 0.2s ease;
             display: flex;
             flex-direction: column;
-            /* overflow: hidden; Removido para permitir expansão sem cortar sombras de elementos internos se necessário, mas pode ser mantido se preferir clipping estrito */
             user-select: none;
             z-index: 10;
         }
@@ -142,17 +141,14 @@
             color: #c0c0c0;
             flex-grow: 1;
             text-align: left;
-            /* overflow: hidden; Removido para permitir expansão do corpo */
             transition: font-size 0.2s ease;
-            display: flex; /* Adicionado para melhor controle do conteúdo interno se necessário */
-            flex-direction: column; /* Adicionado para melhor controle do conteúdo interno se necessário */
+            display: flex;
+            flex-direction: column;
         }
 
         .node-description-text {
-            white-space: normal; /* Permite quebra de linha */
-            word-break: break-word; /* Quebra palavras longas para evitar overflow horizontal */
-            /* text-overflow: ellipsis; Removido */
-            /* overflow: hidden; Removido */
+            white-space: normal;
+            word-break: break-word;
         }
 
         .node-port {
@@ -305,7 +301,6 @@
             border-radius: 0.75rem;
             padding: 1.5rem;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
-            z-index: 20;
             width: 400px;
             max-width: 90vw;
             max-height: 80vh;
@@ -512,7 +507,7 @@
         <div id="flowCanvas">
             <div id="flowContainer">
                 <svg id="connectionsSvg"></svg>
-            </div>
+                </div>
         </div>
 
         <div id="editModal" class="modal">
@@ -593,16 +588,27 @@
         let removeConnectionMode = false;
         let removeConnectionSourceNodeId = null;
         let removeConnectionTargetNodeId = null;
-        let currentViewerOverlay = null;
+        
+        let activeViewerOverlays = {};
         let currentDeleteConfirmOverlay = null;
 
-        let isViewerOverlayDragging = false;
-        let viewerOverlayOffsetX, viewerOverlayOffsetY;
-        let viewerOverlayHasBeenDragged = false;
-
+        let isDraggingOverlay = false;
+        let draggingOverlayData = { element: null, nodeId: null, contentType: null, offsetX: 0, offsetY: 0 };
+        
+        let highestZIndex = 20;
 
         const ARROW_SIZE = 10;
         const ARROW_ANGLE = Math.PI / 8;
+
+        function bringOverlayToFront(overlayElement) {
+            highestZIndex++;
+            overlayElement.style.zIndex = highestZIndex;
+            const node = nodesData.find(n => n.id === overlayElement.dataset.nodeId);
+            if (node && node.viewerStates && node.viewerStates[overlayElement.dataset.contentType]) {
+                node.viewerStates[overlayElement.dataset.contentType].zIndex = highestZIndex;
+            }
+        }
+
 
         function resetAllModesVisuals() {
             flowContainer.querySelectorAll('.node-port').forEach(port => port.classList.remove('connecting'));
@@ -752,8 +758,29 @@
                 try {
                     const importedData = JSON.parse(e.target.result);
                     if (Array.isArray(importedData) && importedData.every(node => node.id && node.type && node.title)) {
-                        nodesData = importedData;
-                        renderAll();
+                        nodesData = importedData.map(node => { 
+                            if (!node.viewerStates) {
+                                node.viewerStates = {
+                                    content: { isOpen: false, x: null, y: null, hasBeenDragged: false, zIndex: highestZIndex },
+                                    explanation: { isOpen: false, x: null, y: null, hasBeenDragged: false, zIndex: highestZIndex }
+                                };
+                            } else { 
+                                ['content', 'explanation'].forEach(type => {
+                                    if (!node.viewerStates[type]) {
+                                        node.viewerStates[type] = { isOpen: false, x: null, y: null, hasBeenDragged: false, zIndex: highestZIndex };
+                                    } else {
+                                        node.viewerStates[type].isOpen = node.viewerStates[type].isOpen || false;
+                                        node.viewerStates[type].x = node.viewerStates[type].x || null;
+                                        node.viewerStates[type].y = node.viewerStates[type].y || null;
+                                        node.viewerStates[type].hasBeenDragged = node.viewerStates[type].hasBeenDragged || false;
+                                        node.viewerStates[type].zIndex = node.viewerStates[type].zIndex || highestZIndex;
+                                    }
+                                });
+                            }
+                            return node;
+                        });
+                        renderAll(); 
+                        recreateSavedOverlays(); 
                         showMessage('Roteiro importado com sucesso!');
                     } else {
                         showMessage('Formato de arquivo JSON inválido para roteiro.');
@@ -862,7 +889,15 @@
         function renderAll() {
             renderAllNodes();
             renderConnections();
+            Object.values(activeViewerOverlays).forEach(overlay => {
+                const node = nodesData.find(n => n.id === overlay.dataset.nodeId);
+                const nodeEl = document.getElementById(overlay.dataset.nodeId);
+                if (node && nodeEl && node.viewerStates[overlay.dataset.contentType] && !node.viewerStates[overlay.dataset.contentType].hasBeenDragged) {
+                     updateOverlayPosition(overlay, nodeEl, node.viewerStates[overlay.dataset.contentType]);
+                }
+            });
         }
+
 
         flowContainer.addEventListener('mousedown', (e) => {
             if (e.target === flowContainer || e.target === connectionsSvg) {
@@ -873,13 +908,20 @@
             }
         });
         window.addEventListener('mousemove', (e) => {
-            if (isViewerOverlayDragging && currentViewerOverlay) {
+            if (isDraggingOverlay && draggingOverlayData.element) {
                 const flowContainerRect = flowContainer.getBoundingClientRect();
-                let newX = e.clientX - flowContainerRect.left - viewerOverlayOffsetX;
-                let newY = e.clientY - flowContainerRect.top - viewerOverlayOffsetY;
+                let newX = e.clientX - flowContainerRect.left - draggingOverlayData.offsetX;
+                let newY = e.clientY - flowContainerRect.top - draggingOverlayData.offsetY;
 
-                currentViewerOverlay.style.left = `${newX}px`;
-                currentViewerOverlay.style.top = `${newY}px`;
+                draggingOverlayData.element.style.left = `${newX}px`;
+                draggingOverlayData.element.style.top = `${newY}px`;
+
+                const node = nodesData.find(n => n.id === draggingOverlayData.nodeId);
+                if (node && node.viewerStates && node.viewerStates[draggingOverlayData.contentType]) {
+                    node.viewerStates[draggingOverlayData.contentType].x = newX;
+                    node.viewerStates[draggingOverlayData.contentType].y = newY;
+                    node.viewerStates[draggingOverlayData.contentType].hasBeenDragged = true;
+                }
 
             } else if (draggedNodeId) {
                 const nodeEl = document.getElementById(draggedNodeId);
@@ -892,9 +934,15 @@
                     const nodeIndex = nodesData.findIndex(n => n.id === draggedNodeId);
                     if (nodeIndex !== -1) { nodesData[nodeIndex].x = newX; nodesData[nodeIndex].y = newY; }
                     renderConnections();
-                    if (currentViewerOverlay && currentViewerOverlay.dataset.nodeId === draggedNodeId && !viewerOverlayHasBeenDragged) {
-                        updateOverlayPosition(currentViewerOverlay, nodeEl);
-                    }
+                    
+                    Object.values(activeViewerOverlays).forEach(overlay => {
+                        if (overlay.dataset.nodeId === draggedNodeId) {
+                             const node = nodesData.find(n => n.id === draggedNodeId);
+                             if (node && node.viewerStates[overlay.dataset.contentType] && !node.viewerStates[overlay.dataset.contentType].hasBeenDragged) {
+                                updateOverlayPosition(overlay, nodeEl, node.viewerStates[overlay.dataset.contentType]);
+                             }
+                        }
+                    });
                 }
             } else if (isFlowContainerDragging) {
                 const newX = e.clientX - flowContainerOffsetX;
@@ -902,10 +950,14 @@
                 flowContainer.style.left = `${newX}px`;
                 flowContainer.style.top = `${newY}px`;
                 renderConnections();
-                if (currentViewerOverlay && !viewerOverlayHasBeenDragged) {
-                    const associatedNodeEl = document.getElementById(currentViewerOverlay.dataset.nodeId);
-                    if (associatedNodeEl) updateOverlayPosition(currentViewerOverlay, associatedNodeEl);
-                }
+                Object.values(activeViewerOverlays).forEach(overlay => {
+                    const node = nodesData.find(n => n.id === overlay.dataset.nodeId);
+                    const nodeEl = document.getElementById(overlay.dataset.nodeId);
+                    if (node && nodeEl && node.viewerStates[overlay.dataset.contentType] && !node.viewerStates[overlay.dataset.contentType].hasBeenDragged) {
+                        updateOverlayPosition(overlay, nodeEl, node.viewerStates[overlay.dataset.contentType]);
+                    }
+                });
+
             } else if (connectingMode && connectionSourceNodeId) {
                 const sourceNodeEl = document.getElementById(connectionSourceNodeId);
                 if (sourceNodeEl) {
@@ -945,8 +997,9 @@
             }
         });
         window.addEventListener('mouseup', (e) => {
-            if (isViewerOverlayDragging) {
-                isViewerOverlayDragging = false;
+            if (isDraggingOverlay) {
+                isDraggingOverlay = false;
+                draggingOverlayData.element = null;
             }
             draggedNodeId = null;
             isFlowContainerDragging = false;
@@ -963,7 +1016,12 @@
                 if (connectingMode) { resetConnectionMode(); showMessage('Modo de conexão cancelado.'); }
                 if (removeConnectionMode) { resetRemoveConnectionMode(); showMessage('Modo de remoção de conexão cancelado.'); }
                 if (currentDeleteConfirmOverlay) closeDeleteConfirm();
-                if (currentViewerOverlay) closeNodeViewer();
+                
+                Object.keys(activeViewerOverlays).forEach(key => {
+                    const [nodeId, contentType] = key.split('_');
+                    closeNodeViewer(nodeId, contentType);
+                });
+
                 if (editModal.style.display === 'flex') editModal.style.display = 'none';
                 if (clearAllConfirmModal.style.display === 'flex') clearAllConfirmModal.style.display = 'none';
             }
@@ -1006,7 +1064,11 @@
                 id: generateUniqueId(), type: type, title: `Novo Nó ${type.charAt(0).toUpperCase() + type.slice(1)}`,
                 description: `Descrição do nó de ${type}.`, content: `Conteúdo do roteiro para ${type}.`,
                 explanation: `Notas para ${type}.`, x: initialX + (Math.random() * 80 - 40),
-                y: initialY + (Math.random() * 80 - 40), outputs: []
+                y: initialY + (Math.random() * 80 - 40), outputs: [],
+                viewerStates: { 
+                    content: { isOpen: false, x: null, y: null, hasBeenDragged: false, zIndex: highestZIndex },
+                    explanation: { isOpen: false, x: null, y: null, hasBeenDragged: false, zIndex: highestZIndex }
+                }
             };
             nodesData.push(newNode);
             renderAll();
@@ -1016,9 +1078,10 @@
         addGameplayBtn.addEventListener('click', () => addNode('gameplay'));
         addDecisionBtn.addEventListener('click', () => addNode('decision'));
         function deleteNodeConfirmed(nodeId) {
+            closeNodeViewer(nodeId, 'content'); 
+            closeNodeViewer(nodeId, 'explanation');
             nodesData = nodesData.filter(node => node.id !== nodeId);
             nodesData.forEach(node => { node.outputs = node.outputs.filter(outputId => outputId !== nodeId); });
-            if (currentViewerOverlay && currentViewerOverlay.dataset.nodeId === nodeId) closeNodeViewer();
             renderAll();
             showMessage('Nó excluído!');
             closeDeleteConfirm();
@@ -1052,9 +1115,12 @@
         });
         confirmClearAllBtn.addEventListener('click', () => {
             nodesData = [];
+            Object.keys(activeViewerOverlays).forEach(key => { 
+                const overlay = activeViewerOverlays[key];
+                if(overlay) overlay.remove();
+            });
+            activeViewerOverlays = {};
             renderAll();
-            closeNodeViewer();
-            closeDeleteConfirm();
             clearAllConfirmModal.style.display = 'none';
             showMessage('Roteiro limpo com sucesso!');
         });
@@ -1072,17 +1138,26 @@
         fileInput.addEventListener('change', importNodesData);
 
         function openNodeViewer(nodeId, contentType) {
-            closeNodeViewer();
-            viewerOverlayHasBeenDragged = false;
-
             const node = nodesData.find(n => n.id === nodeId);
             if (!node) return;
             const nodeEl = document.getElementById(nodeId);
             if (!nodeEl) return;
 
-            const overlay = document.createElement('div');
+            const viewerKey = `${nodeId}_${contentType}`;
+            let overlay = activeViewerOverlays[viewerKey];
+            let viewerState = node.viewerStates[contentType];
+
+            if (overlay) { 
+                bringOverlayToFront(overlay);
+                viewerState.isOpen = true; 
+                return;
+            }
+
+            overlay = document.createElement('div');
+            overlay.id = `viewer-overlay-${viewerKey}`;
             overlay.classList.add('node-viewer-overlay');
             overlay.dataset.nodeId = nodeId;
+            overlay.dataset.contentType = contentType;
 
             const titleEl = document.createElement('h3');
             titleEl.textContent = contentType === 'content' ? node.title : `Notas: ${node.title}`;
@@ -1090,14 +1165,17 @@
 
             titleEl.addEventListener('mousedown', (e) => {
                 if (e.target !== titleEl) return;
-                isViewerOverlayDragging = true;
-                viewerOverlayHasBeenDragged = true;
-                const overlayRect = overlay.getBoundingClientRect();
-                viewerOverlayOffsetX = e.clientX - overlayRect.left;
-                viewerOverlayOffsetY = e.clientY - overlayRect.top;
+                isDraggingOverlay = true;
+                draggingOverlayData = { 
+                    element: overlay, 
+                    nodeId: nodeId, 
+                    contentType: contentType,
+                    offsetX: e.clientX - overlay.getBoundingClientRect().left,
+                    offsetY: e.clientY - overlay.getBoundingClientRect().top
+                };
+                bringOverlayToFront(overlay); 
                 e.stopPropagation();
             });
-
 
             const contentPre = document.createElement('pre');
             contentPre.textContent = contentType === 'content' ? node.content : (node.explanation || "Nenhuma nota adicional.");
@@ -1107,62 +1185,105 @@
             closeBtn.classList.add('close-overlay-btn');
             closeBtn.innerHTML = '<i class="fas fa-times"></i>';
             closeBtn.title = "Fechar Visualizador (ESC)";
-            closeBtn.addEventListener('click', closeNodeViewer);
+            closeBtn.addEventListener('click', () => closeNodeViewer(nodeId, contentType));
             overlay.appendChild(closeBtn);
 
             flowContainer.appendChild(overlay);
-            currentViewerOverlay = overlay;
+            activeViewerOverlays[viewerKey] = overlay;
+            
+            viewerState.isOpen = true;
+            bringOverlayToFront(overlay); 
 
-            if (!viewerOverlayHasBeenDragged) {
-                updateOverlayPosition(overlay, nodeEl);
+            if (viewerState.hasBeenDragged && viewerState.x !== null && viewerState.y !== null) {
+                overlay.style.left = `${viewerState.x}px`;
+                overlay.style.top = `${viewerState.y}px`;
+            } else {
+                updateOverlayPosition(overlay, nodeEl, viewerState);
+                viewerState.x = parseFloat(overlay.style.left);
+                viewerState.y = parseFloat(overlay.style.top);
+                viewerState.hasBeenDragged = false; 
             }
         }
 
-        function updateOverlayPosition(overlayEl, nodeEl) {
-            if (!overlayEl || !nodeEl || viewerOverlayHasBeenDragged) return;
+        function updateOverlayPosition(overlayEl, nodeEl, viewerState) {
+            if (!overlayEl || !nodeEl || (viewerState && viewerState.hasBeenDragged)) return;
 
             const nodeRect = nodeEl.getBoundingClientRect();
-            const flowCanvasRect = flowCanvas.getBoundingClientRect();
+            const flowCanvasRect = flowCanvas.getBoundingClientRect(); 
             const flowContainerStyle = window.getComputedStyle(flowContainer);
             const flowContainerLeft = parseFloat(flowContainerStyle.left) || 0;
             const flowContainerTop = parseFloat(flowContainerStyle.top) || 0;
 
-            const overlayWidth = overlayEl.offsetWidth;
-            const overlayHeight = overlayEl.offsetHeight;
+            const overlayWidth = overlayEl.offsetWidth || 400; 
+            const overlayHeight = overlayEl.offsetHeight || 300; 
 
             let newX = (nodeRect.left - flowContainerLeft) + nodeRect.width + 15;
             let newY = (nodeRect.top - flowContainerTop);
 
-            const overlayRightEdge = newX + overlayWidth;
-            const overlayBottomEdge = newY + overlayHeight;
+            const visibleRightBound = flowCanvasRect.width - flowContainerLeft;
+            const visibleLeftBound = -flowContainerLeft;
+            const visibleBottomBound = flowCanvasRect.height - flowContainerTop;
+            const visibleTopBound = -flowContainerTop;
 
-            const visibleRightBound = flowCanvasRect.width - flowContainerLeft + (flowContainer.scrollLeftClient || 0);
-            const visibleLeftBound = -flowContainerLeft + (flowContainer.scrollLeftClient || 0);
-            const visibleBottomBound = flowCanvasRect.height - flowContainerTop + (flowContainer.scrollTopClient || 0);
-            const visibleTopBound = -flowContainerTop + (flowContainer.scrollTopClient || 0);
-
-            if (overlayRightEdge > visibleRightBound) newX = (nodeRect.left - flowContainerLeft) - overlayWidth - 15;
+            if (newX + overlayWidth > visibleRightBound) newX = (nodeRect.left - flowContainerLeft) - overlayWidth - 15;
             if (newX < visibleLeftBound) newX = visibleLeftBound + 5;
-            if (newX + overlayWidth > visibleRightBound) newX = visibleRightBound - overlayWidth - 5;
-            if (overlayBottomEdge > visibleBottomBound) newY = visibleBottomBound - overlayHeight - 5;
+            if (newX + overlayWidth > visibleRightBound) newX = Math.max(visibleLeftBound + 5, visibleRightBound - overlayWidth - 5);
+            
+            if (newY + overlayHeight > visibleBottomBound) newY = Math.max(visibleTopBound + 5, visibleBottomBound - overlayHeight - 5);
             if (newY < visibleTopBound) newY = visibleTopBound + 5;
+
 
             overlayEl.style.left = `${newX}px`;
             overlayEl.style.top = `${newY}px`;
+
+            if (viewerState) { 
+                 viewerState.x = newX;
+                 viewerState.y = newY;
+            }
         }
 
-        function closeNodeViewer() {
-            if (currentViewerOverlay) {
-                currentViewerOverlay.remove();
-                currentViewerOverlay = null;
+        function closeNodeViewer(nodeId, contentType) {
+            const viewerKey = `${nodeId}_${contentType}`;
+            const overlay = activeViewerOverlays[viewerKey];
+            if (overlay) {
+                overlay.remove();
+                delete activeViewerOverlays[viewerKey];
             }
-            isViewerOverlayDragging = false;
-            viewerOverlayHasBeenDragged = false;
+            const node = nodesData.find(n => n.id === nodeId);
+            if (node && node.viewerStates && node.viewerStates[contentType]) {
+                node.viewerStates[contentType].isOpen = false;
+            }
+            if (isDraggingOverlay && draggingOverlayData.element === overlay) {
+                isDraggingOverlay = false;
+                draggingOverlayData.element = null;
+            }
         }
+        
+        function recreateSavedOverlays() {
+            flowContainer.querySelectorAll('.node-viewer-overlay').forEach(ov => ov.remove());
+            activeViewerOverlays = {}; 
+
+            let maxZ = highestZIndex; 
+            nodesData.forEach(node => {
+                ['content', 'explanation'].forEach(contentType => {
+                    const state = node.viewerStates[contentType];
+                    if (state && state.isOpen) {
+                        openNodeViewer(node.id, contentType); 
+                        if (state.zIndex && state.zIndex > maxZ) {
+                            maxZ = state.zIndex;
+                        }
+                    }
+                });
+            });
+            highestZIndex = maxZ; 
+        }
+
 
         window.onload = () => {
-            renderAll();
-            if (nodesData.length === 0) {
+            renderAll(); 
+            recreateSavedOverlays(); 
+
+            if (nodesData.length === 0) { 
                 const canvasRect = flowCanvas.getBoundingClientRect();
                 const initialLeft = Math.max(10, canvasRect.width / 10);
                 const initialTop = Math.max(10, canvasRect.height / 10);

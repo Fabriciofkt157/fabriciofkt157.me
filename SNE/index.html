@@ -12,182 +12,187 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            overflow: hidden;
+            overflow: hidden; /* Impede barras de rolagem no corpo */
         }
 
         #appContainer {
             display: flex;
             height: 100vh;
-            background-color: #1a1a1a;
-            color: #e0e0e0;
+            background-color: #1a1a1a; /* Fundo escuro principal */
+            color: #e0e0e0; /* Cor de texto clara */
         }
 
         #toolbox {
-            width: 256px;
-            background-color: #2a2a2a;
+            width: 256px; /* Largura fixa para a caixa de ferramentas */
+            background-color: #2a2a2a; /* Fundo da caixa de ferramentas */
             padding: 1rem;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
-            flex-shrink: 0;
+            gap: 1rem; /* Espaçamento entre os botões */
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidade */
+            flex-shrink: 0; /* Impede que a caixa de ferramentas encolha */
+            transition: width 0.3s ease, padding 0.3s ease; /* Transições para responsividade */
         }
 
         .tool-btn {
             padding: 0.75rem 1rem;
-            border-radius: 0.5rem;
+            border-radius: 0.5rem; /* Cantos arredondados */
             font-weight: bold;
             text-align: center;
-            transition: background-color 0.2s ease, transform 0.1s ease;
+            transition: background-color 0.2s ease, transform 0.1s ease, padding 0.2s ease, font-size 0.2s ease; /* Transições suaves */
             cursor: pointer;
             color: white;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra sutil nos botões */
+            flex-shrink: 0; /* Impede que botões encolham demais no mobile */
         }
 
         .tool-btn:hover {
-            transform: translateY(-1px);
+            transform: translateY(-1px); /* Efeito de elevação ao passar o mouse */
         }
 
         .tool-btn:active {
-            transform: translateY(0);
-            box-shadow: none;
+            transform: translateY(0); /* Efeito de clique */
+            box-shadow: none; /* Remove a sombra ao clicar */
         }
 
         #flowCanvas {
-            flex-grow: 1;
-            position: relative;
-            overflow: hidden;
+            flex-grow: 1; /* Ocupa o espaço restante */
+            position: relative; /* Necessário para o posicionamento absoluto do flowContainer */
+            overflow: hidden; /* Impede barras de rolagem no canvas */
             background-color: #1a1a1a;
-            background-image: radial-gradient(#333 1px, transparent 1px);
+            background-image: radial-gradient(#333 1px, transparent 1px); /* Grade pontilhada */
             background-size: 20px 20px;
         }
 
         #flowContainer {
-            position: absolute;
-            width: 10000px;
+            position: absolute; /* Permite arrastar o conteúdo */
+            width: 10000px; /* Tamanho grande para permitir o pan */
             height: 10000px;
             top: 0;
             left: 0;
-            cursor: grab;
+            cursor: grab; /* Cursor de "agarrar" */
         }
 
         #flowContainer.dragging {
-            cursor: grabbing;
+            cursor: grabbing; /* Cursor ao arrastar */
         }
 
         .node {
-            background-color: #3a3a3a;
-            border: 1px solid #555;
+            background-color: #3a3a3a; /* Fundo dos nós */
+            border: 1px solid #555; /* Borda dos nós */
             border-radius: 6px;
-            position: absolute;
-            width: 250px;
-            min-height: 120px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            position: absolute; /* Posicionamento livre dos nós */
+            width: 250px; /* Largura padrão do nó */
+            min-height: 120px; /* Altura mínima do nó */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra dos nós */
             cursor: grab;
-            transition: border-color 0.2s ease;
+            transition: border-color 0.2s ease, width 0.2s ease;
             display: flex;
             flex-direction: column;
-            overflow: hidden;
-            user-select: none;
-            z-index: 10;
+            overflow: hidden; /* Garante que o conteúdo não transborde */
+            user-select: none; /* Impede a seleção de texto dentro do nó ao arrastar */
+            z-index: 10; /* Nós ficam acima das conexões */
         }
 
         .node:active {
             cursor: grabbing;
         }
 
-        .node.selected {
-            border-color: #63b3ed;
+        .node.selected { /* Estilo para nó selecionado (se implementado) */
+            border-color: #63b3ed; /* Cor azul para destacar */
             box-shadow: 0 0 15px rgba(99, 179, 237, 0.7);
         }
 
         .node-header {
-            background-color: #2a2a2a;
+            background-color: #2a2a2a; /* Fundo do cabeçalho do nó */
             padding: 0.5rem 1rem;
             border-bottom: 1px solid #555;
-            border-radius: 6px 6px 0 0;
+            border-radius: 6px 6px 0 0; /* Cantos arredondados apenas no topo */
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: space-between; /* Alinha título e ações */
         }
 
         .node-title {
             font-weight: bold;
             font-size: 1rem;
             color: #e0e0e0;
+            transition: font-size 0.2s ease;
         }
 
         .node-actions {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.5rem; /* Espaçamento entre os ícones de ação */
         }
 
         .node-action-icon {
             cursor: pointer;
-            color: #a0a0a0;
+            color: #a0a0a0; /* Cor dos ícones */
             font-size: 1.1rem;
             transition: color 0.2s ease;
         }
 
         .node-action-icon:hover {
-            color: #e0e0e0;
+            color: #e0e0e0; /* Cor ao passar o mouse */
         }
 
         .node-body {
             padding: 0.75rem 1rem;
             font-size: 0.85rem;
             color: #c0c0c0;
-            flex-grow: 1;
+            flex-grow: 1; /* O corpo ocupa o espaço restante no nó */
             text-align: left;
-            overflow: hidden;
+            overflow: hidden; /* Esconde o excesso de texto */
+            transition: font-size 0.2s ease;
         }
 
         .node-description-text {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            white-space: nowrap; /* Impede quebra de linha */
+            overflow: hidden; /* Esconde o texto que não cabe */
+            text-overflow: ellipsis; /* Adiciona "..." ao final */
         }
 
         .node-port {
             width: 16px;
             height: 16px;
             background-color: #888;
-            border-radius: 50%;
+            border-radius: 50%; /* Forma circular */
             border: 2px solid #555;
-            cursor: crosshair;
-            z-index: 100;
-            position: absolute;
+            cursor: crosshair; /* Cursor para indicar conexão */
+            z-index: 100; /* Portas ficam acima do nó */
+            position: absolute; /* Posicionamento relativo ao nó */
         }
 
         .input-port {
-            top: 0px;
+            top: 0px; /* No topo do nó */
             left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #63b3ed;
+            transform: translate(-50%, -50%); /* Centraliza e move para fora */
+            background-color: #63b3ed; /* Cor para porta de entrada */
         }
 
         .output-port {
-            bottom: 0px;
+            bottom: 0px; /* Na base do nó */
             left: 50%;
-            transform: translate(-50%, 50%);
-            background-color: #f6ad55;
+            transform: translate(-50%, 50%); /* Centraliza e move para fora */
+            background-color: #f6ad55; /* Cor para porta de saída */
         }
 
-        .node-port.connecting {
+        .node-port.connecting { /* Estilo ao conectar */
             border-color: yellow;
             box-shadow: 0 0 8px yellow;
         }
 
+        /* Cores específicas para tipos de nó */
         .node-cutscene .node-header {
-            background-color: #4c51bf;
+            background-color: #4c51bf; /* Roxo para Cutscene */
         }
 
         .node-gameplay .node-header {
-            background-color: #38a169;
+            background-color: #38a169; /* Verde para Gameplay */
         }
 
         .node-decision .node-header {
-            background-color: #dd6b20;
+            background-color: #dd6b20; /* Laranja para Decisão */
         }
 
         #connectionsSvg {
@@ -196,28 +201,28 @@
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            z-index: 0;
+            pointer-events: none; /* SVG não interfere com cliques nos nós */
+            z-index: 0; /* SVG fica atrás dos nós */
         }
 
         .connection-line {
-            stroke: #63b3ed;
+            stroke: #63b3ed; /* Cor da linha de conexão */
             stroke-width: 3;
             fill: none;
         }
 
         .connection-arrow {
-            fill: #63b3ed;
+            fill: #63b3ed; /* Cor da seta da conexão */
         }
 
         .modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background-color: rgba(0, 0, 0, 0.7);
+            display: none; /* Escondido por padrão */
+            position: fixed; /* Sobrepõe o conteúdo */
+            inset: 0; /* Ocupa a tela inteira */
+            background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
             align-items: center;
             justify-content: center;
-            z-index: 1000;
+            z-index: 1000; /* Modal fica acima de tudo */
         }
 
         .modal-content {
@@ -225,12 +230,25 @@
             padding: 1.5rem;
             border-radius: 0.75rem;
             width: 90%;
-            max-width: 700px;
+            max-width: 700px; /* Largura máxima do modal */
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-            max-height: 90vh;
-            overflow-y: auto;
+            max-height: 90vh; /* Altura máxima, permite rolagem interna */
+            overflow-y: auto; /* Adiciona barra de rolagem se necessário */
             border: 1px solid #444;
+            transition: width 0.2s ease, max-width 0.2s ease, max-height 0.2s ease, padding 0.2s ease;
         }
+         .modal-content h2 {
+            font-size: 1.5rem; /* Default size for desktop */
+            transition: font-size 0.2s ease;
+        }
+
+        .modal-content label,
+        .modal-content input,
+        .modal-content textarea,
+        .modal-content button {
+            transition: font-size 0.2s ease; /* For smoother font size changes */
+        }
+
 
         .modal-content label {
             color: #c0c0c0;
@@ -243,11 +261,12 @@
             color: #e0e0e0;
             padding: 0.5rem 0.75rem;
             border-radius: 0.25rem;
-            width: 100%;
+            width: 100%; /* Ocupa a largura total */
         }
 
         .modal-content textarea {
-            min-height: 80px;
+            min-height: 80px; /* Altura mínima para a área de texto */
+            transition: min-height 0.2s ease;
         }
 
         .modal-content button {
@@ -261,59 +280,61 @@
             position: fixed;
             top: 1rem;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-50%); /* Centraliza horizontalmente */
             background-color: #333;
             color: #fff;
             padding: 0.75rem 1.5rem;
             border-radius: 0.5rem;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            z-index: 1001;
-            opacity: 0;
+            z-index: 1001; /* Acima da maioria dos elementos, abaixo do modal */
+            opacity: 0; /* Começa invisível */
             transition: opacity 0.3s ease-in-out;
-            pointer-events: none;
+            pointer-events: none; /* Não interfere com cliques */
         }
 
         #messageDisplay.show {
-            opacity: 1;
+            opacity: 1; /* Torna visível */
         }
 
-        .node-viewer-overlay {
-            position: absolute;
+        .node-viewer-overlay { /* Overlay para visualizar conteúdo/notas */
+            position: absolute; /* Posicionado em relação ao flowContainer */
             background-color: #2a2a2a;
-            border: 2px solid #63b3ed;
+            border: 2px solid #63b3ed; /* Borda azul para destaque */
             border-radius: 0.75rem;
             padding: 1.5rem;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
-            z-index: 20;
+            z-index: 20; /* Acima dos nós, abaixo do modal principal */
             width: 400px;
-            max-width: 90vw;
+            max-width: 90vw; /* Responsividade */
             max-height: 80vh;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
             color: #e0e0e0;
-            animation: fadeIn 0.2s ease-out;
+            animation: fadeIn 0.2s ease-out; /* Animação de surgimento */
+            transition: width 0.2s ease, max-width 0.2s ease, max-height 0.2s ease, padding 0.2s ease;
         }
-
         .node-viewer-overlay h3 {
             font-size: 1.5rem;
             font-weight: bold;
             color: #63b3ed;
             margin-bottom: 1rem;
+            transition: font-size 0.2s ease;
         }
-
-        .node-viewer-overlay pre {
+        .node-viewer-overlay pre { /* Para exibir texto formatado (roteiro/notas) */
             background-color: #1a1a1a;
             padding: 1rem;
             border-radius: 0.5rem;
-            white-space: pre-wrap;
-            word-break: break-word;
+            white-space: pre-wrap; /* Mantém quebras de linha e espaços */
+            word-break: break-word; /* Quebra palavras longas */
             font-family: monospace;
             font-size: 0.9rem;
             color: #c0c0c0;
-            max-height: 60vh;
+            max-height: 60vh; /* Altura máxima, permite rolagem interna */
             overflow-y: auto;
+            transition: font-size 0.2s ease;
         }
+
 
         .node-viewer-overlay .close-overlay-btn {
             position: absolute;
@@ -336,18 +357,17 @@
                 opacity: 0;
                 transform: scale(0.95);
             }
-
             to {
                 opacity: 1;
                 transform: scale(1);
             }
         }
 
-        .delete-confirm-icon {
+        .delete-confirm-icon { /* Ícone de confirmação de exclusão */
             position: absolute;
             width: 36px;
             height: 36px;
-            background-color: #ef4444;
+            background-color: #ef4444; /* Vermelho para indicar perigo */
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -355,9 +375,9 @@
             color: white;
             font-size: 1.2rem;
             cursor: pointer;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-            z-index: 1002;
-            animation: bounceIn 0.2s ease-out;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            z-index: 1002; /* Acima de quase tudo */
+            animation: bounceIn 0.2s ease-out; /* Animação de surgimento */
         }
 
         @keyframes bounceIn {
@@ -365,12 +385,114 @@
                 opacity: 0;
                 transform: scale(0.5);
             }
-
             to {
                 opacity: 1;
                 transform: scale(1);
             }
         }
+
+        /* --- Estilos Responsivos para Mobile --- */
+        @media (max-width: 767px) {
+            #appContainer {
+                flex-direction: column; /* Canvas em cima, toolbox embaixo */
+            }
+
+            #toolbox {
+                width: 100%;
+                height: auto; /* Altura se ajusta ao conteúdo */
+                min-height: 60px; /* Altura mínima para toque */
+                order: 1; /* Coloca a toolbox no final do flex container (embaixo) */
+                flex-direction: row; /* Botões em linha */
+                align-items: center; /* Centraliza botões verticalmente se tiverem alturas diferentes */
+                overflow-x: auto;  /* Rolagem horizontal para os botões */
+                overflow-y: hidden;
+                padding: 0.5rem 0.25rem; /* Menor padding vertical, algum horizontal */
+                gap: 0.5rem; /* Espaço entre os botões */
+                box-shadow: 0 -2px 5px rgba(0,0,0,0.3); /* Sombra para destacar da tela */
+                z-index: 100; /* Garante que fique acima do canvas */
+            }
+
+            /* Esconde o título da toolbox no mobile para economizar espaço */
+            #toolbox h2 {
+                display: none;
+            }
+
+            #toolbox .tool-btn {
+                padding: 0.5rem 0.75rem; /* Padding menor nos botões */
+                font-size: 0.8rem;   /* Fonte menor nos botões */
+                white-space: nowrap; /* Impede que o texto do botão quebre linha */
+            }
+
+            /* Esconde a linha divisória e o espaçador flex-grow no mobile */
+            #toolbox .border-t,
+            #toolbox .flex-grow {
+                display: none;
+            }
+
+            #flowCanvas {
+                flex-grow: 1; /* Ocupa todo o espaço vertical restante */
+                height: 100%; /* Garante que preencha o espaço do flex item */
+            }
+
+            /* Ajustes opcionais para os nós no mobile */
+            /* .node {
+                width: 200px;
+            } */
+            .node-title {
+                font-size: 0.9rem; /* Título do nó um pouco menor */
+            }
+            .node-body {
+                font-size: 0.75rem; /* Corpo do nó um pouco menor */
+            }
+            .node-action-icon {
+                font-size: 1rem; /* Ícones de ação um pouco menores */
+            }
+
+
+            /* Ajustes para modais no mobile */
+            .modal-content {
+                width: 95vw; /* Largura relativa à viewport */
+                max-width: 95vw;
+                max-height: 85vh; /* Altura relativa à viewport */
+                padding: 1rem; /* Padding interno do modal */
+            }
+            .modal-content h2 {
+                font-size: 1.25rem; /* Título do modal menor */
+            }
+            .modal-content label,
+            .modal-content input,
+            .modal-content textarea,
+            .modal-content button {
+                font-size: 0.9rem; /* Fontes nos campos do modal */
+            }
+            .modal-content textarea {
+                min-height: 60px; /* Altura mínima da área de texto */
+            }
+
+            /* Ajustes para o overlay de visualização de nó no mobile */
+            .node-viewer-overlay {
+                width: 90vw;
+                max-width: 90vw;
+                max-height: 70vh;
+                padding: 1rem;
+            }
+            .node-viewer-overlay h3 {
+                font-size: 1.1rem;
+            }
+            .node-viewer-overlay pre {
+                font-size: 0.8rem;
+            }
+
+            /* Esconde barras de rolagem da toolbox no mobile (mantém funcionalidade) */
+            #toolbox::-webkit-scrollbar {
+                display: none;
+            }
+            #toolbox {
+                -ms-overflow-style: none;  /* IE and Edge */
+                scrollbar-width: none;  /* Firefox */
+            }
+        }
+
     </style>
 </head>
 
@@ -381,20 +503,19 @@
             <button id="addCutsceneBtn" class="tool-btn bg-indigo-600 hover:bg-indigo-700">Adicionar Cena</button>
             <button id="addGameplayBtn" class="tool-btn bg-green-600 hover:bg-green-700">Adicionar Gameplay</button>
             <button id="addDecisionBtn" class="tool-btn bg-orange-600 hover:bg-orange-700">Adicionar Decisão</button>
+
             <div class="border-t border-gray-700 pt-4 mt-4 flex flex-col gap-4">
                 <button id="connectNodesBtn" class="tool-btn bg-blue-600 hover:bg-blue-700">Conectar Nós</button>
                 <button id="clearAllBtn" class="tool-btn bg-red-600 hover:bg-red-700">Limpar Tudo</button>
             </div>
-            <div class="flex-grow"></div>
-            <button id="saveBtn" class="tool-btn bg-gray-700 hover:bg-gray-600">Exportar Roteiro (JSON)</button>
-            <button id="loadBtn" class="tool-btn bg-gray-700 hover:bg-gray-600">Importar Roteiro (JSON)</button>
-            <input type="file" id="fileInput" accept=".json" class="hidden">
-        </div>
+
+            <div class="flex-grow"></div> <button id="saveBtn" class="tool-btn bg-gray-700 hover:bg-gray-600">Exportar (JSON)</button>
+            <button id="loadBtn" class="tool-btn bg-gray-700 hover:bg-gray-600">Importar (JSON)</button>
+            <input type="file" id="fileInput" accept=".json" class="hidden"> </div>
 
         <div id="flowCanvas">
             <div id="flowContainer">
-                <svg id="connectionsSvg"></svg>
-            </div>
+                <svg id="connectionsSvg"></svg> </div>
         </div>
 
         <div id="editModal" class="modal">
@@ -413,8 +534,7 @@
                     <textarea id="editContent" class="block w-full"></textarea>
                 </div>
                 <div class="mb-4">
-                    <label for="editExplanation" class="block text-sm font-bold mb-2">Explicação/Notas do Desenvolvedor
-                        (Lateral):</label>
+                    <label for="editExplanation" class="block text-sm font-bold mb-2">Explicação/Notas do Desenvolvedor (Lateral):</label>
                     <textarea id="editExplanation" class="block w-full"></textarea>
                 </div>
                 <div class="flex justify-end space-x-4">
@@ -428,6 +548,7 @@
     </div>
 
     <script>
+        // Elementos do DOM
         const flowCanvas = document.getElementById('flowCanvas');
         const flowContainer = document.getElementById('flowContainer');
         const connectionsSvg = document.getElementById('connectionsSvg');
@@ -449,90 +570,144 @@
         const fileInput = document.getElementById('fileInput');
         const messageDisplay = document.getElementById('messageDisplay');
 
-        let nodesData = [];
-        let selectedNodeId = null;
-        let draggedNodeId = null;
-        let offsetX, offsetY;
-        let isFlowContainerDragging = false;
-        let flowContainerOffsetX, flowContainerOffsetY;
+        // Estado da aplicação
+        let nodesData = []; // Array para armazenar os dados dos nós
+        let selectedNodeId = null; // ID do nó selecionado (para futuras interações)
+        let draggedNodeId = null; // ID do nó sendo arrastado
+        let offsetX, offsetY; // Deslocamento do mouse em relação ao nó arrastado
+        let isFlowContainerDragging = false; // Flag para arrastar o container principal
+        let flowContainerOffsetX, flowContainerOffsetY; // Deslocamento para o pan do container
 
-        let connectingMode = false;
-        let connectionSourceNodeId = null;
-        let tempLineElement = null;
-        let tempArrowElement = null;
+        let connectingMode = false; // Flag para o modo de conexão de nós
+        let connectionSourceNodeId = null; // ID do nó de origem da conexão
+        let tempLineElement = null; // Elemento SVG da linha temporária durante a conexão
+        let tempArrowElement = null; // Elemento SVG da seta temporária
 
-        let currentViewerOverlay = null;
+        let currentViewerOverlay = null; // Referência ao overlay de visualização de nó ativo
         let currentDeleteConfirmOverlay = null; // Referência ao overlay de confirmação de exclusão
+
+        // --- Funções de Conexão ---
 
         connectNodesBtn.addEventListener('click', () => {
             connectingMode = true;
-            connectionSourceNodeId = null;
+            connectionSourceNodeId = null; // Reseta o nó de origem
             showMessage('Modo de Conexão: Clique no nó de ORIGEM (porta de saída). Pressione ESC para cancelar.');
+            // Adiciona classe para feedback visual nas portas
             flowContainer.querySelectorAll('.node-port').forEach(port => port.classList.add('connecting'));
         });
 
+        /**
+         * Lida com cliques nas portas dos nós durante o modo de conexão.
+         * @param {string} nodeId - O ID do nó clicado.
+         * @param {string} portType - 'input' ou 'output'.
+         */
         function handlePortClick(nodeId, portType) {
             if (!connectingMode) {
-                return;
+                return; // Só funciona se o modo de conexão estiver ativo
             }
 
-            if (portType === 'output') {
+            if (portType === 'output') { // Clicou numa porta de SAÍDA (origem)
                 connectionSourceNodeId = nodeId;
-                showMessage(`Nó de origem selecionado: ${nodesData.find(n => n.id === nodeId).title}. Agora clique no nó de DESTINO (porta de entrada).`);
-            } else if (portType === 'input' && connectionSourceNodeId) {
+                const sourceNode = nodesData.find(n => n.id === nodeId);
+                showMessage(`Nó de origem selecionado: ${sourceNode.title}. Agora clique no nó de DESTINO (porta de entrada).`);
+            } else if (portType === 'input' && connectionSourceNodeId) { // Clicou numa porta de ENTRADA (destino) e já tem uma origem
                 const sourceNode = nodesData.find(n => n.id === connectionSourceNodeId);
                 const targetNode = nodesData.find(n => n.id === nodeId);
 
                 if (sourceNode && targetNode && sourceNode.id !== targetNode.id) {
+                    // Verifica se a conexão já existe
                     if (!sourceNode.outputs.includes(targetNode.id)) {
-                        sourceNode.outputs.push(targetNode.id);
+                        sourceNode.outputs.push(targetNode.id); // Adiciona o ID do nó de destino aos outputs do nó de origem
                         showMessage(`Conexão criada de "${sourceNode.title}" para "${targetNode.title}"!`);
                     } else {
                         showMessage('Esta conexão já existe.');
                     }
-                } else if (sourceNode.id === targetNode.id) {
+                } else if (sourceNode && targetNode && sourceNode.id === targetNode.id) {
                     showMessage('Não é possível conectar um nó a si mesmo.');
                 }
-                resetConnectionMode();
-                renderAll();
+                resetConnectionMode(); // Sai do modo de conexão
+                renderAll(); // Re-renderiza tudo para mostrar a nova conexão
             } else if (portType === 'input' && !connectionSourceNodeId) {
                 showMessage('Você precisa selecionar um nó de ORIGEM (porta de saída) primeiro.');
             }
         }
 
+        /**
+         * Reseta o modo de conexão, limpando variáveis e elementos temporários.
+         */
+        function resetConnectionMode() {
+            connectingMode = false;
+            connectionSourceNodeId = null;
+            if (tempLineElement) {
+                tempLineElement.remove();
+                tempLineElement = null;
+            }
+            if (tempArrowElement) {
+                tempArrowElement.remove();
+                tempArrowElement = null;
+            }
+            // Remove o feedback visual das portas
+            flowContainer.querySelectorAll('.node-port').forEach(port => port.classList.remove('connecting'));
+        }
 
+
+        // --- Funções Utilitárias ---
+        let messageTimeout = null; // Timeout para esconder a mensagem
+
+        /**
+         * Exibe uma mensagem temporária na tela.
+         * @param {string} message - A mensagem a ser exibida.
+         * @param {number} duration - Duração em milissegundos.
+         */
         function showMessage(message, duration = 3000) {
             messageDisplay.textContent = message;
             messageDisplay.classList.remove('hidden');
             messageDisplay.classList.add('show');
             if (messageTimeout) {
-                clearTimeout(messageTimeout);
+                clearTimeout(messageTimeout); // Limpa timeout anterior se houver
             }
             messageTimeout = setTimeout(() => {
                 messageDisplay.classList.remove('show');
-                messageDisplay.classList.add('hidden');
+                // Adiciona 'hidden' após a transição para evitar que o elemento ocupe espaço
+                setTimeout(() => messageDisplay.classList.add('hidden'), 300);
             }, duration);
         }
-        let messageTimeout = null;
 
+        /**
+         * Gera um ID único para os nós.
+         * @returns {string} Um ID único.
+         */
         function generateUniqueId() {
             return 'node_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
         }
 
+        // --- Funções de Importação/Exportação ---
+
+        /**
+         * Exporta os dados dos nós como um arquivo JSON.
+         */
         function exportNodesData() {
-            const dataStr = JSON.stringify(nodesData, null, 2);
+            if (nodesData.length === 0) {
+                showMessage('Não há nós para exportar.');
+                return;
+            }
+            const dataStr = JSON.stringify(nodesData, null, 2); // null, 2 para formatação bonita
             const blob = new Blob([dataStr], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'roteiro_behind_shadows.json';
+            a.download = 'roteiro_nodes.json'; // Nome do arquivo
             document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+            a.click(); // Simula o clique para iniciar o download
+            document.body.removeChild(a); // Remove o elemento 'a'
+            URL.revokeObjectURL(url); // Libera o objeto URL
             showMessage('Roteiro exportado como JSON!');
         }
 
+        /**
+         * Importa dados de nós de um arquivo JSON.
+         * @param {Event} event - O evento do input de arquivo.
+         */
         function importNodesData(event) {
             const file = event.target.files[0];
             if (!file) {
@@ -543,6 +718,7 @@
             reader.onload = (e) => {
                 try {
                     const importedData = JSON.parse(e.target.result);
+                    // Validação básica do formato importado
                     if (Array.isArray(importedData) && importedData.every(node => node.id && node.type && node.title)) {
                         nodesData = importedData;
                         renderAll();
@@ -556,43 +732,20 @@
                 }
             };
             reader.readAsText(file);
+            fileInput.value = ''; // Limpa o input para permitir re-selecionar o mesmo arquivo
         }
 
-        // Definição da função handlePortClick movida para o topo
-        function handlePortClick(nodeId, portType) {
-            if (!connectingMode) {
-                return;
-            }
 
-            if (portType === 'output') {
-                connectionSourceNodeId = nodeId;
-                showMessage(`Nó de origem selecionado: ${nodesData.find(n => n.id === nodeId).title}. Agora clique no nó de DESTINO (porta de entrada).`);
-            } else if (portType === 'input' && connectionSourceNodeId) {
-                const sourceNode = nodesData.find(n => n.id === connectionSourceNodeId);
-                const targetNode = nodesData.find(n => n.id === nodeId);
+        // --- Funções de Renderização ---
 
-                if (sourceNode && targetNode && sourceNode.id !== targetNode.id) {
-                    if (!sourceNode.outputs.includes(targetNode.id)) {
-                        sourceNode.outputs.push(targetNode.id);
-                        showMessage(`Conexão criada de "${sourceNode.title}" para "${targetNode.title}"!`);
-                    } else {
-                        showMessage('Esta conexão já existe.');
-                    }
-                } else if (sourceNode.id === targetNode.id) {
-                    showMessage('Não é possível conectar um nó a si mesmo.');
-                }
-
-                resetConnectionMode();
-                renderAll();
-            } else if (portType === 'input' && !connectionSourceNodeId) {
-                showMessage('Você precisa selecionar um nó de ORIGEM (porta de saída) primeiro.');
-            }
-        }
-
+        /**
+         * Cria e adiciona um elemento de nó ao DOM.
+         * @param {object} node - O objeto de dados do nó.
+         */
         function renderNode(node) {
             const nodeEl = document.createElement('div');
             nodeEl.id = node.id;
-            nodeEl.classList.add('node', `node-${node.type}`);
+            nodeEl.classList.add('node', `node-${node.type}`); // Adiciona classe específica do tipo
             nodeEl.style.left = `${node.x}px`;
             nodeEl.style.top = `${node.y}px`;
 
@@ -613,19 +766,24 @@
                 <div class="node-port output-port" data-port-type="output"></div>
             `;
 
+            // Event listener para arrastar o nó
             nodeEl.addEventListener('mousedown', (e) => {
+                // Não arrasta se clicar em um ícone de ação ou porta
                 if (e.target.closest('.node-action-icon') || e.target.classList.contains('node-port')) {
                     return;
                 }
                 draggedNodeId = node.id;
-                offsetX = e.clientX - nodeEl.getBoundingClientRect().left;
-                offsetY = e.clientY - nodeEl.getBoundingClientRect().top;
+                // Calcula o deslocamento do mouse em relação ao canto superior esquerdo do nó
+                const rect = nodeEl.getBoundingClientRect();
+                offsetX = e.clientX - rect.left;
+                offsetY = e.clientY - rect.top;
                 nodeEl.style.cursor = 'grabbing';
-                e.stopPropagation();
+                e.stopPropagation(); // Impede que o evento arraste o container
             });
 
+            // Event listeners para as portas
             nodeEl.querySelector('.input-port').addEventListener('click', (e) => {
-                e.stopPropagation();
+                e.stopPropagation(); // Impede que o clique na porta arraste o nó
                 handlePortClick(node.id, 'input');
             });
             nodeEl.querySelector('.output-port').addEventListener('click', (e) => {
@@ -633,6 +791,7 @@
                 handlePortClick(node.id, 'output');
             });
 
+            // Event listeners para os botões de ação
             nodeEl.querySelector('.edit-node-btn').addEventListener('click', (e) => {
                 e.stopPropagation();
                 openEditModal(node.id);
@@ -640,7 +799,7 @@
 
             nodeEl.querySelector('.delete-node-btn').addEventListener('click', (e) => {
                 e.stopPropagation();
-                showDeleteConfirm(node.id, e.currentTarget); // Chamar a confirmação visual
+                showDeleteConfirm(node.id, e.currentTarget); // Passa o botão como referência para posicionamento
             });
 
             nodeEl.querySelector('.view-content-btn').addEventListener('click', (e) => {
@@ -656,13 +815,20 @@
             flowContainer.appendChild(nodeEl);
         }
 
+        /**
+         * Renderiza todos os nós na tela.
+         */
         function renderAllNodes() {
+            // Limpa nós existentes antes de renderizar
             flowContainer.querySelectorAll('.node').forEach(el => el.remove());
             nodesData.forEach(node => renderNode(node));
         }
 
+        /**
+         * Renderiza todas as conexões entre os nós.
+         */
         function renderConnections() {
-            connectionsSvg.innerHTML = '';
+            connectionsSvg.innerHTML = ''; // Limpa conexões SVG existentes
 
             nodesData.forEach(sourceNode => {
                 sourceNode.outputs.forEach(targetNodeId => {
@@ -672,34 +838,58 @@
                         const targetEl = document.getElementById(targetNode.id);
 
                         if (sourceEl && targetEl) {
-                            const sourceRect = sourceEl.getBoundingClientRect();
-                            const targetRect = targetEl.getBoundingClientRect();
+                            // Pega as posições das portas relativas ao flowContainer
                             const containerRect = flowContainer.getBoundingClientRect();
 
-                            const startX = sourceRect.left + sourceRect.width / 2 - containerRect.left;
-                            const startY = sourceRect.top + sourceRect.height - containerRect.top;
+                            const sourcePortEl = sourceEl.querySelector('.output-port');
+                            const targetPortEl = targetEl.querySelector('.input-port');
 
-                            const endX = targetRect.left + targetRect.width / 2 - containerRect.left;
-                            const endY = targetRect.top - containerRect.top;
+                            const sourcePortRect = sourcePortEl.getBoundingClientRect();
+                            const targetPortRect = targetPortEl.getBoundingClientRect();
 
-                            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-                            line.setAttribute('x1', startX);
-                            line.setAttribute('y1', startY);
-                            line.setAttribute('x2', endX);
-                            line.setAttribute('y2', endY);
+                            // Ponto central da porta de saída
+                            const startX = sourcePortRect.left + sourcePortRect.width / 2 - containerRect.left;
+                            const startY = sourcePortRect.top + sourcePortRect.height / 2 - containerRect.top;
+
+                            // Ponto central da porta de entrada
+                            const endX = targetPortRect.left + targetPortRect.width / 2 - containerRect.left;
+                            const endY = targetPortRect.top + targetPortRect.height / 2 - containerRect.top;
+
+
+                            // Desenha a linha
+                            const line = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                            // Curva de Bézier para uma aparência mais suave
+                            const dx = Math.abs(startX - endX) * 0.6; // Controle da curvatura
+                            const dy = Math.abs(startY - endY) * 0.1; // Controle vertical da curvatura para evitar sobreposição com a porta
+                            const pathData = `M ${startX} ${startY} C ${startX} ${startY + dy + (startY < endY ? 30 : -30)}, ${endX} ${endY - dy - (startY < endY ? 30 : -30)}, ${endX} ${endY}`;
+
+                            line.setAttribute('d', pathData);
                             line.classList.add('connection-line');
                             connectionsSvg.appendChild(line);
 
+                            // Desenha a seta na ponta da linha
                             const arrowSize = 8;
-                            const angle = Math.atan2(endY - startY, endX - startX);
-                            const arrowX = endX - arrowSize * Math.cos(angle);
-                            const arrowY = endY - arrowSize * Math.sin(angle);
+                            // Calcula o ângulo da tangente no final da curva de Bézier para orientar a seta corretamente
+                            // Ponto de controle final: (endX, endY - dy - (startY < endY ? 30 : -30))
+                            // Ponto final: (endX, endY)
+                            const angle = Math.atan2(endY - (endY - dy - (startY < endY ? 30 : -30)), endX - endX); // Simplificado, idealmente derivar a curva
+
+                            let effectiveAngle = Math.atan2(endY - (startY + dy + (startY < endY ? 30 : -30)), endX - startX); // Aproximação
+                             if (Math.abs(endX - startX) < 1) { // Linha quase vertical
+                                effectiveAngle = (endY > startY) ? Math.PI / 2 : -Math.PI / 2;
+                            } else {
+                                // Usar o ponto de controle para melhor direção da seta
+                                const cp2x = endX;
+                                const cp2y = endY - dy - (startY < endY ? 30 : -30);
+                                effectiveAngle = Math.atan2(endY - cp2y, endX - cp2x);
+                            }
+
 
                             const arrow = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
                             arrow.setAttribute('points', `
-                                ${arrowX + arrowSize * Math.cos(angle + Math.PI / 2)},${arrowY + arrowSize * Math.sin(angle + Math.PI / 2)}
                                 ${endX},${endY}
-                                ${arrowX + arrowSize * Math.cos(angle - Math.PI / 2)},${arrowY + arrowSize * Math.sin(angle - Math.PI / 2)}
+                                ${endX - arrowSize * Math.cos(effectiveAngle - Math.PI / 6)},${endY - arrowSize * Math.sin(effectiveAngle - Math.PI / 6)}
+                                ${endX - arrowSize * Math.cos(effectiveAngle + Math.PI / 6)},${endY - arrowSize * Math.sin(effectiveAngle + Math.PI / 6)}
                             `);
                             arrow.classList.add('connection-arrow');
                             connectionsSvg.appendChild(arrow);
@@ -709,27 +899,33 @@
             });
         }
 
+        /**
+         * Renderiza todos os nós e conexões.
+         */
         function renderAll() {
             renderAllNodes();
             renderConnections();
         }
 
+        // --- Event Listeners Globais para Arrastar e Soltar ---
+
+        // Arrastar o container principal (pan)
         flowContainer.addEventListener('mousedown', (e) => {
-            if (e.target.closest('.node') || e.target === connectionsSvg) {
-                return;
+            if (e.target === flowContainer) {
+                isFlowContainerDragging = true;
+                flowContainer.classList.add('dragging');
+                flowContainerOffsetX = e.clientX - parseFloat(flowContainer.style.left || 0);
+                flowContainerOffsetY = e.clientY - parseFloat(flowContainer.style.top || 0);
             }
-            isFlowContainerDragging = true;
-            flowContainer.classList.add('dragging');
-            flowContainerOffsetX = e.clientX - flowContainer.getBoundingClientRect().left;
-            flowContainerOffsetY = e.clientY - flowContainer.getBoundingClientRect().top;
         });
 
         window.addEventListener('mousemove', (e) => {
-            if (draggedNodeId) {
+            if (draggedNodeId) { // Se estiver arrastando um nó
                 const nodeEl = document.getElementById(draggedNodeId);
                 if (nodeEl) {
-                    const newX = e.clientX - offsetX - flowContainer.getBoundingClientRect().left;
-                    const newY = e.clientY - offsetY - flowContainer.getBoundingClientRect().top;
+                    const containerRect = flowContainer.getBoundingClientRect();
+                    const newX = e.clientX - offsetX - containerRect.left;
+                    const newY = e.clientY - offsetY - containerRect.top;
 
                     nodeEl.style.left = `${newX}px`;
                     nodeEl.style.top = `${newY}px`;
@@ -740,37 +936,40 @@
                         nodesData[nodeIndex].y = newY;
                     }
                     renderConnections();
+
                     if (currentViewerOverlay && currentViewerOverlay.dataset.nodeId === draggedNodeId) {
                         updateOverlayPosition(currentViewerOverlay, nodeEl);
                     }
                 }
-            } else if (isFlowContainerDragging) {
+            } else if (isFlowContainerDragging) { // Se estiver arrastando o container (pan)
                 const newX = e.clientX - flowContainerOffsetX;
                 const newY = e.clientY - flowContainerOffsetY;
 
                 flowContainer.style.left = `${newX}px`;
                 flowContainer.style.top = `${newY}px`;
                 renderConnections();
+
                 if (currentViewerOverlay) {
                     const associatedNodeEl = document.getElementById(currentViewerOverlay.dataset.nodeId);
                     if (associatedNodeEl) {
                         updateOverlayPosition(currentViewerOverlay, associatedNodeEl);
                     }
                 }
-            } else if (connectingMode && connectionSourceNodeId) {
+            } else if (connectingMode && connectionSourceNodeId) { // Se estiver desenhando uma conexão
                 const sourceNodeEl = document.getElementById(connectionSourceNodeId);
                 if (sourceNodeEl) {
-                    const sourceRect = sourceNodeEl.getBoundingClientRect();
+                    const sourcePortEl = sourceNodeEl.querySelector('.output-port');
+                    const sourcePortRect = sourcePortEl.getBoundingClientRect();
                     const containerRect = flowContainer.getBoundingClientRect();
 
-                    const startX = sourceRect.left + sourceRect.width / 2 - containerRect.left;
-                    const startY = sourceRect.top + sourceRect.height - containerRect.top;
+                    const startX = sourcePortRect.left + sourcePortRect.width / 2 - containerRect.left;
+                    const startY = sourcePortRect.top + sourcePortRect.height / 2 - containerRect.top;
 
                     const mouseX = e.clientX - containerRect.left;
                     const mouseY = e.clientY - containerRect.top;
 
                     if (!tempLineElement) {
-                        tempLineElement = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                        tempLineElement = document.createElementNS('http://www.w3.org/2000/svg', 'path');
                         tempLineElement.classList.add('connection-line');
                         connectionsSvg.appendChild(tempLineElement);
 
@@ -779,20 +978,25 @@
                         connectionsSvg.appendChild(tempArrowElement);
                     }
 
-                    tempLineElement.setAttribute('x1', startX);
-                    tempLineElement.setAttribute('y1', startY);
-                    tempLineElement.setAttribute('x2', mouseX);
-                    tempLineElement.setAttribute('y2', mouseY);
+                    const dx = Math.abs(startX - mouseX) * 0.6;
+                    const dy = Math.abs(startY - mouseY) * 0.1;
+                    const pathData = `M ${startX} ${startY} C ${startX} ${startY + dy + (startY < mouseY ? 30 : -30)}, ${mouseX} ${mouseY - dy - (startY < mouseY ? 30 : -30)}, ${mouseX} ${mouseY}`;
+                    tempLineElement.setAttribute('d', pathData);
+
+                    let effectiveAngle = Math.atan2(mouseY - (startY + dy + (startY < mouseY ? 30 : -30)), mouseX - startX);
+                     if (Math.abs(mouseX - startX) < 1) {
+                        effectiveAngle = (mouseY > startY) ? Math.PI / 2 : -Math.PI / 2;
+                    } else {
+                        const cp2x = mouseX;
+                        const cp2y = mouseY - dy - (startY < mouseY ? 30 : -30);
+                        effectiveAngle = Math.atan2(mouseY - cp2y, mouseX - cp2x);
+                    }
 
                     const arrowSize = 8;
-                    const angle = Math.atan2(mouseY - startY, mouseX - startX);
-                    const arrowX = mouseX - arrowSize * Math.cos(angle);
-                    const arrowY = mouseY - arrowSize * Math.sin(angle);
-
                     tempArrowElement.setAttribute('points', `
-                        ${arrowX + arrowSize * Math.cos(angle + Math.PI / 2)},${arrowY + arrowSize * Math.sin(angle + Math.PI / 2)}
                         ${mouseX},${mouseY}
-                        ${arrowX + arrowSize * Math.cos(angle - Math.PI / 2)},${arrowY + arrowSize * Math.sin(angle - Math.PI / 2)}
+                        ${mouseX - arrowSize * Math.cos(effectiveAngle - Math.PI / 6)},${mouseY - arrowSize * Math.sin(effectiveAngle - Math.PI / 6)}
+                        ${mouseX - arrowSize * Math.cos(effectiveAngle + Math.PI / 6)},${mouseY - arrowSize * Math.sin(effectiveAngle + Math.PI / 6)}
                     `);
                 }
             }
@@ -804,9 +1008,12 @@
             flowContainer.classList.remove('dragging');
             flowContainer.querySelectorAll('.node').forEach(el => el.style.cursor = 'grab');
 
-            // Clicou fora do overlay de confirmação? Cancela a exclusão.
-            if (currentDeleteConfirmOverlay && !currentDeleteConfirmOverlay.contains(e.target) && e.target !== document.getElementById(currentDeleteConfirmOverlay.dataset.sourceBtnId)) {
-                closeDeleteConfirm();
+            if (currentDeleteConfirmOverlay && !currentDeleteConfirmOverlay.contains(e.target)) {
+                const sourceBtnId = currentDeleteConfirmOverlay.dataset.sourceBtnId;
+                const sourceButton = document.getElementById(sourceBtnId);
+                if (!sourceButton || !sourceButton.contains(e.target)) {
+                     closeDeleteConfirm();
+                }
             }
         });
 
@@ -819,23 +1026,17 @@
                 if (currentDeleteConfirmOverlay) {
                     closeDeleteConfirm();
                 }
+                if (currentViewerOverlay) {
+                    closeNodeViewer();
+                }
+                 if (editModal.style.display === 'flex') {
+                    editModal.style.display = 'none';
+                }
             }
         });
 
-        function resetConnectionMode() {
-            connectingMode = false;
-            connectionSourceNodeId = null;
-            if (tempLineElement) {
-                tempLineElement.remove();
-                tempLineElement = null;
-            }
-            if (tempArrowElement) {
-                tempArrowElement.remove();
-                tempArrowElement = null;
-            }
-            flowContainer.querySelectorAll('.node-port').forEach(port => port.classList.remove('connecting'));
-        }
 
+        // --- Funções do Modal de Edição ---
         let currentEditingNodeId = null;
 
         function openEditModal(nodeId) {
@@ -872,20 +1073,31 @@
             }
         });
 
+        // --- Funções de Manipulação de Nós (Adicionar, Excluir) ---
+
         function addNode(type) {
+            const canvasRect = flowCanvas.getBoundingClientRect();
+            const containerStyle = window.getComputedStyle(flowContainer);
+            const containerLeft = parseFloat(containerStyle.left) || 0;
+            const containerTop = parseFloat(containerStyle.top) || 0;
+
+            const initialX = (canvasRect.width / 2) - containerLeft - 125;
+            const initialY = (canvasRect.height / 2) - containerTop - 60;
+
             const newNode = {
                 id: generateUniqueId(),
                 type: type,
-                title: `Novo Nó de ${type.charAt(0).toUpperCase() + type.slice(1)}`,
-                description: `Descrição do novo nó de ${type}.`,
-                content: `Conteúdo principal do roteiro para o nó de ${type}.`,
-                explanation: `Notas do desenvolvedor para o nó de ${type}.`,
-                x: 100 + Math.random() * 200,
-                y: 100 + Math.random() * 200,
+                title: `Novo Nó ${type.charAt(0).toUpperCase() + type.slice(1)}`,
+                description: `Descrição do nó de ${type}.`,
+                content: `Conteúdo do roteiro para ${type}.`,
+                explanation: `Notas para ${type}.`,
+                x: initialX + (Math.random() * 80 - 40),
+                y: initialY + (Math.random() * 80 - 40),
                 outputs: []
             };
             nodesData.push(newNode);
             renderAll();
+            showMessage(`Nó de ${type} adicionado!`);
         }
 
         addCutsceneBtn.addEventListener('click', () => addNode('cutscene'));
@@ -910,10 +1122,17 @@
 
             const confirmOverlay = document.createElement('div');
             confirmOverlay.classList.add('delete-confirm-icon');
-            confirmOverlay.innerHTML = '<i class="fas fa-trash-alt"></i>';
+            confirmOverlay.innerHTML = '<i class="fas fa-check"></i>';
+            confirmOverlay.title = "Confirmar Exclusão";
             confirmOverlay.dataset.nodeId = nodeId;
-            confirmOverlay.dataset.sourceBtnId = sourceButton.id || generateUniqueId();
-            sourceButton.id = confirmOverlay.dataset.sourceBtnId;
+
+            const sourceBtnId = sourceButton.id || `delete-btn-${nodeId}`;
+            sourceButton.id = sourceBtnId;
+            confirmOverlay.dataset.sourceBtnId = sourceBtnId;
+
+
+            const nodeEl = document.getElementById(nodeId);
+            if (!nodeEl) return;
 
             const btnRect = sourceButton.getBoundingClientRect();
             const flowContainerRect = flowContainer.getBoundingClientRect();
@@ -938,17 +1157,26 @@
         }
 
         clearAllBtn.addEventListener('click', () => {
-            if (confirm('Tem certeza que deseja limpar todo o roteiro? Esta ação não pode ser desfeita.')) {
-                nodesData = [];
-                renderAll();
-                closeNodeViewer();
-                closeDeleteConfirm();
-            }
+            // Idealmente, usar um modal customizado para confirmação.
+            // O 'confirm' pode ser bloqueado ou ter comportamento inesperado em iframes.
+            // Para este exemplo, vamos simular uma confirmação com showMessage.
+            // Se quiser uma confirmação real, um modal customizado seria necessário.
+            showMessage("Confirmação: Limpar tudo? (Implementar modal customizado)", 5000);
+            // Exemplo de como seria com um modal (pseudocódigo):
+            // showCustomConfirm("Tem certeza que deseja limpar tudo?", () => {
+            //     nodesData = [];
+            //     renderAll();
+            //     closeNodeViewer();
+            //     closeDeleteConfirm();
+            //     showMessage('Roteiro limpo.');
+            // });
         });
 
         saveBtn.addEventListener('click', exportNodesData);
         loadBtn.addEventListener('click', () => fileInput.click());
         fileInput.addEventListener('change', importNodesData);
+
+        // --- Funções do Visualizador de Nó (Overlay) ---
 
         function openNodeViewer(nodeId, contentType) {
             closeNodeViewer();
@@ -968,12 +1196,13 @@
             overlay.appendChild(title);
 
             const contentPre = document.createElement('pre');
-            contentPre.textContent = contentType === 'content' ? node.content : node.explanation;
+            contentPre.textContent = contentType === 'content' ? node.content : (node.explanation || "Nenhuma nota adicional.");
             overlay.appendChild(contentPre);
 
             const closeBtn = document.createElement('button');
             closeBtn.classList.add('close-overlay-btn');
             closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+            closeBtn.title = "Fechar Visualizador (ESC)";
             closeBtn.addEventListener('click', closeNodeViewer);
             overlay.appendChild(closeBtn);
 
@@ -984,29 +1213,62 @@
         }
 
         function updateOverlayPosition(overlayEl, nodeEl) {
+            if (!overlayEl || !nodeEl) return;
+
             const nodeRect = nodeEl.getBoundingClientRect();
-            const containerRect = flowContainer.getBoundingClientRect();
+            const flowCanvasRect = flowCanvas.getBoundingClientRect(); // Usar flowCanvas para limites visíveis
+            const flowContainerStyle = window.getComputedStyle(flowContainer);
+            const flowContainerLeft = parseFloat(flowContainerStyle.left) || 0;
+            const flowContainerTop = parseFloat(flowContainerStyle.top) || 0;
+
             const overlayWidth = overlayEl.offsetWidth;
             const overlayHeight = overlayEl.offsetHeight;
 
-            let newX = nodeRect.left + nodeRect.width - containerRect.left + 20;
-            let newY = nodeRect.top - containerRect.top;
+            // Posição inicial preferida: à direita do nó
+            let newX = (nodeRect.left - flowContainerLeft) + nodeRect.width + 15; // Espaço de 15px
+            let newY = (nodeRect.top - flowContainerTop);
 
-            if (newX + overlayWidth > containerRect.width + flowContainer.scrollLeft) {
-                newX = nodeRect.left - containerRect.left - overlayWidth - 20;
+            // Checar limites em relação ao flowCanvas (viewport do flowContainer)
+            // Coordenadas do overlay relativas ao flowContainer
+            const overlayRightEdge = newX + overlayWidth;
+            const overlayBottomEdge = newY + overlayHeight;
+
+            // Limites visíveis do flowContainer dentro do flowCanvas
+            // (considerando o pan do flowContainer)
+            const visibleRightBound = flowCanvasRect.width - flowContainerLeft + (flowContainer.scrollLeftClient || 0);
+            const visibleLeftBound = -flowContainerLeft + (flowContainer.scrollLeftClient || 0);
+            const visibleBottomBound = flowCanvasRect.height - flowContainerTop + (flowContainer.scrollTopClient || 0);
+            const visibleTopBound = -flowContainerTop + (flowContainer.scrollTopClient || 0);
+
+
+            // Se sair pela direita, tenta colocar à esquerda
+            if (overlayRightEdge > visibleRightBound) {
+                newX = (nodeRect.left - flowContainerLeft) - overlayWidth - 15;
+            }
+            // Se ainda sair pela esquerda (nó muito largo ou tela muito pequena)
+            if (newX < visibleLeftBound) {
+                newX = visibleLeftBound + 5; // Pequeno offset da borda
+            }
+             // Se ainda sair pela direita após ajuste (tela muito estreita)
+            if (newX + overlayWidth > visibleRightBound) {
+                newX = visibleRightBound - overlayWidth - 5;
             }
 
-            if (newY < 0) {
-                newY = 0;
+
+            // Se sair por baixo
+            if (overlayBottomEdge > visibleBottomBound) {
+                newY = visibleBottomBound - overlayHeight - 5;
             }
-            if (newY + overlayHeight > containerRect.height + flowContainer.scrollTop) {
-                newY = containerRect.height + flowContainer.scrollTop - overlayHeight - 20;
-                if (newY < 0) newY = 0;
+            // Se sair por cima
+            if (newY < visibleTopBound) {
+                newY = visibleTopBound + 5;
             }
+
 
             overlayEl.style.left = `${newX}px`;
             overlayEl.style.top = `${newY}px`;
         }
+
 
         function closeNodeViewer() {
             if (currentViewerOverlay) {
@@ -1015,7 +1277,17 @@
             }
         }
 
-        window.onload = renderAll;
+        // Inicialização
+        window.onload = () => {
+            renderAll();
+            if (nodesData.length === 0) {
+                const canvasRect = flowCanvas.getBoundingClientRect();
+                const initialLeft = Math.max(10, canvasRect.width / 10);
+                const initialTop = Math.max(10, canvasRect.height / 10);
+                flowContainer.style.left = `${initialLeft}px`;
+                flowContainer.style.top = `${initialTop}px`;
+            }
+        };
     </script>
 </body>
 

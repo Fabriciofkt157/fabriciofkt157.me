@@ -244,6 +244,31 @@
         #messageDisplay.show {
             opacity: 1;
         }
+
+        #viewerModal .viewer-section {
+            background-color: #3a3a3a;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #555;
+        }
+        #viewerModal .viewer-section h3 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #63b3ed;
+            margin-bottom: 0.5rem;
+        }
+        #viewerModal .viewer-section p {
+            white-space: pre-wrap; /* Preserve line breaks */
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #c0c0c0;
+        }
+        #viewerModal .viewer-nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -258,6 +283,7 @@
                 <button id="clearAllBtn" class="tool-btn bg-red-600 hover:bg-red-700">Limpar Tudo</button>
             </div>
             <div class="flex-grow"></div>
+            <button id="viewRoteiroBtn" class="tool-btn bg-purple-600 hover:bg-purple-700">Visualizar Roteiro</button>
             <button id="saveBtn" class="tool-btn bg-gray-700 hover:bg-gray-600">Exportar Roteiro (JSON)</button>
             <button id="loadBtn" class="tool-btn bg-gray-700 hover:bg-gray-600">Importar Roteiro (JSON)</button>
             <input type="file" id="fileInput" accept=".json" class="hidden">
@@ -295,6 +321,29 @@
             </div>
         </div>
 
+        <div id="viewerModal" class="modal">
+            <div class="modal-content">
+                <h2 id="viewerTitle" class="text-2xl font-bold mb-4 text-purple-300"></h2>
+                <div class="viewer-section">
+                    <h3>Descrição</h3>
+                    <p id="viewerDescription"></p>
+                </div>
+                <div class="viewer-section">
+                    <h3>Conteúdo Principal (Roteiro)</h3>
+                    <p id="viewerContent"></p>
+                </div>
+                <div class="viewer-section">
+                    <h3>Explicação/Notas do Desenvolvedor</h3>
+                    <p id="viewerExplanation"></p>
+                </div>
+                <div class="viewer-nav-buttons">
+                    <button id="prevNodeBtn" class="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-md">Anterior</button>
+                    <button id="closeViewerBtn" class="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md">Fechar</button>
+                    <button id="nextNodeBtn" class="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-md">Próximo</button>
+                </div>
+            </div>
+        </div>
+
         <div id="messageDisplay" class="hidden"></div>
     </div>
 
@@ -320,6 +369,16 @@
         const fileInput = document.getElementById('fileInput');
         const messageDisplay = document.getElementById('messageDisplay');
 
+        const viewRoteiroBtn = document.getElementById('viewRoteiroBtn');
+        const viewerModal = document.getElementById('viewerModal');
+        const viewerTitle = document.getElementById('viewerTitle');
+        const viewerDescription = document.getElementById('viewerDescription');
+        const viewerContent = document.getElementById('viewerContent');
+        const viewerExplanation = document.getElementById('viewerExplanation');
+        const prevNodeBtn = document.getElementById('prevNodeBtn');
+        const nextNodeBtn = document.getElementById('nextNodeBtn');
+        const closeViewerBtn = document.getElementById('closeViewerBtn');
+
         let nodesData = [];
         let selectedNodeId = null;
         let draggedNodeId = null;
@@ -331,6 +390,8 @@
         let connectionSourceNodeId = null;
         let tempLineElement = null;
         let tempArrowElement = null;
+
+        let currentViewerNodeIndex = 0;
 
         function showMessage(message, duration = 3000) {
             messageDisplay.textContent = message;
@@ -717,6 +778,56 @@
         saveBtn.addEventListener('click', exportNodesData);
         loadBtn.addEventListener('click', () => fileInput.click());
         fileInput.addEventListener('change', importNodesData);
+
+        // --- Funções do Visualizador ---
+        function openViewerModal() {
+            if (nodesData.length === 0) {
+                showMessage('Nenhum nó para visualizar. Adicione alguns nós primeiro!');
+                return;
+            }
+            currentViewerNodeIndex = 0; // Começa sempre do primeiro nó
+            updateViewerContent();
+            viewerModal.style.display = 'flex';
+        }
+
+        function updateViewerContent() {
+            if (nodesData.length === 0) {
+                viewerTitle.textContent = 'Nenhum Conteúdo';
+                viewerDescription.textContent = '';
+                viewerContent.textContent = 'Adicione nós ao canvas para visualizá-los aqui.';
+                viewerExplanation.textContent = '';
+                prevNodeBtn.disabled = true;
+                nextNodeBtn.disabled = true;
+                return;
+            }
+
+            const node = nodesData[currentViewerNodeIndex];
+            viewerTitle.textContent = node.title;
+            viewerDescription.textContent = node.description;
+            viewerContent.textContent = node.content;
+            viewerExplanation.textContent = node.explanation || 'Nenhuma nota do desenvolvedor.';
+
+            prevNodeBtn.disabled = currentViewerNodeIndex === 0;
+            nextNodeBtn.disabled = currentViewerNodeIndex === nodesData.length - 1;
+        }
+
+        function navigateViewer(direction) {
+            currentViewerNodeIndex += direction;
+            updateViewerContent();
+        }
+
+        viewRoteiroBtn.addEventListener('click', openViewerModal);
+        prevNodeBtn.addEventListener('click', () => navigateViewer(-1));
+        nextNodeBtn.addEventListener('click', () => navigateViewer(1));
+        closeViewerBtn.addEventListener('click', () => {
+            viewerModal.style.display = 'none';
+        });
+
+        viewerModal.addEventListener('click', (e) => {
+            if (e.target === viewerModal) {
+                viewerModal.style.display = 'none';
+            }
+        });
 
         window.onload = renderAll;
     </script>

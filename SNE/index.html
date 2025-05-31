@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,6 +32,7 @@
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
             flex-shrink: 0;
         }
+
         .tool-btn {
             padding: 0.75rem 1rem;
             border-radius: 0.5rem;
@@ -41,9 +43,11 @@
             color: white;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
+
         .tool-btn:hover {
             transform: translateY(-1px);
         }
+
         .tool-btn:active {
             transform: translateY(0);
             box-shadow: none;
@@ -57,6 +61,7 @@
             background-image: radial-gradient(#333 1px, transparent 1px);
             background-size: 20px 20px;
         }
+
         #flowContainer {
             position: absolute;
             width: 10000px;
@@ -65,6 +70,7 @@
             left: 0;
             cursor: grab;
         }
+
         #flowContainer.dragging {
             cursor: grabbing;
         }
@@ -85,9 +91,11 @@
             user-select: none;
             z-index: 10;
         }
+
         .node:active {
             cursor: grabbing;
         }
+
         .node.selected {
             border-color: #63b3ed;
             box-shadow: 0 0 15px rgba(99, 179, 237, 0.7);
@@ -102,6 +110,7 @@
             align-items: center;
             justify-content: space-between;
         }
+
         .node-title {
             font-weight: bold;
             font-size: 1rem;
@@ -112,12 +121,14 @@
             display: flex;
             gap: 0.5rem;
         }
+
         .node-action-icon {
             cursor: pointer;
             color: #a0a0a0;
             font-size: 1.1rem;
             transition: color 0.2s ease;
         }
+
         .node-action-icon:hover {
             color: #e0e0e0;
         }
@@ -130,6 +141,7 @@
             text-align: left;
             overflow: hidden;
         }
+
         .node-description-text {
             white-space: nowrap;
             overflow: hidden;
@@ -146,26 +158,37 @@
             z-index: 100;
             position: absolute;
         }
+
         .input-port {
             top: 0px;
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: #63b3ed;
         }
+
         .output-port {
             bottom: 0px;
             left: 50%;
             transform: translate(-50%, 50%);
             background-color: #f6ad55;
         }
+
         .node-port.connecting {
             border-color: yellow;
             box-shadow: 0 0 8px yellow;
         }
 
-        .node-cutscene .node-header { background-color: #4c51bf; }
-        .node-gameplay .node-header { background-color: #38a169; }
-        .node-decision .node-header { background-color: #dd6b20; }
+        .node-cutscene .node-header {
+            background-color: #4c51bf;
+        }
+
+        .node-gameplay .node-header {
+            background-color: #38a169;
+        }
+
+        .node-decision .node-header {
+            background-color: #dd6b20;
+        }
 
         #connectionsSvg {
             position: absolute;
@@ -176,11 +199,13 @@
             pointer-events: none;
             z-index: 0;
         }
+
         .connection-line {
             stroke: #63b3ed;
             stroke-width: 3;
             fill: none;
         }
+
         .connection-arrow {
             fill: #63b3ed;
         }
@@ -194,6 +219,7 @@
             justify-content: center;
             z-index: 1000;
         }
+
         .modal-content {
             background-color: #2a2a2a;
             padding: 1.5rem;
@@ -205,10 +231,13 @@
             overflow-y: auto;
             border: 1px solid #444;
         }
+
         .modal-content label {
             color: #c0c0c0;
         }
-        .modal-content input, .modal-content textarea {
+
+        .modal-content input,
+        .modal-content textarea {
             background-color: #3a3a3a;
             border: 1px solid #555;
             color: #e0e0e0;
@@ -216,9 +245,11 @@
             border-radius: 0.25rem;
             width: 100%;
         }
+
         .modal-content textarea {
             min-height: 80px;
         }
+
         .modal-content button {
             padding: 0.6rem 1.2rem;
             border-radius: 0.5rem;
@@ -241,6 +272,7 @@
             transition: opacity 0.3s ease-in-out;
             pointer-events: none;
         }
+
         #messageDisplay.show {
             opacity: 1;
         }
@@ -294,13 +326,21 @@
             cursor: pointer;
             transition: color 0.2s ease;
         }
+
         .node-viewer-overlay .close-overlay-btn:hover {
             color: #e0e0e0;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .delete-confirm-icon {
@@ -321,11 +361,19 @@
         }
 
         @keyframes bounceIn {
-            from { transform: scale(0.5); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
     </style>
 </head>
+
 <body>
     <div id="appContainer">
         <div id="toolbox">
@@ -365,7 +413,8 @@
                     <textarea id="editContent" class="block w-full"></textarea>
                 </div>
                 <div class="mb-4">
-                    <label for="editExplanation" class="block text-sm font-bold mb-2">Explicação/Notas do Desenvolvedor (Lateral):</label>
+                    <label for="editExplanation" class="block text-sm font-bold mb-2">Explicação/Notas do Desenvolvedor
+                        (Lateral):</label>
                     <textarea id="editExplanation" class="block w-full"></textarea>
                 </div>
                 <div class="flex justify-end space-x-4">
@@ -413,7 +462,44 @@
         let tempArrowElement = null;
 
         let currentViewerOverlay = null;
-        let currentDeleteConfirmOverlay = null;
+        let currentDeleteConfirmOverlay = null; // Referência ao overlay de confirmação de exclusão
+
+        connectNodesBtn.addEventListener('click', () => {
+            connectingMode = true;
+            connectionSourceNodeId = null;
+            showMessage('Modo de Conexão: Clique no nó de ORIGEM (porta de saída). Pressione ESC para cancelar.');
+            flowContainer.querySelectorAll('.node-port').forEach(port => port.classList.add('connecting'));
+        });
+
+        function handlePortClick(nodeId, portType) {
+            if (!connectingMode) {
+                return;
+            }
+
+            if (portType === 'output') {
+                connectionSourceNodeId = nodeId;
+                showMessage(`Nó de origem selecionado: ${nodesData.find(n => n.id === nodeId).title}. Agora clique no nó de DESTINO (porta de entrada).`);
+            } else if (portType === 'input' && connectionSourceNodeId) {
+                const sourceNode = nodesData.find(n => n.id === connectionSourceNodeId);
+                const targetNode = nodesData.find(n => n.id === nodeId);
+
+                if (sourceNode && targetNode && sourceNode.id !== targetNode.id) {
+                    if (!sourceNode.outputs.includes(targetNode.id)) {
+                        sourceNode.outputs.push(targetNode.id);
+                        showMessage(`Conexão criada de "${sourceNode.title}" para "${targetNode.title}"!`);
+                    } else {
+                        showMessage('Esta conexão já existe.');
+                    }
+                } else if (sourceNode.id === targetNode.id) {
+                    showMessage('Não é possível conectar um nó a si mesmo.');
+                }
+                resetConnectionMode();
+                renderAll();
+            } else if (portType === 'input' && !connectionSourceNodeId) {
+                showMessage('Você precisa selecionar um nó de ORIGEM (porta de saída) primeiro.');
+            }
+        }
+
 
         function showMessage(message, duration = 3000) {
             messageDisplay.textContent = message;
@@ -472,6 +558,37 @@
             reader.readAsText(file);
         }
 
+        // Definição da função handlePortClick movida para o topo
+        function handlePortClick(nodeId, portType) {
+            if (!connectingMode) {
+                return;
+            }
+
+            if (portType === 'output') {
+                connectionSourceNodeId = nodeId;
+                showMessage(`Nó de origem selecionado: ${nodesData.find(n => n.id === nodeId).title}. Agora clique no nó de DESTINO (porta de entrada).`);
+            } else if (portType === 'input' && connectionSourceNodeId) {
+                const sourceNode = nodesData.find(n => n.id === connectionSourceNodeId);
+                const targetNode = nodesData.find(n => n.id === nodeId);
+
+                if (sourceNode && targetNode && sourceNode.id !== targetNode.id) {
+                    if (!sourceNode.outputs.includes(targetNode.id)) {
+                        sourceNode.outputs.push(targetNode.id);
+                        showMessage(`Conexão criada de "${sourceNode.title}" para "${targetNode.title}"!`);
+                    } else {
+                        showMessage('Esta conexão já existe.');
+                    }
+                } else if (sourceNode.id === targetNode.id) {
+                    showMessage('Não é possível conectar um nó a si mesmo.');
+                }
+
+                resetConnectionMode();
+                renderAll();
+            } else if (portType === 'input' && !connectionSourceNodeId) {
+                showMessage('Você precisa selecionar um nó de ORIGEM (porta de saída) primeiro.');
+            }
+        }
+
         function renderNode(node) {
             const nodeEl = document.createElement('div');
             nodeEl.id = node.id;
@@ -523,7 +640,7 @@
 
             nodeEl.querySelector('.delete-node-btn').addEventListener('click', (e) => {
                 e.stopPropagation();
-                showDeleteConfirm(node.id, e.currentTarget);
+                showDeleteConfirm(node.id, e.currentTarget); // Chamar a confirmação visual
             });
 
             nodeEl.querySelector('.view-content-btn').addEventListener('click', (e) => {
@@ -901,4 +1018,5 @@
         window.onload = renderAll;
     </script>
 </body>
+
 </html>

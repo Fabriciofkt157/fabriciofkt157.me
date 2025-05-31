@@ -6,32 +6,29 @@
     <title>Story Node Editor</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Estilos globais e da fonte */
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Evita barras de rolagem no corpo */
+            overflow: hidden;
         }
 
-        /* Estilos do contêiner principal do aplicativo */
         #appContainer {
             display: flex;
             height: 100vh;
-            background-color: #1a1a1a; /* Fundo escuro geral */
-            color: #e0e0e0; /* Cor do texto padrão */
+            background-color: #1a1a1a;
+            color: #e0e0e0;
         }
 
-        /* Estilos da barra de ferramentas (Toolbox) */
         #toolbox {
-            width: 256px; /* Largura fixa */
-            background-color: #2a2a2a; /* Fundo mais escuro para a toolbox */
+            width: 256px;
+            background-color: #2a2a2a;
             padding: 1rem;
             display: flex;
             flex-direction: column;
-            gap: 1rem; /* Espaçamento entre os botões */
+            gap: 1rem;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
-            flex-shrink: 0; /* Não permite que a toolbox encolha */
+            flex-shrink: 0;
         }
         .tool-btn {
             padding: 0.75rem 1rem;
@@ -51,34 +48,32 @@
             box-shadow: none;
         }
 
-        /* Estilos da área principal do Canvas */
         #flowCanvas {
-            flex-grow: 1; /* Ocupa o espaço restante */
+            flex-grow: 1;
             position: relative;
-            overflow: hidden; /* Controlado pelo flowContainer */
-            background-color: #1a1a1a; /* Fundo do canvas */
-            background-image: radial-gradient(#333 1px, transparent 1px); /* Grid de fundo */
+            overflow: hidden;
+            background-color: #1a1a1a;
+            background-image: radial-gradient(#333 1px, transparent 1px);
             background-size: 20px 20px;
         }
         #flowContainer {
             position: absolute;
-            width: 10000px; /* Grande o suficiente para arrastar livremente */
-            height: 10000px; /* Grande o suficiente para arrastar livremente */
+            width: 10000px;
+            height: 10000px;
             top: 0;
             left: 0;
-            cursor: grab; /* Cursor de arrastar */
+            cursor: grab;
         }
         #flowContainer.dragging {
             cursor: grabbing;
         }
 
-        /* Estilos dos Nós (blocos de roteiro) */
         .node {
-            background-color: #3a3a3a; /* Corpo do nó */
+            background-color: #3a3a3a;
             border: 1px solid #555;
             border-radius: 6px;
             position: absolute;
-            width: 250px; /* Largura fixa para consistência */
+            width: 250px;
             min-height: 120px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
             cursor: grab;
@@ -86,20 +81,19 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            user-select: none; /* Impede seleção de texto ao arrastar */
-            z-index: 10; /* Nós acima das linhas SVG */
+            user-select: none;
+            z-index: 10;
         }
         .node:active {
             cursor: grabbing;
         }
         .node.selected {
-            border-color: #63b3ed; /* Borda azul quando selecionado */
-            box-shadow: 0 0 15px rgba(99, 179, 237, 0.7); /* Brilho azul */
+            border-color: #63b3ed;
+            box-shadow: 0 0 15px rgba(99, 179, 237, 0.7);
         }
 
-        /* Cabeçalho do Nó */
         .node-header {
-            background-color: #2a2a2a; /* Fundo do cabeçalho */
+            background-color: #2a2a2a;
             padding: 0.5rem 1rem;
             border-bottom: 1px solid #555;
             border-radius: 6px 6px 0 0;
@@ -113,7 +107,6 @@
             color: #e0e0e0;
         }
 
-        /* Ícones de Ação no Nó (Editar, Excluir) */
         .node-actions {
             display: flex;
             gap: 0.5rem;
@@ -128,7 +121,6 @@
             color: #e0e0e0;
         }
 
-        /* Corpo do Nó */
         .node-body {
             padding: 0.75rem 1rem;
             font-size: 0.85rem;
@@ -138,56 +130,53 @@
             overflow: hidden;
         }
         .node-description-text {
-            white-space: nowrap; /* Descrição em uma linha */
+            white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
-        /* Portas de Conexão (Input/Output) */
         .node-port {
             width: 16px;
             height: 16px;
-            background-color: #888; /* Cor padrão da porta */
+            background-color: #888;
             border-radius: 50%;
             border: 2px solid #555;
             cursor: crosshair;
-            z-index: 100; /* Portas acima de tudo para cliques */
+            z-index: 100;
             position: absolute;
         }
         .input-port {
-            top: 0px; /* Posiciona no topo */
+            top: 0px;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: #63b3ed; /* Azul para entrada (referência) */
+            background-color: #63b3ed;
         }
         .output-port {
-            bottom: 0px; /* Posiciona na base */
+            bottom: 0px;
             left: 50%;
             transform: translate(-50%, 50%);
-            background-color: #f6ad55; /* Laranja para saída */
+            background-color: #f6ad55;
         }
         .node-port.connecting {
-            border-color: yellow; /* Borda amarela quando em modo de conexão */
+            border-color: yellow;
             box-shadow: 0 0 8px yellow;
         }
 
-        /* Cores específicas para tipos de Nó */
-        .node-cutscene .node-header { background-color: #4c51bf; } /* Índigo */
-        .node-gameplay .node-header { background-color: #38a169; } /* Verde */
-        .node-decision .node-header { background-color: #dd6b20; } /* Laranja */
+        .node-cutscene .node-header { background-color: #4c51bf; }
+        .node-gameplay .node-header { background-color: #38a169; }
+        .node-decision .node-header { background-color: #dd6b20; }
 
-        /* Estilos SVG para as Linhas de Conexão */
         #connectionsSvg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none; /* Permite cliques nos nós por baixo */
-            z-index: 0; /* Linhas atrás dos nós */
+            pointer-events: none;
+            z-index: 0;
         }
         .connection-line {
-            stroke: #63b3ed; /* Azul para as linhas */
+            stroke: #63b3ed;
             stroke-width: 3;
             fill: none;
         }
@@ -195,15 +184,14 @@
             fill: #63b3ed;
         }
 
-        /* Estilos do Modal de Edição */
         .modal {
-            display: none; /* Escondido por padrão */
+            display: none;
             position: fixed;
             inset: 0;
             background-color: rgba(0, 0, 0, 0.7);
             align-items: center;
             justify-content: center;
-            z-index: 1000; /* Acima de tudo */
+            z-index: 1000;
         }
         .modal-content {
             background-color: #2a2a2a;
@@ -307,27 +295,24 @@
         const clearAllBtn = document.getElementById('clearAllBtn');
         const saveBtn = document.getElementById('saveBtn');
         const loadBtn = document.getElementById('loadBtn');
-        const fileInput = document.getElementById('fileInput'); // Novo input de arquivo
+        const fileInput = document.getElementById('fileInput');
 
-        let nodesData = []; // Armazena os dados de todos os nós
-        let selectedNodeId = null; // Nó atualmente selecionado para edição
-        let draggedNodeId = null; // Nó atualmente sendo arrastado
-        let offsetX, offsetY; // Offset para arrastar nós
-        let isFlowContainerDragging = false; // Se o container está sendo arrastado
-        let flowContainerOffsetX, flowContainerOffsetY; // Offset para arrastar o container
+        let nodesData = [];
+        let selectedNodeId = null;
+        let draggedNodeId = null;
+        let offsetX, offsetY;
+        let isFlowContainerDragging = false;
+        let flowContainerOffsetX, flowContainerOffsetY;
 
-        let connectingMode = false; // Modo de conexão ativado
-        let connectionSourceNodeId = null; // ID do nó de origem da conexão
-
-        // --- Funções de Utilidade ---
+        let connectingMode = false;
+        let connectionSourceNodeId = null;
 
         function generateUniqueId() {
             return 'node_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
         }
 
-        // Função para exportar os dados como JSON
         function exportNodesData() {
-            const dataStr = JSON.stringify(nodesData, null, 2); // Formata com indentação
+            const dataStr = JSON.stringify(nodesData, null, 2);
             const blob = new Blob([dataStr], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -340,7 +325,6 @@
             console.log('Roteiro exportado como JSON!');
         }
 
-        // Função para importar os dados de um arquivo JSON
         function importNodesData(event) {
             const file = event.target.files[0];
             if (!file) {
@@ -351,7 +335,6 @@
             reader.onload = (e) => {
                 try {
                     const importedData = JSON.parse(e.target.result);
-                    // Validação básica para garantir que é um array de nós
                     if (Array.isArray(importedData) && importedData.every(node => node.id && node.type && node.title)) {
                         nodesData = importedData;
                         renderAll();
@@ -366,8 +349,6 @@
             };
             reader.readAsText(file);
         }
-
-        // --- Renderização dos Nós e Conexões ---
 
         function renderNode(node) {
             const nodeEl = document.createElement('div');
@@ -391,35 +372,31 @@
                 <div class="node-port output-port" data-port-type="output"></div>
             `;
 
-            // Adiciona listeners para arrastar o nó
             nodeEl.addEventListener('mousedown', (e) => {
                 if (e.target.classList.contains('node-action-icon') || e.target.classList.contains('node-port')) {
-                    return; // Não arrasta se clicou nos ícones ou portas
+                    return;
                 }
                 draggedNodeId = node.id;
                 offsetX = e.clientX - nodeEl.getBoundingClientRect().left;
                 offsetY = e.clientY - nodeEl.getBoundingClientRect().top;
                 nodeEl.style.cursor = 'grabbing';
-                e.stopPropagation(); // Impede que o evento chegue ao flowContainer
+                e.stopPropagation();
             });
 
-            // Adiciona listeners para cliques nas portas (para conexão)
             nodeEl.querySelector('.input-port').addEventListener('click', (e) => {
-                e.stopPropagation(); // Evita que o clique no nó seja disparado
+                e.stopPropagation();
                 handlePortClick(node.id, 'input');
             });
             nodeEl.querySelector('.output-port').addEventListener('click', (e) => {
-                e.stopPropagation(); // Evita que o clique no nó seja disparado
+                e.stopPropagation();
                 handlePortClick(node.id, 'output');
             });
 
-            // Adiciona listener para abrir o modal de edição
             nodeEl.querySelector('.edit-node-btn').addEventListener('click', (e) => {
                 e.stopPropagation();
                 openEditModal(node.id);
             });
 
-            // Adiciona listener para excluir o nó
             nodeEl.querySelector('.delete-node-btn').addEventListener('click', (e) => {
                 e.stopPropagation();
                 deleteNode(node.id);
@@ -429,12 +406,12 @@
         }
 
         function renderAllNodes() {
-            flowContainer.querySelectorAll('.node').forEach(el => el.remove()); // Limpa nós existentes
+            flowContainer.querySelectorAll('.node').forEach(el => el.remove());
             nodesData.forEach(node => renderNode(node));
         }
 
         function renderConnections() {
-            connectionsSvg.innerHTML = ''; // Limpa linhas existentes
+            connectionsSvg.innerHTML = '';
 
             nodesData.forEach(sourceNode => {
                 sourceNode.outputs.forEach(targetNodeId => {
@@ -448,14 +425,12 @@
                             const targetRect = targetEl.getBoundingClientRect();
                             const containerRect = flowContainer.getBoundingClientRect();
 
-                            // Calcular posições dos portos em relação ao flowContainer
                             const startX = sourceRect.left + sourceRect.width / 2 - containerRect.left;
-                            const startY = sourceRect.top + sourceRect.height - containerRect.top; // Saída: base do nó
+                            const startY = sourceRect.top + sourceRect.height - containerRect.top;
 
                             const endX = targetRect.left + targetRect.width / 2 - containerRect.left;
-                            const endY = targetRect.top - containerRect.top; // Entrada: topo do nó
+                            const endY = targetRect.top - containerRect.top;
 
-                            // Desenhar linha
                             const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
                             line.setAttribute('x1', startX);
                             line.setAttribute('y1', startY);
@@ -464,7 +439,6 @@
                             line.classList.add('connection-line');
                             connectionsSvg.appendChild(line);
 
-                            // Desenhar seta (triângulo)
                             const arrowSize = 8;
                             const angle = Math.atan2(endY - startY, endX - startX);
                             const arrowX = endX - arrowSize * Math.cos(angle);
@@ -488,8 +462,6 @@
             renderAllNodes();
             renderConnections();
         }
-
-        // --- Lógica de Arrastar e Soltar (Nós e Container) ---
 
         flowContainer.addEventListener('mousedown', (e) => {
             if (e.target === flowContainer || e.target === connectionsSvg) {
@@ -515,7 +487,7 @@
                         nodesData[nodeIndex].x = newX;
                         nodesData[nodeIndex].y = newY;
                     }
-                    renderConnections(); // Redesenha as linhas ao mover o nó
+                    renderConnections();
                 }
             } else if (isFlowContainerDragging) {
                 const newX = e.clientX - flowContainerOffsetX;
@@ -523,7 +495,7 @@
 
                 flowContainer.style.left = `${newX}px`;
                 flowContainer.style.top = `${newY}px`;
-                renderConnections(); // Redesenha as linhas ao mover o container
+                renderConnections();
             }
         });
 
@@ -534,8 +506,6 @@
             flowContainer.querySelectorAll('.node').forEach(el => el.style.cursor = 'grab');
         });
 
-        // --- Lógica do Modal de Edição ---
-
         let currentEditingNodeId = null;
 
         function openEditModal(nodeId) {
@@ -545,7 +515,7 @@
                 editTitle.value = node.title;
                 editDescription.value = node.description;
                 editContent.value = node.content;
-                editExplanation.value = node.explanation || ''; // Garante que não é undefined
+                editExplanation.value = node.explanation || '';
                 editModal.style.display = 'flex';
             }
         }
@@ -557,7 +527,7 @@
                 nodesData[nodeIndex].description = editDescription.value;
                 nodesData[nodeIndex].content = editContent.value;
                 nodesData[nodeIndex].explanation = editExplanation.value;
-                renderAll(); // Redesenha tudo para refletir as mudanças
+                renderAll();
             }
             editModal.style.display = 'none';
         });
@@ -566,14 +536,11 @@
             editModal.style.display = 'none';
         });
 
-        // Fechar modal ao clicar fora do conteúdo
         editModal.addEventListener('click', (e) => {
             if (e.target === editModal) {
                 editModal.style.display = 'none';
             }
         });
-
-        // --- Funções da Barra de Ferramentas ---
 
         function addNode(type) {
             const newNode = {
@@ -583,7 +550,7 @@
                 description: `Descrição do novo nó de ${type}.`,
                 content: `Conteúdo principal do roteiro para o nó de ${type}.`,
                 explanation: `Notas do desenvolvedor para o nó de ${type}.`,
-                x: 100 + Math.random() * 200, // Posição aleatória inicial
+                x: 100 + Math.random() * 200,
                 y: 100 + Math.random() * 200,
                 outputs: []
             };
@@ -597,9 +564,7 @@
 
         function deleteNode(nodeId) {
             if (confirm('Tem certeza que deseja excluir este nó e suas conexões?')) {
-                // Remove o nó
                 nodesData = nodesData.filter(node => node.id !== nodeId);
-                // Remove todas as referências a este nó nas saídas de outros nós
                 nodesData.forEach(node => {
                     node.outputs = node.outputs.filter(outputId => outputId !== nodeId);
                 });
@@ -611,28 +576,22 @@
             connectingMode = true;
             connectionSourceNodeId = null;
             alert('Modo de Conexão: Clique no nó de ORIGEM e depois no nó de DESTINO.');
-            // Adiciona um estilo visual para os nós em modo de conexão
             flowContainer.querySelectorAll('.node-port').forEach(port => port.classList.add('connecting'));
         });
 
         function handlePortClick(nodeId, portType) {
             if (!connectingMode) {
-                // Se não estiver em modo de conexão, pode adicionar outras interações aqui
-                // Por exemplo, selecionar o nó para arrastar ou editar
                 return;
             }
 
             if (portType === 'output') {
-                // Se clicou em uma porta de saída, este é o nó de origem
                 connectionSourceNodeId = nodeId;
                 alert(`Nó de origem selecionado: ${nodesData.find(n => n.id === nodeId).title}. Agora clique no nó de DESTINO (porta de entrada).`);
             } else if (portType === 'input' && connectionSourceNodeId) {
-                // Se clicou em uma porta de entrada e já tem um nó de origem
                 const sourceNode = nodesData.find(n => n.id === connectionSourceNodeId);
                 const targetNode = nodesData.find(n => n.id === nodeId);
 
                 if (sourceNode && targetNode && sourceNode.id !== targetNode.id) {
-                    // Evita conexões duplicadas
                     if (!sourceNode.outputs.includes(targetNode.id)) {
                         sourceNode.outputs.push(targetNode.id);
                         alert(`Conexão criada de "${sourceNode.title}" para "${targetNode.title}"!`);
@@ -643,7 +602,6 @@
                     alert('Não é possível conectar um nó a si mesmo.');
                 }
                 
-                // Reseta o modo de conexão
                 connectingMode = false;
                 connectionSourceNodeId = null;
                 renderAll();
@@ -660,15 +618,11 @@
             }
         });
 
-        saveBtn.addEventListener('click', exportNodesData); // Agora chama a função de exportar
-        loadBtn.addEventListener('click', () => fileInput.click()); // Dispara o clique no input de arquivo
-        fileInput.addEventListener('change', importNodesData); // Adiciona listener para o input de arquivo
+        saveBtn.addEventListener('click', exportNodesData);
+        loadBtn.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', importNodesData);
 
-        // --- Inicialização ---
-
-        // Renderiza o canvas vazio ou com dados carregados ao iniciar a página
         window.onload = renderAll;
-
     </script>
 </body>
 </html>

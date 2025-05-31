@@ -274,6 +274,21 @@
             transition: background-color 0.2s ease;
         }
 
+        .format-btn {
+            padding: 0.25rem 0.5rem;
+            background-color: #4a5568; /* gray-700 */
+            color: white;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            line-height: 1rem;
+            min-width: 24px; /* Para botões B e I terem tamanho similar */
+            text-align: center;
+        }
+        .format-btn:hover {
+            background-color: #2d3748; /* gray-800 */
+        }
+
+
         #messageDisplay {
             position: fixed;
             top: 1rem;
@@ -522,11 +537,19 @@
                     <input type="text" id="editDescription" class="block w-full">
                 </div>
                 <div class="mb-4">
-                    <label for="editContent" class="block text-sm font-bold mb-2">Conteúdo Principal (Roteiro):</label>
+                    <div class="mb-1 flex items-center space-x-2">
+                        <label for="editContent" class="block text-sm font-bold">Conteúdo Principal (Roteiro):</label>
+                        <button type="button" class="format-btn" data-textarea="editContent" data-tag="strong" title="Negrito (Ctrl+B)"><b>B</b></button>
+                        <button type="button" class="format-btn" data-textarea="editContent" data-tag="em" title="Itálico (Ctrl+I)"><i>I</i></button>
+                    </div>
                     <textarea id="editContent" class="block w-full"></textarea>
                 </div>
                 <div class="mb-4">
-                    <label for="editExplanation" class="block text-sm font-bold mb-2">Explicação/Notas do Desenvolvedor (Lateral):</label>
+                     <div class="mb-1 flex items-center space-x-2">
+                        <label for="editExplanation" class="block text-sm font-bold">Explicação/Notas do Desenvolvedor (Lateral):</label>
+                        <button type="button" class="format-btn" data-textarea="editExplanation" data-tag="strong" title="Negrito (Ctrl+B)"><b>B</b></button>
+                        <button type="button" class="format-btn" data-textarea="editExplanation" data-tag="em" title="Itálico (Ctrl+I)"><i>I</i></button>
+                    </div>
                     <textarea id="editExplanation" class="block w-full"></textarea>
                 </div>
                 <div class="flex justify-end space-x-4">
@@ -599,6 +622,49 @@
 
         const ARROW_SIZE = 10;
         const ARROW_ANGLE = Math.PI / 8;
+
+        function applyFormat(textareaId, tag) {
+            const textarea = document.getElementById(textareaId);
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+            const selectedText = textarea.value.substring(start, end);
+            const beforeText = textarea.value.substring(0, start);
+            const afterText = textarea.value.substring(end);
+
+            const openTag = `<${tag}>`;
+            const closeTag = `</${tag}>`;
+
+            // Verifica se o texto selecionado já está exatamente envolvido pela tag
+            if (selectedText.startsWith(openTag) && selectedText.endsWith(closeTag) && selectedText.length === openTag.length + closeTag.length + (selectedText.length - openTag.length - closeTag.length)) {
+                // Desembrulha: remove as tags
+                const unwrappedText = selectedText.substring(openTag.length, selectedText.length - closeTag.length);
+                textarea.value = beforeText + unwrappedText + afterText;
+                textarea.selectionStart = start;
+                textarea.selectionEnd = start + unwrappedText.length;
+            } else if (selectedText) {
+                // Embrulha o texto selecionado
+                const wrappedText = openTag + selectedText + closeTag;
+                textarea.value = beforeText + wrappedText + afterText;
+                textarea.selectionStart = start;
+                textarea.selectionEnd = start + wrappedText.length;
+            } else {
+                // Nenhum texto selecionado: insere as tags e posiciona o cursor entre elas
+                textarea.value = beforeText + openTag + closeTag + afterText;
+                textarea.selectionStart = start + openTag.length;
+                textarea.selectionEnd = start + openTag.length;
+            }
+            textarea.focus();
+        }
+
+
+        document.querySelectorAll('.format-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const textareaId = button.dataset.textarea;
+                const tag = button.dataset.tag;
+                applyFormat(textareaId, tag);
+            });
+        });
+
 
         function bringOverlayToFront(overlayElement) {
             highestZIndex++;
@@ -1034,8 +1100,8 @@
             if (node) {
                 editTitle.value = node.title;
                 editDescription.value = node.description;
-                editContent.value = node.content;
-                editExplanation.value = node.explanation || '';
+                editContent.value = node.content || ""; // Garante que seja string
+                editExplanation.value = node.explanation || ""; // Garante que seja string
                 editModal.style.display = 'flex';
             }
         }
@@ -1062,8 +1128,8 @@
             const initialY = (canvasRect.height / 2) - containerTop - 60;
             const newNode = {
                 id: generateUniqueId(), type: type, title: `Novo Nó ${type.charAt(0).toUpperCase() + type.slice(1)}`,
-                description: `Descrição do nó de ${type}.`, content: `Conteúdo do roteiro para ${type}.`,
-                explanation: `Notas para ${type}.`, x: initialX + (Math.random() * 80 - 40),
+                description: `Descrição do nó de ${type}.`, content: ``, 
+                explanation: ``, x: initialX + (Math.random() * 80 - 40),
                 y: initialY + (Math.random() * 80 - 40), outputs: [],
                 viewerStates: { 
                     content: { isOpen: false, x: null, y: null, hasBeenDragged: false, zIndex: highestZIndex },
@@ -1178,7 +1244,7 @@
             });
 
             const contentPre = document.createElement('pre');
-            contentPre.textContent = contentType === 'content' ? node.content : (node.explanation || "Nenhuma nota adicional.");
+            contentPre.innerHTML = contentType === 'content' ? (node.content || "") : (node.explanation || "Nenhuma nota adicional."); // Usa innerHTML
             overlay.appendChild(contentPre);
 
             const closeBtn = document.createElement('button');
@@ -1192,7 +1258,9 @@
             activeViewerOverlays[viewerKey] = overlay;
             
             viewerState.isOpen = true;
-            bringOverlayToFront(overlay); 
+            overlay.style.zIndex = viewerState.zIndex || highestZIndex; // Restaura zIndex ou usa o atual
+            if (viewerState.zIndex > highestZIndex) highestZIndex = viewerState.zIndex; // Atualiza highestZIndex global
+
 
             if (viewerState.hasBeenDragged && viewerState.x !== null && viewerState.y !== null) {
                 overlay.style.left = `${viewerState.x}px`;
@@ -1263,19 +1331,25 @@
             flowContainer.querySelectorAll('.node-viewer-overlay').forEach(ov => ov.remove());
             activeViewerOverlays = {}; 
 
-            let maxZ = highestZIndex; 
+            let maxZ = 19; // Começa abaixo do z-index base dos overlays
             nodesData.forEach(node => {
-                ['content', 'explanation'].forEach(contentType => {
-                    const state = node.viewerStates[contentType];
-                    if (state && state.isOpen) {
-                        openNodeViewer(node.id, contentType); 
-                        if (state.zIndex && state.zIndex > maxZ) {
-                            maxZ = state.zIndex;
+                if (node.viewerStates) { // Verifica se viewerStates existe
+                    ['content', 'explanation'].forEach(contentType => {
+                        const state = node.viewerStates[contentType];
+                        if (state && state.isOpen) {
+                            openNodeViewer(node.id, contentType); 
+                            const overlay = activeViewerOverlays[`${node.id}_${contentType}`];
+                            if (overlay && state.zIndex) { // Aplica zIndex salvo
+                                overlay.style.zIndex = state.zIndex;
+                                if (state.zIndex > maxZ) {
+                                    maxZ = state.zIndex;
+                                }
+                            }
                         }
-                    }
-                });
+                    });
+                }
             });
-            highestZIndex = maxZ; 
+            highestZIndex = Math.max(20, maxZ); // Garante que o highestZIndex seja pelo menos o base
         }
 
 

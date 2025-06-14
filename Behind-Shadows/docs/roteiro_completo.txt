@@ -341,6 +341,10 @@ Uma Sombra (entidade) é um fragmento de alma controlado por um usuário do elem
    * Sky era formada apenas pelas 5 personagens principais, mas ao decorrer do tempo e a medida que novas alianças são formadas, a organização foi crescendo e novos membros se juntaram, não apenas de Median, mas de todas as realidades que Mike e Alan passaram.
    * O fim de Sky se dá no último grande embate do jogo: Sky contra o Exército do Homem Misterioso (inclui todo seu repertório de sombras, generais, armas mágicas, etc). Nessa luta, todos os participantes foram mortos, tanto de Sky, quanto do Homem Misterioso, restando apenas o embate final entre Mike e Alan contra o Homem Misterioso.
 
+-Companhia da Ordem: Uma força extraoficial do Exército de Avalest composta por seres marginalizados (aqueles que não podem viver junto aos humanos puramente por medo) — onis, bruxas, corrompidos e outras criaturas esquecidas. São usados em missões de destruição e encobrimento, onde a sujeira moral é inevitável. A Companhia opera sem bandeiras, sem honra e sem testemunhas.
+* Devido a corrupção de Alan, ele seria facilmente atacado por usar um "poder desconhecido". Portanto, Raika o leva ao antigo grupo que ela fazia parte: Companhia da Ordem. 
+-> Durante a mesma conversa onde Rit sugere a criação de uma organização, Raika menciona a necessidade de maior poder monetário para que isso seja possível. Raika também argumenta que com as habilidades atuais do grupo, eles seriam barrados facilmente, então alguns avanços eram necessários. Nesse ponto, Raika sugere que ela e Alan se juntem a um grupo chamado Companhia da Ordem, um grupo que recebe muito dinheiro por coisas fáceis de serem feitas, embora não fossem moralmente aceitas. Mike pergunta inocentemente o que esse grupo faria. Raika começa a falar e Alan a interrompe dizendo pro Mike que eles fazem coisas que pessoas com bom coração não fariam (sugerindo que o Mike seria uma delas).
+
 Recursos no jogo:
   * Vida:
     -> Descrição: representa o quanto o personagem é capaz de aguentar antes de desmaiar. Os pontos de vida sofrem alteração de acordo com a realidade que o personagem está.

@@ -611,3 +611,14 @@ Quando houver uma fala dentro de <gameplay>, significa que aquela fala é exibid
     Ao final da rua, o jogador se encontra na Praça Principal, um pouco a esquerda está o PUB. A cena seguinte acontece quando o jogador olhar diretamente para a entrada do PUB.
   ]
 </gameplay>
+
+<cutscene: "Bebâdos e felizes">
+  [câmera mostra a entrada do Pub e a placa "Casa da Canela"; Mike anda em direção a ela]
+  Mike: Um bar?
+  Mike: "Casa da Canela"
+  [caso o jogador tenha falado com o Vendedor de Carnes no Mercadão {
+    Mike: É aqui que o cara tinha falado. Vou ver como é.
+  }]
+  Mike: Espero que as pessoas sejam 'gente boa'.
+
+</cutscene>

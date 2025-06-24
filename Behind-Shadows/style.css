@@ -1,6 +1,7 @@
 @font-face {
     font-family: 'MedievalFonts';
     src: url('MedievalSharp.ttf') format('truetype');
+    font-display: swap;
 }
 
 .caixinha {

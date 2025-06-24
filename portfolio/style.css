@@ -39,7 +39,6 @@ main {
 body {
     font-family: 'MedievalFonts', sans-serif;
     background-color: #4F5760;
-    background-image: url("assets/background.png");
     background-size: cover;
     background-position: center;
     margin: 0;

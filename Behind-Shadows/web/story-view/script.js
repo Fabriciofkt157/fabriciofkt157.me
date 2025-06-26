@@ -72,10 +72,10 @@ function getLine(filePath, lineNumber, callback) {
 
 function readRoteiro() {
     $(document).ready(function () {
-        getLine('docs/roteiros/olds/REV-5/pt-br/roteiro_full/titles.txt', step, line => {
+        getLine('/Behind-Shadows/docs/roteiros/olds/REV-5/pt-br/roteiro_full/titles.txt', step, line => {
             stepHistory.textContent = line;
         });
-        $.get("docs/roteiros/olds/REV-5/pt-br/roteiro_full/step" + step + ".txt", function (data) {
+        $.get("/Behind-Shadows/docs/roteiros/olds/REV-5/pt-br/roteiro_full/step" + step + ".txt", function (data) {
             $("#texto-container").text(data);
         });
     });
@@ -84,7 +84,7 @@ function readRoteiro() {
 function readSystem() {
     $(document).ready(function () {
         stepHistory.textContent = "System";
-        $.get("docs/roteiros/olds/REV-5/pt-br/system.txt", function (data) {
+        $.get("/Behind-Shadows/docs/roteiros/olds/REV-5/pt-br/system.txt", function (data) {
             $("#texto-container").text(data);
         });
     });
@@ -92,7 +92,7 @@ function readSystem() {
 function readMecanicas(){
     $(document).ready(function () {
         stepHistory.textContent = "Mecânicas";
-        $.get("docs/roteiros/olds/REV-5/pt-br/mecanicas.txt", function (data) {
+        $.get("/Behind-Shadows/docs/roteiros/olds/REV-5/pt-br/mecanicas.txt", function (data) {
             $("#texto-container").text(data);
         });
     });
@@ -100,17 +100,17 @@ function readMecanicas(){
 function readInterfaces(){
     $(document).ready(function () {
         stepHistory.textContent = "Interfaces";
-        $.get("docs/roteiros/olds/REV-5/pt-br/interfaces.txt", function (data) {
+        $.get("/Behind-Shadows/docs/roteiros/olds/REV-5/pt-br/interfaces.txt", function (data) {
             $("#texto-container").text(data);
         });
     });
 }
 function readRoteiroOld() {
     $(document).ready(function () {
-        getLine('docs/roteiros/olds/REV-4/titles.txt', step, line => {
+        getLine('/Behind-Shadows/docs/roteiros/olds/REV-4/titles.txt', step, line => {
             stepHistory.textContent = line;
         });
-        $.get("docs/roteiros/olds/REV-4/step" + step + ".txt", function (data) {
+        $.get("/Behind-Shadows/docs/roteiros/olds/REV-4/step" + step + ".txt", function (data) {
             $("#texto-container").text(data);
         });
     });

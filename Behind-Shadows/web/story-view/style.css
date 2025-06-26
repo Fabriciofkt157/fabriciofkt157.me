@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'MedievalFonts';
-  src: url('MedievalSharp.ttf') format('truetype');
+  src: url('/Behind-Shadows/web/assets/MedievalSharp.ttf') format('truetype');
 }
 
 
@@ -8,7 +8,7 @@
 body {
   font-family: 'MedievalFonts', sans-serif;
   background-color: #121862;
-  background-image: url("assets/background.png");
+  background-image: url("/Behind-Shadows/web/assets/background.png");
   background-size: cover;
   background-position: center center;
   margin: 0;
@@ -21,10 +21,10 @@ body {
 
 main {
   position: relative;
-  background-image: url("assets/backMain.png");
+  background-image: url("/Behind-Shadows/web/assets/backMain.png");
   margin-top: 8%;
   text-align: center;
-  background-image: url("assets/backMain.png");
+  background-image: url("/Behind-Shadows/web/assets/backMain.png");
   background-position: center;
   overflow-y: auto;
   height: 85wh;

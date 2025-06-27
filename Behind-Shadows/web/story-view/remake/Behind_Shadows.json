@@ -1,0 +1,88 @@
+{
+  "title": "Behind Shadows",
+  "sections": [
+    {
+      "id": "section_1751040272206",
+      "name": "Personagens",
+      "icon": "fa-hand-fist",
+      "defaultTemplate": "character",
+      "items": [
+        {
+          "id": "item_1751040496529",
+          "categoryId": "section_1751040272206",
+          "template": "character",
+          "title": "Alan Dount",
+          "subtitle": "Lon",
+          "image_url": "https://fabriciofkt157.me/Behind-Shadows/game-features/concept-arts/Alan_retrato.png",
+          "age": "17 anos",
+          "birthday": "14/02",
+          "origin": "Eards (realidade)",
+          "personality": "Alan é reservado, um pouco rabugento e geralmente muito inteligente. Ele pode parecer sombrio as vezes, mas é, no fundo, uma boa pessoa. No entanto, se algo se colocar entre ele e seus objetivos, Alan não hesitará em mostrar um lado menos amigável. Alan pode se mostrar um pouco ”fofinho” em alguns diálogos, contrapondo seu lado rabugento.",
+          "about": "Alan é irmão mais velho de Mike, na vida real está se preparando para viver sua própria vida, o que Mike distorce e enxerga como um \"adeus\". Alan foi abusado por seu tio Mark quando tinha 4 anos, no entanto, quando relata isso a sua família, todos acham que Alan está tentando \"chamar atenção\" e ignoram. Isso torna Alan quieto e desconfiado de todos, muitas vezes preferindo ficar sozinho; no sonho de Mike, Mark é o Homem Misterioso (sua identidade será revelada apenas no final do jogo) que também é o antagonista principal da história, além de se infiltrar como um aliado de Mike e Alan, mostrando a realidade traiçoeira da confiança.",
+          "curiosity": "Em uma das cenas com Mike, Alan revela que seu irmão costumava chamá-lo de ”Lon” e sugere que Mike também pode usar esse apelido se quiser. Eventualmente, Mike chama o Alan por esse nome;",
+          "notes": "Após ser corrompido e posteriormente controlar as Sombras, Alan não precisa dormir, no entanto, é comum encontra-lo dormindo por aí (ele apenas gosta)."
+        },
+        {
+          "id": "item_1751041412697",
+          "categoryId": "section_1751040272206",
+          "template": "character",
+          "title": "Deniel Mourk",
+          "subtitle": "Deni",
+          "image_url": "https://fabriciofkt157.me/Behind-Shadows/game-features/concept-arts/Deni_retrato.png",
+          "age": "16 anos",
+          "birthday": "01/04",
+          "origin": "Median (realidade)",
+          "personality": "Deni é amigável na maior parte do tempo, mostrando maturidade na maioria das situações, embora ocasionalmente cometa alguns deslizes.",
+          "about": "Deni foi levado por Rit a Avalest após o ataque, no entanto, não tem lembranças disso por ser muito pequeno quando aconteceu.",
+          "curiosity": "Deni tem o hábito de fazer piadas ruins de vez em quando ou ”pregar peças” em seus companheiros durante longas jornadas, trazendo um toque de humor às suas interações.",
+          "notes": ""
+        },
+        {
+          "id": "item_1751040531958",
+          "categoryId": "section_1751040272206",
+          "template": "character",
+          "title": "Maicon Jousan",
+          "subtitle": "Mike",
+          "image_url": "https://fabriciofkt157.me/Behind-Shadows/game-features/concept-arts/Mike%20retrato.png",
+          "age": "14 anos",
+          "birthday": "17/12",
+          "origin": "Eards (realidade)",
+          "personality": "Mike é geralmente alegre e espontâneo. Ele é uma pessoa extrovertida, com uma mentalidade um pouco imatura e impulsiva. Ao contrário de Alan, Mike costuma expressar tudo o que pensa e adora socializar. Ele tem uma facilidade natural para fazer amigos, o que, por vezes, incomoda algumas pessoas.",
+          "about": "Mike passa por algumas situações estressantes na vida real, essas situações são retratadas no sonho de Mike sob outra perspectiva, dessa vez, esses problemas podem ser resolvidos.",
+          "curiosity": "Alan e Mike são irmãos por parte de mãe, mas têm pais diferentes, o que explica seus sobrenomes distintos. Alan carrega o sobrenome ”Dount” de seu pai, enquanto Mike herda o sobrenome ”Jousan”. O Homem Misterioso menciona apenas os sobrenomes aos quais os personagens têm maior vínculo, refletindo a tradição em que cada pessoa representa uma família em batalhas. Alan, portanto, luta pela família ”Dount”, enquanto Mike luta pela família ”Jousan”, reforçando a ideia de que eles pertencem a linhagens diferentes, apesar de serem irmãos;\n  * Sobre: Mike passa por algumas situações estressantes na vida real, essas situações são retratadas no sonho de Mike sob outra perspectiva, dessa vez, esses problemas podem ser resolvidos.",
+          "notes": ""
+        },
+        {
+          "id": "item_1751041222618",
+          "categoryId": "section_1751040272206",
+          "template": "character",
+          "title": "Raika Tirouf",
+          "subtitle": "Raika",
+          "image_url": "https://fabriciofkt157.me/Behind-Shadows/game-features/concept-arts/Raika_retrato.png",
+          "age": "21 anos",
+          "birthday": "15/07",
+          "origin": "Median (realidade)",
+          "personality": "Raika é uma pessoa de temperamento ”bravo” e ”raivoso”, o que a leva a agir e atacar impulsivamente em diversas situações. No entanto, ela demonstra uma inteligência afiada em combate e na criação de estratégias. Geralmente, Raika é um pouco infeliz e raramente sorri, o que deixa de acontecer ao lado de Alan.",
+          "about": "Raika foi uma dos generais do Exército das Sombras como um agente duplo entre o Império de Median e o Exército. Em um tempo ajudava o Exército a tomar posse dos recursos de Median, em outro, ajudava Median fornecendo informaçōes em troca de sua liberdade; essa relação é desfeita oficialmente quando a Sky (organização) é formada, agora Raika deixa seu posto como General. Após seu interesse romântico com Alan ser revelado, Raika conta que ela era o verdadeiro General do Submundo e não o cara que eles derrotaram no torneio quando Alan estava corrompido.",
+          "curiosity": "Raika se apaixona por Alan depois de um tempo convivendo juntos; uma das cenas do jogo mostra os dois dançando juntos, Raika revela seu interesse amoroso e os dois ficam juntos (um pouco antes de metade do jogo).",
+          "notes": ""
+        },
+        {
+          "id": "item_1751041044747",
+          "categoryId": "section_1751040272206",
+          "template": "character",
+          "title": "Ritain Mourk",
+          "subtitle": "Rit",
+          "image_url": "https://fabriciofkt157.me/Behind-Shadows/game-features/concept-arts/Rit-retrato.png",
+          "age": "23 anos",
+          "birthday": "21/02",
+          "origin": "Median (realidade)",
+          "personality": "Rit é uma pessoa emocionalmente forte, raramente se deixa abalar por qualquer situação Ele não é excessivamente alegre, nem propenso à melancolia; em vez disso, Rit sente exatamente o que o momento exige. Sua empatia é uma característica notável, permitindo que ele se sensibilize profundamente com as dificuldades dos outros, o que o leva frequentemente a ajudar aqueles que o cercam.",
+          "about": "Rit fugiu com Deni para Avalest (cidade principal) após um ataque a antiga vila onde moravam (na época, Deni tinha 3 anos e Rit 10), nele, seus amigos e familiares foram mortos.",
+          "curiosity": "",
+          "notes": ""
+        }
+      ]
+    }
+  ]
+}

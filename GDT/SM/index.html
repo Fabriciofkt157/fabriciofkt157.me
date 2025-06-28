@@ -61,11 +61,44 @@
         .modal.is-open {
             display: flex;
         }
+        /* BOTÃO DE MENU - visível só em telas pequenas */
+#sidebar-toggle-btn {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        transform: translateX(-100%);
+        position: absolute;
+        z-index: 50;
+        width: 16rem;
+        height: 100%;
+        left: 0;
+        top: 0;
+        transition: transform 0.3s ease;
+    }
+
+    #sidebar.open {
+        transform: translateX(0);
+    }
+
+    #sidebar-toggle-btn {
+        display: block;
+    }
+}
+
+
     </style>
 </head>
 
 
 <body class="bg-stone-900 text-stone-300">
+   <button id="sidebar-toggle-btn"
+    class="fixed top-3 left-3 z-50 bg-stone-800 text-white text-xl px-3 py-2 rounded-md shadow-md border border-stone-600 hidden">
+    ☰
+</button>
+
+
     <div class="flex h-screen">
         <aside id="sidebar"
             class="w-72 bg-stone-800/80 backdrop-blur-sm p-5 overflow-y-auto transition-all duration-300 flex-shrink-0 border-r border-stone-700 flex flex-col">
@@ -320,6 +353,26 @@
 
             buildNavMenu();
             renderContent('home');
+            
+            const toggleBtn = document.getElementById('sidebar-toggle-btn');
+            const sidebar = document.getElementById('sidebar');
+
+            toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+});
+
+            document.addEventListener('click', (e) => {
+    if (
+        sidebar.classList.contains('open') && // está aberta
+        window.innerWidth <= 768 &&           // é mobile
+        !sidebar.contains(e.target) &&        // clique fora da sidebar
+        !toggleBtn.contains(e.target)         // clique fora do botão ☰
+    ) {
+        sidebar.classList.remove('open');     // fecha
+    }
+});
+
+
 
             document.getElementById('close-editor-btn').addEventListener('click', () => {
                 document.getElementById('editor-panel').classList.add('hidden');
@@ -689,7 +742,9 @@
             a.click();
             URL.revokeObjectURL(url);
         });
+
     </script>
 </body>
 
 </html>
+

@@ -725,21 +725,55 @@
       };
       reader.readAsText(file);
     });
+
     document.getElementById('download-html').addEventListener('click', () => {
       const docClone = document.documentElement.cloneNode(true);
+
       docClone.querySelectorAll('script').forEach(s => s.remove());
       docClone.querySelectorAll(
-        '#editor-panel, #section-modal, #export-db, #import-db, #download-html, #import-db-file, button[onclick="showSectionModal()"], button[onclick^="showEditor("], button[onclick^="editContent("], .group:hover .edit-icon, #codex-title:hover .edit-icon').forEach(el => el.remove());
+        '#editor-panel, #section-modal, #export-db, #import-db, #download-html, #import-db-file, \
+    button[onclick="showSectionModal()"], \
+    button[onclick^="showEditor("], \
+    button[onclick^="editContent("], \
+    .group:hover .edit-icon, \
+    #codex-title:hover .edit-icon'
+      ).forEach(el => el.remove());
 
-      const htmlContent = '<!DOCTYPE html>\n' + docClone.outerHTML;
-      const blob = new Blob([htmlContent], { type: 'text/html' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${(db.title || 'codice').replace(/\s+/g, '_')}.html`;
-      a.click();
-      URL.revokeObjectURL(url);
-    });
+      const dbScript = `
+    <script>
+      const db = ${JSON.stringify(db, null, 2)};
+      ${renderContent.toString()}
+      document.addEventListener("DOMContentLoaded", () => {
+        renderContent('home');
+        document.querySelectorAll('a[href="#"]').forEach(a => {
+          const onclick = a.getAttribute('onclick');
+          if (onclick && onclick.includes("renderContent(")) {
+            a.addEventListener('click', e => {
+              e.preventDefault();
+              const id = onclick.match(/renderContent\\(['"](.+?)['"]\\)/)[1];
+              renderContent(id);
+            });
+          }
+        });
+      });
+  </script>
+  `;
+
+  const bodyEnd = docClone.querySelector('body');
+  const scriptEl = document.createElement('script');
+  scriptEl.innerHTML = dbScript;
+  bodyEnd.appendChild(scriptEl);
+
+  const htmlContent = '
+  <!DOCTYPE html>\n' + docClone.outerHTML;
+  const blob = new Blob([htmlContent], { type: 'text/html' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${(db.title || 'codice').replace(/\s+/g, '_')}.html`;
+  a.click();
+  URL.revokeObjectURL(url);
+  });
 
   </script>
 </body>

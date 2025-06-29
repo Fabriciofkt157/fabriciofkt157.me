@@ -696,76 +696,75 @@
       }
     }
     document.getElementById('export-db').addEventListener('click', () => {
-      const blob = new Blob([JSON.stringify(db, null, 2)], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${(db.title || 'codice').replace(/\s+/g, '_')}.json`;
-      a.click();
-      URL.revokeObjectURL(url);
-    });
+  const blob = new Blob([JSON.stringify(db, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${(db.title || 'codice').replace(/\s+/g, '_')}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+});
 
-    document.getElementById('import-db').addEventListener('click', () => {
-      document.getElementById('import-db-file').click();
-    });
+document.getElementById('import-db').addEventListener('click', () => {
+  document.getElementById('import-db-file').click();
+});
 
-    document.getElementById('import-db-file').addEventListener('change', event => {
-      const file = event.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = e => {
-        try {
-          db = JSON.parse(e.target.result);
-          buildNavMenu();
-          renderContent('home');
-          alert('Códice importado com sucesso!');
-        } catch (err) {
-          alert('Erro ao importar: JSON inválido.');
-        }
-      };
-      reader.readAsText(file);
-    });
+document.getElementById('import-db-file').addEventListener('change', event => {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      db = JSON.parse(e.target.result);
+      buildNavMenu();
+      renderContent('home');
+      alert('Códice importado com sucesso!');
+    } catch (err) {
+      alert('Erro ao importar: JSON inválido.');
+    }
+  };
+  reader.readAsText(file);
+});
 
-    document.getElementById('download-html').addEventListener('click', () => {
-      const docClone = document.documentElement.cloneNode(true);
+document.getElementById('download-html').addEventListener('click', () => {
+  const docClone = document.documentElement.cloneNode(true);
 
-      docClone.querySelectorAll('script').forEach(s => s.remove());
-      docClone.querySelectorAll(
-        '#editor-panel, #section-modal, #export-db, #import-db, #download-html, #import-db-file, \
+  // Remove scripts e elementos de edição
+  docClone.querySelectorAll('script').forEach(s => s.remove());
+  docClone.querySelectorAll(
+    '#editor-panel, #section-modal, #export-db, #import-db, #download-html, #import-db-file, \
     button[onclick="showSectionModal()"], \
     button[onclick^="showEditor("], \
     button[onclick^="editContent("], \
     .group:hover .edit-icon, \
     #codex-title:hover .edit-icon'
-      ).forEach(el => el.remove());
+  ).forEach(el => el.remove());
 
-      const dbScript = `
-    <script>
-      const db = ${JSON.stringify(db, null, 2)};
-      ${renderContent.toString()}
-      document.addEventListener("DOMContentLoaded", () => {
-        renderContent('home');
-        document.querySelectorAll('a[href="#"]').forEach(a => {
-          const onclick = a.getAttribute('onclick');
-          if (onclick && onclick.includes("renderContent(")) {
-            a.addEventListener('click', e => {
-              e.preventDefault();
-              const id = onclick.match(/renderContent\\(['"](.+?)['"]\\)/)[1];
-              renderContent(id);
-            });
-          }
-        });
+  // Script funcional para navegação no HTML estático
+  const scriptContent = `
+    const db = ${JSON.stringify(db, null, 2)};
+    ${renderContent.toString()}
+    document.addEventListener("DOMContentLoaded", () => {
+      renderContent('home');
+      document.querySelectorAll('a[href="#"]').forEach(a => {
+        const onclick = a.getAttribute('onclick');
+        if (onclick && onclick.includes("renderContent(")) {
+          a.addEventListener('click', e => {
+            e.preventDefault();
+            const id = onclick.match(/renderContent\\(['"](.+?)['"]\\)/)[1];
+            renderContent(id);
+          });
+        }
       });
-  </script>
+    });
   `;
 
-  const bodyEnd = docClone.querySelector('body');
+  // Injeta o script no final do body
   const scriptEl = document.createElement('script');
-  scriptEl.innerHTML = dbScript;
-  bodyEnd.appendChild(scriptEl);
+  scriptEl.textContent = scriptContent;
+  docClone.querySelector('body').appendChild(scriptEl);
 
-  const htmlContent = '
-  <!DOCTYPE html>\n' + docClone.outerHTML;
+  const htmlContent = '<!DOCTYPE html>\n' + docClone.outerHTML;
   const blob = new Blob([htmlContent], { type: 'text/html' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
@@ -773,7 +772,8 @@
   a.download = `${(db.title || 'codice').replace(/\s+/g, '_')}.html`;
   a.click();
   URL.revokeObjectURL(url);
-  });
+});
+
 
   </script>
 </body>

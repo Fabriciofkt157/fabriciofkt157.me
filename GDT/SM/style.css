@@ -1,0 +1,84 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #1c1917;
+}
+
+.font-title {
+  font-family: 'MedievalSharp', cursive;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #292524;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #57534e;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #78716c;
+}
+
+.content-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal {
+  display: none;
+}
+
+.modal.is-open {
+  display: flex;
+}
+
+#sidebar-toggle-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    transform: translateX(-100%);
+    position: absolute;
+    z-index: 50;
+    width: 16rem;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transition: transform 0.3s ease;
+  }
+
+  #sidebar.open {
+    transform: translateX(0);
+  }
+
+  #sidebar-toggle-btn {
+    display: block;
+  }
+}
+
+.drag-handle {
+    cursor: grab;
+    color: #57534e; 
+    margin-right: 8px; 
+}
+
+.drag-handle:hover {
+    color: #a8a29e; 
+}

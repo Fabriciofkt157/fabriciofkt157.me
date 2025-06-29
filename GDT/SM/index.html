@@ -2,72 +2,72 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Códice Genérico - Editor de Mundos</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=MedievalSharp&display=swap"
-        rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #1c1917;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Códice Genérico - Editor de Mundos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=MedievalSharp&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #1c1917;
+    }
 
-        .font-title {
-            font-family: 'MedievalSharp', cursive;
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
+    .font-title {
+      font-family: 'MedievalSharp', cursive;
+    }
 
-        ::-webkit-scrollbar-track {
-            background: #292524;
-        }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
 
-        ::-webkit-scrollbar-thumb {
-            background: #57534e;
-            border-radius: 10px;
-        }
+    ::-webkit-scrollbar-track {
+      background: #292524;
+    }
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: #78716c;
-        }
+    ::-webkit-scrollbar-thumb {
+      background: #57534e;
+      border-radius: 10px;
+    }
 
-        .content-fade-in {
-            animation: fadeIn 0.5s ease-in-out;
-        }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #78716c;
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
+    .content-fade-in {
+      animation: fadeIn 0.5s ease-in-out;
+    }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
 
-        .modal {
-            display: none;
-        }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        .modal.is-open {
-            display: flex;
-        }
-        /* BOTÃO DE MENU - visível só em telas pequenas */
-#sidebar-toggle-btn {
-    display: none;
-}
+    .modal {
+      display: none;
+    }
 
-@media (max-width: 768px) {
-    #sidebar {
+    .modal.is-open {
+      display: flex;
+    }
+
+    #sidebar-toggle-btn {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      #sidebar {
         transform: translateX(-100%);
         position: absolute;
         z-index: 50;
@@ -76,327 +76,325 @@
         left: 0;
         top: 0;
         transition: transform 0.3s ease;
-    }
+      }
 
-    #sidebar.open {
+      #sidebar.open {
         transform: translateX(0);
-    }
+      }
 
-    #sidebar-toggle-btn {
+      #sidebar-toggle-btn {
         display: block;
+      }
     }
-}
-
-
-    </style>
+  </style>
 </head>
 
 
 <body class="bg-stone-900 text-stone-300">
-   <button id="sidebar-toggle-btn"
+  <button id="sidebar-toggle-btn"
     class="fixed top-3 left-3 z-50 bg-stone-800 text-white text-xl px-3 py-2 rounded-md shadow-md border border-stone-600 hidden">
     ☰
-</button>
+  </button>
 
 
-    <div class="flex h-screen">
-        <aside id="sidebar"
-            class="w-72 bg-stone-800/80 backdrop-blur-sm p-5 overflow-y-auto transition-all duration-300 flex-shrink-0 border-r border-stone-700 flex flex-col">
-            <div class="relative group mb-6">
-                <h1 id="codex-title"
-                    class="text-4xl text-sky-200 font-title cursor-pointer group-hover:text-sky-300 transition-colors py-1">
-                    Meu Códice</h1>
-                <input type="text" id="codex-title-input"
-                    class="hidden absolute inset-0 w-full bg-stone-900 text-4xl text-sky-150 font-title border border-sky-400 rounded-md px-4 py-4 focus:outline-none focus:ring focus:ring-sky-400">
+  <div class="flex h-screen">
+    <aside id="sidebar"
+      class="w-72 bg-stone-800/80 backdrop-blur-sm p-5 overflow-y-auto transition-all duration-300 flex-shrink-0 border-r border-stone-700 flex flex-col">
+      <div class="relative group mb-6">
+        <h1 id="codex-title"
+          class="text-4xl text-sky-200 font-title cursor-pointer group-hover:text-sky-300 transition-colors py-1">
+          Meu Códice</h1>
+        <input type="text" id="codex-title-input"
+          class="hidden absolute inset-0 w-full bg-stone-900 text-4xl text-sky-150 font-title border border-sky-400 rounded-md px-4 py-4 focus:outline-none focus:ring focus:ring-sky-400">
 
-                <i
-                    class="fas fa-pencil-alt fa-xs absolute top-0 -right-2 text-stone-600 group-hover:text-sky-400 transition-opacity opacity-0 group-hover:opacity-100"></i>
-            </div>
-            <nav id="nav-menu" class="flex-grow">
-            </nav>
-            <div class="mt-6 border-t border-stone-700 pt-5">
-                <button onclick="showSectionModal()"
-                    class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg text-sm">
-                    <i class="fas fa-plus-circle mr-2"></i>Nova Seção
-                </button>
-                <div class="mt-4 space-y-2">
-                    <button id="export-db"
-                        class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg text-sm">
-                        <i class="fas fa-file-export mr-2"></i>Exportar Códice
-                    </button>
-                    <input type="file" id="import-db-file" accept=".json" style="display:none" />
-                    <button id="import-db"
-                        class="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-lg text-sm">
-                        <i class="fas fa-file-import mr-2"></i>Importar Códice
-                    </button>
-                    <button id="download-html"
-                        class="w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg text-sm">
-                        <i class="fas fa-download mr-2"></i>Baixar como HTML
-                    </button>
-                </div>
-            </div>
-        </aside>
-        <main class="flex-1 p-4 sm:p-6 md:p-8 overflow-y-auto">
-            <div id="main-content" class="max-w-4xl mx-auto">
-            </div>
-        </main>
-        <aside id="editor-panel" class="hidden w-96 bg-stone-800 p-5 overflow-y-auto border-l border-stone-700">
-            <div class="flex justify-between items-center mb-6">
-                <h2 id="editor-title" class="text-2xl font-title text-sky-200">Editor</h2>
-                <button id="close-editor-btn" class="text-stone-400 hover:text-white text-2xl">&times;</button>
-            </div>
-            <div id="editor-content-wrapper">
-            </div>
-        </aside>
+        <i
+          class="fas fa-pencil-alt fa-xs absolute top-0 -right-2 text-stone-600 group-hover:text-sky-400 transition-opacity opacity-0 group-hover:opacity-100"></i>
+      </div>
+      <nav id="nav-menu" class="flex-grow">
+      </nav>
+      <div class="mt-6 border-t border-stone-700 pt-5">
+        <button onclick="showSectionModal()"
+          class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg text-sm">
+          <i class="fas fa-plus-circle mr-2"></i>Nova Seção
+        </button>
+        <div class="mt-4 space-y-2">
+          <button id="export-db"
+            class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg text-sm">
+            <i class="fas fa-file-export mr-2"></i>Exportar Códice
+          </button>
+          <input type="file" id="import-db-file" accept=".json" style="display:none" />
+          <button id="import-db"
+            class="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-lg text-sm">
+            <i class="fas fa-file-import mr-2"></i>Importar Códice
+          </button>
+          <button id="download-html"
+            class="w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg text-sm">
+            <i class="fas fa-download mr-2"></i>Baixar como HTML
+          </button>
+        </div>
+      </div>
+    </aside>
+    <main class="flex-1 p-4 sm:p-6 md:p-8 overflow-y-auto">
+      <div id="main-content" class="max-w-4xl mx-auto">
+      </div>
+    </main>
+    <aside id="editor-panel" class="hidden w-96 bg-stone-800 p-5 overflow-y-auto border-l border-stone-700">
+      <div class="flex justify-between items-center mb-6">
+        <h2 id="editor-title" class="text-2xl font-title text-sky-200">Editor</h2>
+        <button id="close-editor-btn" class="text-stone-400 hover:text-white text-2xl">&times;</button>
+      </div>
+      <div id="editor-content-wrapper">
+      </div>
+    </aside>
 
+  </div>
+  <div id="section-modal" class="modal fixed inset-0 bg-black/60 backdrop-blur-sm items-center justify-center p-4">
+    <div class="bg-stone-800 p-6 rounded-lg shadow-xl w-full max-w-md border border-stone-600">
+      <h3 id="modal-title" class="text-2xl font-title text-sky-200 mb-4">Nova Seção</h3>
+      <form id="section-form">
+        <input type="hidden" id="edit-section-id">
+        <input type="hidden" id="section-icon" name="icon" value="fa-book">
+        <div>
+          <label for="section-name" class="block font-medium text-stone-300 mb-1">Nome da Seção</label>
+          <input type="text" id="section-name" required
+            class="w-full bg-stone-700 border border-stone-600 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-sky-500 focus:border-sky-500">
+        </div>
+        <div class="mt-4">
+          <label class="block font-medium text-stone-300 mb-1">Ícone</label>
+          <button type="button" id="icon-picker-button"
+            class="w-full bg-stone-700 border border-stone-600 rounded-md py-2 px-3 text-white flex items-center justify-between">
+            <span>Selecionar ícone...</span>
+            <i id="selected-icon-preview" class="fas fa-book"></i>
+          </button>
+        </div>
+        <div id="icon-picker-container" class="hidden mt-2 bg-stone-900 p-3 rounded-md border border-stone-700">
+          <input type="search" id="icon-search" placeholder="Buscar ícone..."
+            class="w-full bg-stone-700 border border-stone-600 rounded-md py-1 px-2 mb-2 text-white">
+          <div id="icon-grid" class="max-h-48 overflow-y-auto grid grid-cols-6 gap-2">
+          </div>
+        </div>
+        <div class="mt-4">
+          <label for="section-template" class="block font-medium text-stone-300 mb-1">Molde Padrão para
+            Tópicos</label>
+          <select id="section-template"
+            class="w-full bg-stone-700 border border-stone-600 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-sky-500 focus:border-sky-500">
+          </select>
+        </div>
+        <div class="mt-6 flex justify-between">
+          <div id="delete-section-container"></div>
+          <div class="flex gap-3">
+            <button type="button" onclick="closeSectionModal()"
+              class="bg-stone-600 hover:bg-stone-500 text-white font-bold py-2 px-4 rounded-lg">Cancelar</button>
+            <button type="submit"
+              class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg">Salvar</button>
+          </div>
+        </div>
+      </form>
     </div>
-    <div id="section-modal" class="modal fixed inset-0 bg-black/60 backdrop-blur-sm items-center justify-center p-4">
-        <div class="bg-stone-800 p-6 rounded-lg shadow-xl w-full max-w-md border border-stone-600">
-            <h3 id="modal-title" class="text-2xl font-title text-sky-200 mb-4">Nova Seção</h3>
-            <form id="section-form">
-                <input type="hidden" id="edit-section-id">
-                <input type="hidden" id="section-icon" name="icon" value="fa-book">
-                <div>
-                    <label for="section-name" class="block font-medium text-stone-300 mb-1">Nome da Seção</label>
-                    <input type="text" id="section-name" required
-                        class="w-full bg-stone-700 border border-stone-600 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-sky-500 focus:border-sky-500">
-                </div>
-                <div class="mt-4">
-                    <label class="block font-medium text-stone-300 mb-1">Ícone</label>
-                    <button type="button" id="icon-picker-button"
-                        class="w-full bg-stone-700 border border-stone-600 rounded-md py-2 px-3 text-white flex items-center justify-between">
-                        <span>Selecionar ícone...</span>
-                        <i id="selected-icon-preview" class="fas fa-book"></i>
-                    </button>
-                </div>
-                <div id="icon-picker-container" class="hidden mt-2 bg-stone-900 p-3 rounded-md border border-stone-700">
-                    <input type="search" id="icon-search" placeholder="Buscar ícone..."
-                        class="w-full bg-stone-700 border border-stone-600 rounded-md py-1 px-2 mb-2 text-white">
-                    <div id="icon-grid" class="max-h-48 overflow-y-auto grid grid-cols-6 gap-2">
-                    </div>
-                </div>
-                <div class="mt-4">
-                    <label for="section-template" class="block font-medium text-stone-300 mb-1">Molde Padrão para
-                        Tópicos</label>
-                    <select id="section-template"
-                        class="w-full bg-stone-700 border border-stone-600 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-sky-500 focus:border-sky-500">
-                    </select>
-                </div>
-                <div class="mt-6 flex justify-between">
-                    <div id="delete-section-container"></div>
-                    <div class="flex gap-3">
-                        <button type="button" onclick="closeSectionModal()"
-                            class="bg-stone-600 hover:bg-stone-500 text-white font-bold py-2 px-4 rounded-lg">Cancelar</button>
-                        <button type="submit"
-                            class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg">Salvar</button>
-                    </div>
-                </div>
-            </form>
-        </div>
+  </div>
+  <div id="templates" class="hidden">
+    <div id="home-template">
+      <div class="text-center p-8 bg-stone-800 rounded-lg shadow-lg content-fade-in border border-stone-700">
+        <h2 class="text-5xl text-sky-200 mb-4 font-title">Bem-vindo ao seu Códice</h2>
+        <p class="text-stone-400 max-w-2xl mx-auto">
+          Este é o seu espaço para construir mundos. Comece criando sua primeira seção (como "Personagens" ou
+          "Reinos") usando o botão "Nova Seção" na barra lateral.
+        </p>
+      </div>
     </div>
-    <div id="templates" class="hidden">
-        <div id="home-template">
-            <div class="text-center p-8 bg-stone-800 rounded-lg shadow-lg content-fade-in border border-stone-700">
-                <h2 class="text-5xl text-sky-200 mb-4 font-title">Bem-vindo ao seu Códice</h2>
-                <p class="text-stone-400 max-w-2xl mx-auto">
-                    Este é o seu espaço para construir mundos. Comece criando sua primeira seção (como "Personagens" ou
-                    "Reinos") usando o botão "Nova Seção" na barra lateral.
-                </p>
-            </div>
+    <div id="simple-template-display">
+      <div class="bg-stone-800 rounded-lg shadow-lg p-6 content-fade-in border border-stone-700">
+        <div class="flex justify-between items-baseline mb-4">
+          <h2 class="text-4xl text-sky-200 font-title">{title}</h2>
+          <button onclick="openEditor('{categoryId}', '{id}')"
+            class="text-sm text-sky-400 hover:text-sky-300 flex-shrink-0 ml-4"><i class="fas fa-scroll mr-1"></i>
+            Editar</button>
         </div>
-        <div id="simple-template-display">
-            <div class="bg-stone-800 rounded-lg shadow-lg p-6 content-fade-in border border-stone-700">
-                <div class="flex justify-between items-baseline mb-4">
-                    <h2 class="text-4xl text-sky-200 font-title">{title}</h2>
-                    <button onclick="openEditor('{categoryId}', '{id}')"
-                        class="text-sm text-sky-400 hover:text-sky-300 flex-shrink-0 ml-4"><i
-                            class="fas fa-scroll mr-1"></i> Editar</button>
-                </div>
-                <p class="text-stone-400 mb-6 italic">"{subtitle}"</p>
-                <div class="prose prose-invert max-w-none text-stone-300 leading-relaxed">
-                    {content}
-                </div>
-            </div>
+        <p class="text-stone-400 mb-6 italic">"{subtitle}"</p>
+        <div class="prose prose-invert max-w-none text-stone-300 leading-relaxed">
+          {content}
         </div>
-        <div id="character-template-display">
-            <div class="bg-stone-800 rounded-lg shadow-lg overflow-hidden content-fade-in border border-stone-700">
-                <div class="p-6">
-                    <div class="flex flex-col sm:flex-row gap-6 items-start">
-                        <img class="w-32 h-32 rounded-2xl border-4 border-stone-600 object-cover flex-shrink-0 bg-stone-700"
-                            src="{image_url}" alt="Retrato de {title}">
-                        <div class="flex-grow">
-                            <div class="flex justify-between items-baseline">
-                                <h2 class="text-4xl text-sky-200 font-title">{title}</h2>
-                                <button onclick="openEditor('{categoryId}', '{id}')"
-                                    class="text-sm text-sky-400 hover:text-sky-300"><i class="fas fa-scroll mr-1"></i>
-                                    Editar</button>
-                            </div>
-                            <p class="text-sky-300 font-semibold mb-4 text-lg">"{subtitle}"</p>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-stone-300">
-                                {details_grid}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="px-6 py-4 bg-black/20">
-                    {personality_section}
-                    {about_section}
-                    {curiosity_section}
-                    {notes_section}
-                </div>
+      </div>
+    </div>
+    <div id="character-template-display">
+      <div class="bg-stone-800 rounded-lg shadow-lg overflow-hidden content-fade-in border border-stone-700">
+        <div class="p-6">
+          <div class="flex flex-col sm:flex-row gap-6 items-start">
+            <img class="w-32 h-32 rounded-2xl border-4 border-stone-600 object-cover flex-shrink-0 bg-stone-700"
+              src="{image_url}" alt="Retrato de {title}">
+            <div class="flex-grow">
+              <div class="flex justify-between items-baseline">
+                <h2 class="text-4xl text-sky-200 font-title">{title}</h2>
+                <button onclick="openEditor('{categoryId}', '{id}')" class="text-sm text-sky-400 hover:text-sky-300"><i
+                    class="fas fa-scroll mr-1"></i>
+                  Editar</button>
+              </div>
+              <p class="text-sky-300 font-semibold mb-4 text-lg">"{subtitle}"</p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-stone-300">
+                {details_grid}
+              </div>
             </div>
+          </div>
         </div>
-        <div id="inventory-template-display">
-            <div class="bg-stone-800 rounded-lg shadow-lg p-6 content-fade-in border border-stone-700">
-                <div class="flex justify-between items-baseline mb-4">
-                    <h2 class="text-4xl text-sky-200 font-title">{title}</h2>
-                    <button onclick="openEditor('{categoryId}', '{id}')"
-                        class="text-sm text-sky-400 hover:text-sky-300"><i class="fas fa-scroll mr-1"></i>
-                        Editar</button>
-                </div>
-                <p class="text-stone-400 mb-6 italic">"{subtitle}"</p>
-                <div id="inventory-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
-                </div>
-            </div>
+        <div class="px-6 py-4 bg-black/20">
+          {personality_section}
+          {about_section}
+          {curiosity_section}
+          {notes_section}
         </div>
-
+      </div>
+    </div>
+    <div id="inventory-template-display">
+      <div class="bg-stone-800 rounded-lg shadow-lg p-6 content-fade-in border border-stone-700">
+        <div class="flex justify-between items-baseline mb-4">
+          <h2 class="text-4xl text-sky-200 font-title">{title}</h2>
+          <button onclick="openEditor('{categoryId}', '{id}')" class="text-sm text-sky-400 hover:text-sky-300"><i
+              class="fas fa-scroll mr-1"></i>
+            Editar</button>
+        </div>
+        <p class="text-stone-400 mb-6 italic">"{subtitle}"</p>
+        <div id="inventory-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
+        </div>
+      </div>
     </div>
 
-    <script>
-        let db = {
-            title: 'Meu Códice',
-            sections: []
-        };
+  </div>
 
-        const templates = {
-            simple: {
-                name: "Página Simples",
-                fields: [
-                    { key: 'title', label: 'Título', type: 'text', placeholder: 'Título do tópico' },
-                    { key: 'subtitle', label: 'Subtítulo', type: 'text', placeholder: 'Uma breve descrição' },
-                    { key: 'content', label: 'Conteúdo', type: 'textarea', rows: 12, placeholder: 'Escreva aqui... HTML é permitido.' }
-                ]
-            },
-            character: {
-                name: "Ficha de Personagem",
-                fields: [
-                    { key: 'title', label: 'Nome', type: 'text', placeholder: 'Nome completo do personagem' },
-                    { key: 'subtitle', label: 'Apelido ou Título', type: 'text', placeholder: 'Ex: O Bravo, Lon, etc.' },
-                    { key: 'image_url', label: 'URL da Imagem', type: 'text', placeholder: 'https://...' },
-                    { key: 'age', label: 'Idade', type: 'text', placeholder: 'Ex: 27 anos, Imortal' },
-                    { key: 'birthday', label: 'Aniversário', type: 'text', placeholder: 'Ex: 14/02' },
-                    { key: 'origin', label: 'Origem', type: 'text', placeholder: 'Ex: Reino de Eldoria' },
-                    { key: 'personality', label: 'Personalidade', type: 'textarea', rows: 4, placeholder: 'Descreva a personalidade...' },
-                    { key: 'about', label: 'Sobre', type: 'textarea', rows: 8, placeholder: 'História, aparência, etc...' },
-                    { key: 'curiosity', label: 'Curiosidade', type: 'textarea', rows: 4, placeholder: 'Fatos e curiosidades...' },
-                    { key: 'notes', label: 'Notas', type: 'textarea', rows: 4, placeholder: 'Notas do autor, ideias...' },
-                ]
-            },
-            inventory: {
-                name: "Lista / Inventário",
-                fields: [
-                    { key: 'title', label: 'Nome da Lista', type: 'text', placeholder: 'Ex: Inventário de Kael' },
-                    { key: 'subtitle', label: 'Descrição', type: 'text', placeholder: 'Itens encontrados na masmorra...' },
-                    { key: 'items', label: 'Itens (JSON)', type: 'textarea', rows: 12, placeholder: '[{"name": "Poção de Cura", "qty": 5, "icon": "fa-flask"}, ...]' }
-                ]
-            }
-        };
-        const iconList = ['fa-book', 'fa-scroll', 'fa-hat-wizard', 'fa-dungeon', 'fa-dragon', 'fa-shield-halved', 'fa-users', 'fa-map-location-dot', 'fa-mountain-sun', 'fa-tree', 'fa-ring', 'fa-gem', 'fa-khanda', 'fa-gavel', 'fa-crown', 'fa-chess-king', 'fa-landmark-flag', 'fa-fire', 'fa-water', 'fa-wind', 'fa-earth-americas', 'fa-flask-vial', 'fa-wand-magic-sparkles', 'fa-hand-fist', 'fa-paw', 'fa-feather-pointed', 'fa-skull-crossbones', 'fa-ghost', 'fa-bug', 'fa-ankh', 'fa-torii-gate', 'fa-star', 'fa-moon', 'fa-sun', 'fa-key', 'fa-lock'];
-        document.addEventListener('DOMContentLoaded', () => {
-            const titleElement = document.getElementById('codex-title');
-            const titleInput = document.getElementById('codex-title-input');
+  <script>
+    let db = {
+      title: 'Meu Códice',
+      sections: []
+    };
 
-            titleElement.innerText = db.title;
-            titleElement.addEventListener('click', () => {
-                titleInput.value = titleElement.innerText;
-                titleElement.classList.add('hidden');
-                titleInput.classList.remove('hidden');
-                titleInput.focus();
-            });
+    const templates = {
+      simple: {
+        name: "Página Simples",
+        fields: [
+          { key: 'title', label: 'Título', type: 'text', placeholder: 'Título do tópico' },
+          { key: 'subtitle', label: 'Subtítulo', type: 'text', placeholder: 'Uma breve descrição' },
+          { key: 'content', label: 'Conteúdo', type: 'textarea', rows: 12, placeholder: 'Escreva aqui... HTML é permitido.' }
+        ]
+      },
+      character: {
+        name: "Ficha de Personagem",
+        fields: [
+          { key: 'title', label: 'Nome', type: 'text', placeholder: 'Nome completo do personagem' },
+          { key: 'subtitle', label: 'Apelido ou Título', type: 'text', placeholder: 'Ex: O Bravo, Lon, etc.' },
+          { key: 'image_url', label: 'URL da Imagem', type: 'text', placeholder: 'https://...' },
+          { key: 'age', label: 'Idade', type: 'text', placeholder: 'Ex: 27 anos, Imortal' },
+          { key: 'birthday', label: 'Aniversário', type: 'text', placeholder: 'Ex: 14/02' },
+          { key: 'origin', label: 'Origem', type: 'text', placeholder: 'Ex: Reino de Eldoria' },
+          { key: 'personality', label: 'Personalidade', type: 'textarea', rows: 4, placeholder: 'Descreva a personalidade...' },
+          { key: 'about', label: 'Sobre', type: 'textarea', rows: 8, placeholder: 'História, aparência, etc...' },
+          { key: 'curiosity', label: 'Curiosidade', type: 'textarea', rows: 4, placeholder: 'Fatos e curiosidades...' },
+          { key: 'notes', label: 'Notas', type: 'textarea', rows: 4, placeholder: 'Notas do autor, ideias...' },
+        ]
+      },
+      inventory: {
+        name: "Lista / Inventário",
+        fields: [
+          { key: 'title', label: 'Nome da Lista', type: 'text', placeholder: 'Ex: Inventário de Kael' },
+          { key: 'subtitle', label: 'Descrição', type: 'text', placeholder: 'Itens encontrados na masmorra...' },
+          { key: 'items', label: 'Itens (JSON)', type: 'textarea', rows: 12, placeholder: '[{"name": "Poção de Cura", "qty": 5, "icon": "fa-flask"}, ...]' }
+        ]
+      }
+    };
+    const iconList = ['fa-book', 'fa-scroll', 'fa-hat-wizard', 'fa-dungeon', 'fa-dragon', 'fa-shield-halved', 'fa-users', 'fa-map-location-dot', 'fa-mountain-sun', 'fa-tree', 'fa-ring', 'fa-gem', 'fa-khanda', 'fa-gavel', 'fa-crown', 'fa-chess-king', 'fa-landmark-flag', 'fa-fire', 'fa-water', 'fa-wind', 'fa-earth-americas', 'fa-flask-vial', 'fa-wand-magic-sparkles', 'fa-hand-fist', 'fa-paw', 'fa-feather-pointed', 'fa-skull-crossbones', 'fa-ghost', 'fa-bug', 'fa-ankh', 'fa-torii-gate', 'fa-star', 'fa-moon', 'fa-sun', 'fa-key', 'fa-lock'];
+    document.addEventListener('DOMContentLoaded', () => {
+      const titleElement = document.getElementById('codex-title');
+      const titleInput = document.getElementById('codex-title-input');
 
-            const saveTitle = () => {
-                const newTitle = titleInput.value.trim();
-                if (newTitle) {
-                    titleElement.innerText = newTitle;
-                    db.title = newTitle;
-                } else {
-                    titleElement.innerText = db.title;
-                }
-                titleInput.classList.add('hidden');
-                titleElement.classList.remove('hidden');
-            };
+      titleElement.innerText = db.title;
+      titleElement.addEventListener('click', () => {
+        titleInput.value = titleElement.innerText;
+        titleElement.classList.add('hidden');
+        titleInput.classList.remove('hidden');
+        titleInput.focus();
+      });
 
-            titleInput.addEventListener('input', () => {
-                titleElement.innerText = titleInput.value || ' ';
-            });
+      const saveTitle = () => {
+        const newTitle = titleInput.value.trim();
+        if (newTitle) {
+          titleElement.innerText = newTitle;
+          db.title = newTitle;
+        } else {
+          titleElement.innerText = db.title;
+        }
+        titleInput.classList.add('hidden');
+        titleElement.classList.remove('hidden');
+      };
 
-            titleInput.addEventListener('blur', () => {
-                const newTitle = titleInput.value.trim();
-                if (newTitle) {
-                    db.title = newTitle;
-                } else {
-                    titleInput.value = db.title;
-                }
-                titleElement.innerText = db.title;
-                titleInput.classList.add('hidden');
-                titleElement.classList.remove('hidden');
-            });
+      titleInput.addEventListener('input', () => {
+        titleElement.innerText = titleInput.value || ' ';
+      });
 
-            titleInput.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') {
-                    titleInput.blur();
-                } else if (e.key === 'Escape') {
-                    titleInput.value = db.title;
-                    titleInput.blur();
-                }
-            });
+      titleInput.addEventListener('blur', () => {
+        const newTitle = titleInput.value.trim();
+        if (newTitle) {
+          db.title = newTitle;
+        } else {
+          titleInput.value = db.title;
+        }
+        titleElement.innerText = db.title;
+        titleInput.classList.add('hidden');
+        titleElement.classList.remove('hidden');
+      });
 
-            buildNavMenu();
-            renderContent('home');
-            
-            const toggleBtn = document.getElementById('sidebar-toggle-btn');
-            const sidebar = document.getElementById('sidebar');
+      titleInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          titleInput.blur();
+        } else if (e.key === 'Escape') {
+          titleInput.value = db.title;
+          titleInput.blur();
+        }
+      });
 
-            toggleBtn.addEventListener('click', () => {
-    sidebar.classList.toggle('open');
-});
+      buildNavMenu();
+      renderContent('home');
 
-            document.addEventListener('click', (e) => {
-    if (
-        sidebar.classList.contains('open') && // está aberta
-        window.innerWidth <= 768 &&           // é mobile
-        !sidebar.contains(e.target) &&        // clique fora da sidebar
-        !toggleBtn.contains(e.target)         // clique fora do botão ☰
-    ) {
-        sidebar.classList.remove('open');     // fecha
-    }
-});
+      const toggleBtn = document.getElementById('sidebar-toggle-btn');
+      const sidebar = document.getElementById('sidebar');
+
+      toggleBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (
+          sidebar.classList.contains('open') &&
+          window.innerWidth <= 768 &&
+          !sidebar.contains(e.target) &&
+          !toggleBtn.contains(e.target)
+        ) {
+          sidebar.classList.remove('open');
+        }
+      });
 
 
 
-            document.getElementById('close-editor-btn').addEventListener('click', () => {
-                document.getElementById('editor-panel').classList.add('hidden');
-            });
+      document.getElementById('close-editor-btn').addEventListener('click', () => {
+        document.getElementById('editor-panel').classList.add('hidden');
+      });
 
-            document.getElementById('section-form').addEventListener('submit', handleSectionFormSubmit);
-            document.getElementById('icon-picker-button').addEventListener('click', () => {
-                document.getElementById('icon-picker-container').classList.toggle('hidden');
-            });
-        });
+      document.getElementById('section-form').addEventListener('submit', handleSectionFormSubmit);
+      document.getElementById('icon-picker-button').addEventListener('click', () => {
+        document.getElementById('icon-picker-container').classList.toggle('hidden');
+      });
+    });
 
-        function buildNavMenu() {
-            const navMenu = document.getElementById('nav-menu');
-            navMenu.innerHTML = '';
+    function buildNavMenu() {
+      const navMenu = document.getElementById('nav-menu');
+      navMenu.innerHTML = '';
 
-            const homeHtml = `<a href="#" onclick="renderContent('home')" class="block text-stone-300 hover:bg-stone-700 hover:text-sky-300 rounded-md px-3 py-2 text-sm font-medium"><i class="fas fa-dungeon w-6 mr-2"></i>Início</a>`;
-            navMenu.innerHTML += homeHtml;
+      const homeHtml = `<a href="#" onclick="renderContent('home')" class="block text-stone-300 hover:bg-stone-700 hover:text-sky-300 rounded-md px-3 py-2 text-sm font-medium"><i class="fas fa-dungeon w-6 mr-2"></i>Início</a>`;
+      navMenu.innerHTML += homeHtml;
 
-            db.sections.forEach(category => {
-                let linksHtml = category.items.sort((a, b) => a.title.localeCompare(b.title)).map(item =>
-                    `<li><a href="#" onclick="renderContent('${item.id}')" class="block text-stone-400 hover:text-sky-300 text-sm py-1 pl-4">${item.title}</a></li>`
-                ).join('');
+      db.sections.forEach(category => {
+        let linksHtml = category.items.sort((a, b) => a.title.localeCompare(b.title)).map(item =>
+          `<li><a href="#" onclick="renderContent('${item.id}')" class="block text-stone-400 hover:text-sky-300 text-sm py-1 pl-4">${item.title}</a></li>`
+        ).join('');
 
-                navMenu.innerHTML += `
+        navMenu.innerHTML += `
                     <div class="mt-4">
                         <div class="flex justify-between items-center px-3">
                             <h3 class="text-xs font-title text-stone-500 uppercase tracking-wider flex items-center">
@@ -411,121 +409,121 @@
                         <ul class="space-y-1 mt-1 ml-5 border-l border-stone-700">${linksHtml}</ul>
                     </div>
                 `;
-            });
+      });
+    }
+
+    function renderContent(itemId) {
+      const contentArea = document.getElementById('main-content');
+
+      if (itemId === 'home') {
+        contentArea.innerHTML = document.getElementById('home-template').innerHTML;
+        return;
+      }
+
+      let item, categoryId;
+      for (const category of db.sections) {
+        const foundItem = category.items.find(i => i.id === itemId);
+        if (foundItem) {
+          item = foundItem;
+          categoryId = category.id;
+          break;
         }
+      }
 
-        function renderContent(itemId) {
-            const contentArea = document.getElementById('main-content');
+      if (item) {
+        const templateName = item.template || 'simple';
+        let templateHtml = document.getElementById(`${templateName}-template-display`).innerHTML;
 
-            if (itemId === 'home') {
-                contentArea.innerHTML = document.getElementById('home-template').innerHTML;
-                return;
-            }
+        templateHtml = templateHtml.replace(/{id}/g, item.id).replace(/{categoryId}/g, categoryId);
 
-            let item, categoryId;
-            for (const category of db.sections) {
-                const foundItem = category.items.find(i => i.id === itemId);
-                if (foundItem) {
-                    item = foundItem;
-                    categoryId = category.id;
-                    break;
-                }
-            }
-
-            if (item) {
-                const templateName = item.template || 'simple';
-                let templateHtml = document.getElementById(`${templateName}-template-display`).innerHTML;
-
-                templateHtml = templateHtml.replace(/{id}/g, item.id).replace(/{categoryId}/g, categoryId);
-
-                Object.keys(item).forEach(key => {
-                    const regex = new RegExp(`{${key}}`, 'g');
-                    let content = item[key] || '';
-                    if (key === 'image_url' && !content) {
-                        content = `https://placehold.co/200x200/292524/7dd3fc?text=${item.title ? item.title[0] : '?'}`;
-                    }
-                    templateHtml = templateHtml.replace(regex, content);
-                });
-                if (templateName === 'character') {
-                    const createDetailItem = (label, value) => value ? `<p><strong>${label}:</strong> ${value}</p>` : '';
-                    const createSection = (title, value) => value ? `<div class="mb-6">
+        Object.keys(item).forEach(key => {
+          const regex = new RegExp(`{${key}}`, 'g');
+          let content = item[key] || '';
+          if (key === 'image_url' && !content) {
+            content = `https://placehold.co/200x200/292524/7dd3fc?text=${item.title ? item.title[0] : '?'}`;
+          }
+          templateHtml = templateHtml.replace(regex, content);
+        });
+        if (templateName === 'character') {
+          const createDetailItem = (label, value) => value ? `<p><strong>${label}:</strong> ${value}</p>` : '';
+          const createSection = (title, value) => value ? `<div class="mb-6">
                         <h3 class="font-title text-2xl text-sky-200 border-b-2 border-sky-500/30 pb-2 mb-3">${title}</h3>
                         <div class="prose prose-invert max-w-none text-stone-300 leading-relaxed">${value.replace(/\n/g, '<br>')}</div>
                     </div>` : '';
 
-                    const detailsGridHtml = [
-                        createDetailItem('Idade', item.age),
-                        createDetailItem('Origem', item.origin),
-                        createDetailItem('Aniversário', item.birthday)
-                    ].filter(Boolean).join('');
+          const detailsGridHtml = [
+            createDetailItem('Idade', item.age),
+            createDetailItem('Origem', item.origin),
+            createDetailItem('Aniversário', item.birthday)
+          ].filter(Boolean).join('');
 
-                    templateHtml = templateHtml
-                        .replace('{details_grid}', detailsGridHtml)
-                        .replace('{personality_section}', createSection('Personalidade', item.personality))
-                        .replace('{about_section}', createSection('Sobre', item.about))
-                        .replace('{curiosity_section}', createSection('Curiosidade', item.curiosity))
-                        .replace('{notes_section}', createSection('Notas', item.notes));
-                }
+          templateHtml = templateHtml
+            .replace('{details_grid}', detailsGridHtml)
+            .replace('{personality_section}', createSection('Personalidade', item.personality))
+            .replace('{about_section}', createSection('Sobre', item.about))
+            .replace('{curiosity_section}', createSection('Curiosidade', item.curiosity))
+            .replace('{notes_section}', createSection('Notas', item.notes));
+        }
 
-                contentArea.innerHTML = templateHtml;
+        contentArea.innerHTML = templateHtml;
 
-                if (templateName === 'inventory') {
-                    const grid = contentArea.querySelector('#inventory-grid');
-                    try {
-                        const itemsList = JSON.parse(item.items || '[]');
-                        if (itemsList.length > 0) {
-                            grid.innerHTML = itemsList.map(invItem => `
+        if (templateName === 'inventory') {
+          const grid = contentArea.querySelector('#inventory-grid');
+          try {
+            const itemsList = JSON.parse(item.items || '[]');
+            if (itemsList.length > 0) {
+              grid.innerHTML = itemsList.map(invItem => `
                             <div class="flex flex-col items-center text-center p-2 bg-stone-700/50 rounded-lg">
                                 <i class="fas ${invItem.icon || 'fa-question-circle'} text-3xl text-sky-300 mb-2"></i>
                                 <span class="text-sm font-semibold">${invItem.name || 'Desconhecido'}</span>
                                 <span class="text-xs text-stone-400">x${invItem.qty || 1}</span>
                             </div>
                            `).join('');
-                        } else {
-                            grid.innerHTML = '<p class="col-span-full text-stone-500 italic">Nenhum item adicionado.</p>';
-                        }
-                    } catch (e) {
-                        grid.innerHTML = '<p class="col-span-full text-red-500">Erro ao ler a lista de itens. Verifique o formato JSON.</p>';
-                    }
-                }
-
             } else {
-                renderContent('home');
+              grid.innerHTML = '<p class="col-span-full text-stone-500 italic">Nenhum item adicionado.</p>';
             }
+          } catch (e) {
+            grid.innerHTML = '<p class="col-span-full text-red-500">Erro ao ler a lista de itens. Verifique o formato JSON.</p>';
+          }
         }
-        function openEditor(categoryId, itemId = null) {
-            const editorPanel = document.getElementById('editor-panel');
-            const editorWrapper = document.getElementById('editor-content-wrapper');
-            editorPanel.classList.remove('hidden');
 
-            const category = db.sections.find(c => c.id === categoryId);
-            if (!category) return;
+      } else {
+        renderContent('home');
+      }
+    }
+    function openEditor(categoryId, itemId = null) {
+      const editorPanel = document.getElementById('editor-panel');
+      const editorWrapper = document.getElementById('editor-content-wrapper');
+      editorPanel.classList.remove('hidden');
 
-            let item = null;
-            if (itemId) {
-                item = category.items.find(i => i.id === itemId);
-            }
+      const category = db.sections.find(c => c.id === categoryId);
+      if (!category) return;
 
-            const templateName = item ? item.template : category.defaultTemplate;
-            const template = templates[templateName];
+      let item = null;
+      if (itemId) {
+        item = category.items.find(i => i.id === itemId);
+      }
 
-            document.getElementById('editor-title').innerText = item ? `Editar ${template.name}` : `Novo ${template.name}`;
+      const templateName = item ? item.template : category.defaultTemplate;
+      const template = templates[templateName];
 
-            let formFieldsHtml = template.fields.map(field => {
-                let value = item ? (item[field.key] || '') : '';
-                if (field.type === 'textarea') {
-                    return `<div>
+      document.getElementById('editor-title').innerText = item ? `Editar ${template.name}` : `Novo ${template.name}`;
+
+      let formFieldsHtml = template.fields.map(field => {
+        let value = item ? (item[field.key] || '') : '';
+        if (field.type === 'textarea') {
+          return `<div>
                         <label for="edit-${field.key}" class="block font-medium text-stone-300">${field.label}</label>
                         <textarea id="edit-${field.key}" name="${field.key}" rows="${field.rows || 5}" class="mt-1 block w-full bg-stone-700 border border-stone-600 rounded-md py-2 px-3 text-white" placeholder="${field.placeholder || ''}">${value}</textarea>
                     </div>`;
-                }
-                return `<div>
+        }
+        return `<div>
                     <label for="edit-${field.key}" class="block font-medium text-stone-300">${field.label}</label>
                     <input type="${field.type}" id="edit-${field.key}" name="${field.key}" value="${value}" class="mt-1 block w-full bg-stone-700 border border-stone-600 rounded-md py-2 px-3 text-white" placeholder="${field.placeholder || ''}">
                 </div>`;
-            }).join('');
+      }).join('');
 
-            editorWrapper.innerHTML = `
+      editorWrapper.innerHTML = `
                 <form id="edit-form" class="space-y-4">
                     <input type="hidden" id="edit-id" name="id" value="${itemId || ''}">
                     <input type="hidden" id="edit-category-id" name="categoryId" value="${categoryId}">
@@ -537,214 +535,213 @@
                     </div>
                 </form>`;
 
-            const deleteBtn = document.getElementById('delete-btn');
-            if (item) {
-                deleteBtn.style.display = 'block';
-                deleteBtn.onclick = () => handleDeleteItem(categoryId, itemId);
-            } else {
-                deleteBtn.style.display = 'none';
-            }
+      const deleteBtn = document.getElementById('delete-btn');
+      if (item) {
+        deleteBtn.style.display = 'block';
+        deleteBtn.onclick = () => handleDeleteItem(categoryId, itemId);
+      } else {
+        deleteBtn.style.display = 'none';
+      }
 
-            document.getElementById('edit-form').onsubmit = handleItemFormSubmit;
+      document.getElementById('edit-form').onsubmit = handleItemFormSubmit;
+    }
+
+    function handleItemFormSubmit(event) {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const data = Object.fromEntries(formData.entries());
+
+      const category = db.sections.find(c => c.id === data.categoryId);
+      if (!category) return;
+
+      if (data.id) {
+        const itemIndex = category.items.findIndex(i => i.id === data.id);
+        if (itemIndex > -1) category.items[itemIndex] = { ...category.items[itemIndex], ...data };
+      } else {
+        data.id = 'item_' + Date.now();
+        category.items.push(data);
+      }
+
+      buildNavMenu();
+      renderContent(data.id);
+      document.getElementById('editor-panel').classList.add('hidden');
+    }
+
+    function handleDeleteItem(categoryId, itemId) {
+      if (confirm('Tem certeza que deseja deletar este tópico?')) {
+        const category = db.sections.find(c => c.id === categoryId);
+        if (category) {
+          category.items = category.items.filter(i => i.id !== itemId);
+          saveDb();
+          buildNavMenu();
+          renderContent('home');
+          document.getElementById('editor-panel').classList.add('hidden');
         }
+      }
+    }
+    function showSectionModal(sectionId = null) {
+      const modal = document.getElementById('section-modal');
+      const form = document.getElementById('section-form');
+      form.reset();
 
-        function handleItemFormSubmit(event) {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData.entries());
+      const templateSelect = document.getElementById('section-template');
+      templateSelect.innerHTML = Object.keys(templates).map(key => `<option value="${key}">${templates[key].name}</option>`).join('');
 
-            const category = db.sections.find(c => c.id === data.categoryId);
-            if (!category) return;
+      const deleteContainer = document.getElementById('delete-section-container');
+      deleteContainer.innerHTML = '';
 
-            if (data.id) {
-                const itemIndex = category.items.findIndex(i => i.id === data.id);
-                if (itemIndex > -1) category.items[itemIndex] = { ...category.items[itemIndex], ...data };
-            } else {
-                data.id = 'item_' + Date.now();
-                category.items.push(data);
-            }
+      let currentIcon = 'fa-book';
 
-            buildNavMenu();
-            renderContent(data.id);
-            document.getElementById('editor-panel').classList.add('hidden');
+      if (sectionId) {
+        const section = db.sections.find(s => s.id === sectionId);
+        if (section) {
+          document.getElementById('modal-title').innerText = 'Editar Seção';
+          document.getElementById('edit-section-id').value = section.id;
+          document.getElementById('section-name').value = section.name;
+          document.getElementById('section-icon').value = section.icon;
+          templateSelect.value = section.defaultTemplate;
+          currentIcon = section.icon;
+
+          const deleteBtn = document.createElement('button');
+          deleteBtn.type = 'button';
+          deleteBtn.innerText = 'Deletar Seção';
+          deleteBtn.className = 'bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-3 rounded-lg text-sm';
+          deleteBtn.onclick = () => handleDeleteSection(sectionId);
+          deleteContainer.appendChild(deleteBtn);
         }
+      } else {
+        document.getElementById('modal-title').innerText = 'Nova Seção';
+        document.getElementById('edit-section-id').value = '';
+        templateSelect.value = 'simple';
+      }
 
-        function handleDeleteItem(categoryId, itemId) {
-            if (confirm('Tem certeza que deseja deletar este tópico?')) {
-                const category = db.sections.find(c => c.id === categoryId);
-                if (category) {
-                    category.items = category.items.filter(i => i.id !== itemId);
-                    saveDb();
-                    buildNavMenu();
-                    renderContent('home');
-                    document.getElementById('editor-panel').classList.add('hidden');
-                }
-            }
-        }
-        function showSectionModal(sectionId = null) {
-            const modal = document.getElementById('section-modal');
-            const form = document.getElementById('section-form');
-            form.reset();
+      populateIconPicker(currentIcon);
+      modal.classList.add('is-open');
+    }
 
-            const templateSelect = document.getElementById('section-template');
-            templateSelect.innerHTML = Object.keys(templates).map(key => `<option value="${key}">${templates[key].name}</option>`).join('');
+    function closeSectionModal() {
+      document.getElementById('section-modal').classList.remove('is-open');
+      document.getElementById('icon-picker-container').classList.add('hidden');
+    }
 
-            const deleteContainer = document.getElementById('delete-section-container');
-            deleteContainer.innerHTML = '';
+    function populateIconPicker(selectedIcon) {
+      const iconGrid = document.getElementById('icon-grid');
+      const iconSearch = document.getElementById('icon-search');
 
-            let currentIcon = 'fa-book';
-
-            if (sectionId) {
-                const section = db.sections.find(s => s.id === sectionId);
-                if (section) {
-                    document.getElementById('modal-title').innerText = 'Editar Seção';
-                    document.getElementById('edit-section-id').value = section.id;
-                    document.getElementById('section-name').value = section.name;
-                    document.getElementById('section-icon').value = section.icon;
-                    templateSelect.value = section.defaultTemplate;
-                    currentIcon = section.icon;
-
-                    const deleteBtn = document.createElement('button');
-                    deleteBtn.type = 'button';
-                    deleteBtn.innerText = 'Deletar Seção';
-                    deleteBtn.className = 'bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-3 rounded-lg text-sm';
-                    deleteBtn.onclick = () => handleDeleteSection(sectionId);
-                    deleteContainer.appendChild(deleteBtn);
-                }
-            } else {
-                document.getElementById('modal-title').innerText = 'Nova Seção';
-                document.getElementById('edit-section-id').value = '';
-                templateSelect.value = 'simple';
-            }
-
-            populateIconPicker(currentIcon);
-            modal.classList.add('is-open');
-        }
-
-        function closeSectionModal() {
-            document.getElementById('section-modal').classList.remove('is-open');
-            document.getElementById('icon-picker-container').classList.add('hidden');
-        }
-
-        function populateIconPicker(selectedIcon) {
-            const iconGrid = document.getElementById('icon-grid');
-            const iconSearch = document.getElementById('icon-search');
-
-            const renderIcons = (filter = '') => {
-                iconGrid.innerHTML = '';
-                iconList.filter(icon => icon.includes(filter)).forEach(icon => {
-                    const iconEl = document.createElement('button');
-                    iconEl.type = 'button';
-                    iconEl.className = `p-2 rounded-md text-xl hover:bg-sky-500 hover:text-white transition-colors ${icon === selectedIcon ? 'bg-sky-600 text-white' : 'bg-stone-800'}`;
-                    iconEl.innerHTML = `<i class="fas ${icon}"></i>`;
-                    iconEl.onclick = () => selectIcon(icon);
-                    iconGrid.appendChild(iconEl);
-                });
-            };
-
-            iconSearch.value = '';
-            renderIcons();
-            iconSearch.oninput = () => renderIcons(iconSearch.value);
-            selectIcon(selectedIcon);
-        }
-
-        function selectIcon(iconClass) {
-            document.getElementById('section-icon').value = iconClass;
-            const preview = document.getElementById('selected-icon-preview');
-            preview.className = `fas ${iconClass}`;
-            const iconGrid = document.getElementById('icon-grid');
-            Array.from(iconGrid.children).forEach(child => {
-                child.classList.remove('bg-sky-600', 'text-white');
-                if (child.querySelector('i').className.includes(iconClass)) {
-                    child.classList.add('bg-sky-600', 'text-white');
-                }
-            });
-        }
-
-        function handleSectionFormSubmit(event) {
-            event.preventDefault();
-            const id = document.getElementById('edit-section-id').value;
-            const name = document.getElementById('section-name').value;
-            const icon = document.getElementById('section-icon').value;
-            const defaultTemplate = document.getElementById('section-template').value;
-
-            if (id) {
-                const section = db.sections.find(s => s.id === id);
-                if (section) {
-                    section.name = name;
-                    section.icon = icon;
-                    section.defaultTemplate = defaultTemplate;
-                }
-            } else {
-                db.sections.push({
-                    id: 'section_' + Date.now(),
-                    name,
-                    icon,
-                    defaultTemplate,
-                    items: []
-                });
-            }
-            buildNavMenu();
-            closeSectionModal();
-        }
-
-        function handleDeleteSection(sectionId) {
-            const section = db.sections.find(s => s.id === sectionId);
-            if (section && confirm(`Tem certeza que deseja deletar a seção "${section.name}" e todos os seus tópicos?`)) {
-                db.sections = db.sections.filter(s => s.id !== sectionId);
-                buildNavMenu();
-                renderContent('home');
-                closeSectionModal();
-            }
-        }
-        document.getElementById('export-db').addEventListener('click', () => {
-            const blob = new Blob([JSON.stringify(db, null, 2)], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `${(db.title || 'codice').replace(/\s+/g, '_')}.json`;
-            a.click();
-            URL.revokeObjectURL(url);
+      const renderIcons = (filter = '') => {
+        iconGrid.innerHTML = '';
+        iconList.filter(icon => icon.includes(filter)).forEach(icon => {
+          const iconEl = document.createElement('button');
+          iconEl.type = 'button';
+          iconEl.className = `p-2 rounded-md text-xl hover:bg-sky-500 hover:text-white transition-colors ${icon === selectedIcon ? 'bg-sky-600 text-white' : 'bg-stone-800'}`;
+          iconEl.innerHTML = `<i class="fas ${icon}"></i>`;
+          iconEl.onclick = () => selectIcon(icon);
+          iconGrid.appendChild(iconEl);
         });
+      };
 
-        document.getElementById('import-db').addEventListener('click', () => {
-            document.getElementById('import-db-file').click();
+      iconSearch.value = '';
+      renderIcons();
+      iconSearch.oninput = () => renderIcons(iconSearch.value);
+      selectIcon(selectedIcon);
+    }
+
+    function selectIcon(iconClass) {
+      document.getElementById('section-icon').value = iconClass;
+      const preview = document.getElementById('selected-icon-preview');
+      preview.className = `fas ${iconClass}`;
+      const iconGrid = document.getElementById('icon-grid');
+      Array.from(iconGrid.children).forEach(child => {
+        child.classList.remove('bg-sky-600', 'text-white');
+        if (child.querySelector('i').className.includes(iconClass)) {
+          child.classList.add('bg-sky-600', 'text-white');
+        }
+      });
+    }
+
+    function handleSectionFormSubmit(event) {
+      event.preventDefault();
+      const id = document.getElementById('edit-section-id').value;
+      const name = document.getElementById('section-name').value;
+      const icon = document.getElementById('section-icon').value;
+      const defaultTemplate = document.getElementById('section-template').value;
+
+      if (id) {
+        const section = db.sections.find(s => s.id === id);
+        if (section) {
+          section.name = name;
+          section.icon = icon;
+          section.defaultTemplate = defaultTemplate;
+        }
+      } else {
+        db.sections.push({
+          id: 'section_' + Date.now(),
+          name,
+          icon,
+          defaultTemplate,
+          items: []
         });
+      }
+      buildNavMenu();
+      closeSectionModal();
+    }
 
-        document.getElementById('import-db-file').addEventListener('change', event => {
-            const file = event.target.files[0];
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = e => {
-                try {
-                    db = JSON.parse(e.target.result);
-                    buildNavMenu();
-                    renderContent('home');
-                    alert('Códice importado com sucesso!');
-                } catch (err) {
-                    alert('Erro ao importar: JSON inválido.');
-                }
-            };
-            reader.readAsText(file);
-        });
-        document.getElementById('download-html').addEventListener('click', () => {
-            const docClone = document.documentElement.cloneNode(true);
-            docClone.querySelectorAll('script').forEach(s => s.remove());
-            docClone.querySelectorAll(
-                '#editor-panel, #section-modal, #export-db, #import-db, #download-html, #import-db-file, button[onclick="showSectionModal()"], button[onclick^="showEditor("], button[onclick^="editContent("], .group:hover .edit-icon, #codex-title:hover .edit-icon').forEach(el => el.remove());
+    function handleDeleteSection(sectionId) {
+      const section = db.sections.find(s => s.id === sectionId);
+      if (section && confirm(`Tem certeza que deseja deletar a seção "${section.name}" e todos os seus tópicos?`)) {
+        db.sections = db.sections.filter(s => s.id !== sectionId);
+        buildNavMenu();
+        renderContent('home');
+        closeSectionModal();
+      }
+    }
+    document.getElementById('export-db').addEventListener('click', () => {
+      const blob = new Blob([JSON.stringify(db, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${(db.title || 'codice').replace(/\s+/g, '_')}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    });
 
-            const htmlContent = '<!DOCTYPE html>\n' + docClone.outerHTML;
-            const blob = new Blob([htmlContent], { type: 'text/html' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `${(db.title || 'codice').replace(/\s+/g, '_')}.html`;
-            a.click();
-            URL.revokeObjectURL(url);
-        });
+    document.getElementById('import-db').addEventListener('click', () => {
+      document.getElementById('import-db-file').click();
+    });
 
-    </script>
+    document.getElementById('import-db-file').addEventListener('change', event => {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = e => {
+        try {
+          db = JSON.parse(e.target.result);
+          buildNavMenu();
+          renderContent('home');
+          alert('Códice importado com sucesso!');
+        } catch (err) {
+          alert('Erro ao importar: JSON inválido.');
+        }
+      };
+      reader.readAsText(file);
+    });
+    document.getElementById('download-html').addEventListener('click', () => {
+      const docClone = document.documentElement.cloneNode(true);
+      docClone.querySelectorAll('script').forEach(s => s.remove());
+      docClone.querySelectorAll(
+        '#editor-panel, #section-modal, #export-db, #import-db, #download-html, #import-db-file, button[onclick="showSectionModal()"], button[onclick^="showEditor("], button[onclick^="editContent("], .group:hover .edit-icon, #codex-title:hover .edit-icon').forEach(el => el.remove());
+
+      const htmlContent = '<!DOCTYPE html>\n' + docClone.outerHTML;
+      const blob = new Blob([htmlContent], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${(db.title || 'codice').replace(/\s+/g, '_')}.html`;
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+  </script>
 </body>
 
 </html>
-

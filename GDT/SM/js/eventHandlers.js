@@ -9,6 +9,93 @@ import {
     selectIcon
 } from './ui.js';
 
+function getFunctionSource(func) {
+    let source = func.toString();
+    source = source.substring(source.indexOf("{") + 1, source.lastIndexOf("}"));
+    return source;
+}
+
+function handleExportToStaticHTML() {
+    const docClone = document.documentElement.cloneNode(true);
+
+    const elementsToRemove = [
+        '#editor-panel', '#section-modal', '#codex-title-input', '#export-db', 
+        '#import-db', '#import-db-file', '#export-html', '#new-section-btn', 
+        'script[src*="sortablejs"]', 'script[src*="main.js"]'
+    ];
+    docClone.querySelectorAll(elementsToRemove.join(', ')).forEach(el => el.remove());
+    
+    docClone.querySelectorAll('[data-action="add-item"], [data-action="edit-section"], [data-action="open-editor"], .drag-handle').forEach(el => el.remove());
+    
+    docClone.querySelector('#codex-title').classList.remove('cursor-pointer');
+
+    const viewerScript = `
+        const db = ${JSON.stringify(db, null, 2)};
+
+        const navMenuEl = document.getElementById('nav-menu');
+        const mainContentEl = document.getElementById('main-content');
+
+        function buildNavMenu() {
+            ${getFunctionSource(buildNavMenu)}
+        }
+
+        function renderContent(itemId) {
+            ${getFunctionSource(renderContent)}
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('codex-title').textContent = db.title;
+            document.title = db.title;
+            
+            buildNavMenu();
+            renderContent('home');
+
+            document.getElementById('nav-menu').addEventListener('click', (e) => {
+                const target = e.target.closest('a[data-action="nav"]');
+                if (target) {
+                    e.preventDefault();
+                    renderContent(target.dataset.target);
+                    const sidebar = document.getElementById('sidebar');
+                    if (sidebar.classList.contains('open')) {
+                        sidebar.classList.remove('open');
+                    }
+                }
+            });
+            
+            const sidebarEl = document.getElementById('sidebar');
+            document.addEventListener('click', (e) => {
+                if (sidebarEl.classList.contains('open') && !sidebarEl.contains(e.target) && !document.getElementById('sidebar-toggle-btn').contains(e.target)) {
+                    sidebarEl.classList.remove('open');
+                }
+            });
+            
+            const toggleBtn = document.getElementById('sidebar-toggle-btn');
+            toggleBtn.addEventListener('click', (e) => {
+                 e.stopPropagation();
+                 sidebarEl.classList.toggle('open');
+            });
+        });
+    `;
+
+    const scriptEl = docClone.createElement('script');
+    scriptEl.textContent = viewerScript;
+    docClone.querySelector('body').appendChild(scriptEl);
+
+    const finalHtml = '<!DOCTYPE html>\\n' + docClone.outerHTML;
+    const blob = new Blob([finalHtml], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${db.title.replace(/\s+/g, '_')}_static.html`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    alert('Exportação para HTML concluída!');
+}
+
 export function initializeEventHandlers() {
     const codexTitleEl = document.getElementById('codex-title');
     const codexTitleInputEl = document.getElementById('codex-title-input');
@@ -18,7 +105,6 @@ export function initializeEventHandlers() {
     const sectionModalEl = document.getElementById('section-modal');
     const mainContentEl = document.getElementById('main-content'); 
 
-    // --- Edição do Título do Códice ---
     codexTitleEl.addEventListener('click', () => {
         codexTitleInputEl.classList.remove('hidden');
         codexTitleEl.classList.add('hidden');
@@ -44,7 +130,6 @@ export function initializeEventHandlers() {
         }
     });
 
-    // --- Navegação Principal (Event Delegation) ---
     document.getElementById('nav-menu').addEventListener('click', (e) => {
         const target = e.target.closest('button, a');
         if (!target) return;
@@ -62,7 +147,6 @@ export function initializeEventHandlers() {
         if (action === 'edit-section') showSectionModal(sectionId);
     });
     
-    // --- Delegação de eventos no Conteúdo Principal (Apenas para botão "Editar") ---
     mainContentEl.addEventListener('click', (e) => {
         const buttonTarget = e.target.closest('button');
         if (buttonTarget && buttonTarget.dataset.action === 'open-editor') {
@@ -71,25 +155,19 @@ export function initializeEventHandlers() {
         }
     });
 
-    // --- Botões da Barra Lateral ---
     sidebarToggleBtn.addEventListener('click', (e) => {
-        // Impede que o clique no botão se propague para o listener do 'document'
         e.stopPropagation(); 
         sidebarEl.classList.toggle('open');
     });
     document.getElementById('new-section-btn').addEventListener('click', () => showSectionModal());
     document.getElementById('close-editor-btn').addEventListener('click', () => editorPanelEl.classList.add('hidden'));
 
-    // --- NOVA LÓGICA GLOBAL ADICIONADA ---
-    // Fecha a sidebar se o clique for em qualquer lugar fora dela
     document.addEventListener('click', (e) => {
-        // Verifica se a sidebar está aberta E se o clique foi fora dela
-        if (sidebarEl.classList.contains('open') && !sidebarEl.contains(e.target)) {
+        if (sidebarEl.classList.contains('open') && !sidebarEl.contains(e.target) && !sidebarToggleBtn.contains(e.target)) {
             sidebarEl.classList.remove('open');
         }
     });
 
-    // --- Formulário de Edição de Item ---
     editorPanelEl.addEventListener('submit', (e) => {
         if (e.target.id !== 'edit-form') return;
         e.preventDefault();
@@ -105,7 +183,6 @@ export function initializeEventHandlers() {
         }
     });
     
-    // --- Botão Deletar Item ---
     editorPanelEl.addEventListener('click', (e) => {
         if(e.target.id !== 'delete-btn') return;
         
@@ -120,7 +197,6 @@ export function initializeEventHandlers() {
         }
     });
 
-    // --- Modal de Seção ---
     document.getElementById('section-form').addEventListener('submit', (e) => {
         e.preventDefault();
         const id = document.getElementById('edit-section-id').value;
@@ -144,7 +220,6 @@ export function initializeEventHandlers() {
         }
     });
 
-    // --- Seletor de Ícones ---
     document.getElementById('icon-picker-button').addEventListener('click', () => {
         document.getElementById('icon-picker-container').classList.toggle('hidden');
     });
@@ -156,7 +231,6 @@ export function initializeEventHandlers() {
         }
     });
     
-    // --- Import / Export ---
     document.getElementById('export-db').addEventListener('click', () => {
         const blob = new Blob([JSON.stringify(db, null, 2)], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
@@ -178,7 +252,6 @@ export function initializeEventHandlers() {
         reader.onload = e => {
             try {
                 const importedDb = JSON.parse(e.target.result);
-                // Validação básica
                 if (importedDb && typeof importedDb.title === 'string' && Array.isArray(importedDb.sections)) {
                     Object.assign(db, importedDb);
                     saveDb();
@@ -192,9 +265,11 @@ export function initializeEventHandlers() {
             } catch (err) {
                 alert(`Erro ao importar: ${err.message}`);
             } finally {
-                event.target.value = ''; // Reseta o input de arquivo
+                event.target.value = '';
             }
         };
         reader.readAsText(file);
     });
+
+    document.getElementById('export-html').addEventListener('click', handleExportToStaticHTML);
 }

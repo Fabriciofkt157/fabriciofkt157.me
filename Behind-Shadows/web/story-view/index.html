@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Códice</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=MedievalSharp&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-stone-900 text-stone-300">
+    <button id="sidebar-toggle-btn" class="fixed top-3 left-3 z-50 bg-stone-800 text-white text-xl px-3 py-2 rounded-md shadow-md border border-stone-600 hidden">☰</button>
+    <div class="flex h-screen">
+        <aside id="sidebar" class="w-72 bg-stone-800/80 backdrop-blur-sm p-5 overflow-y-auto transition-all duration-300 flex-shrink-0 border-r border-stone-700 flex flex-col">
+            <div class="relative mb-6">
+                <h1 id="codex-title" class="text-4xl text-sky-200 font-title py-1">Carregando...</h1>
+            </div>
+            <nav id="nav-menu" class="flex-grow"></nav>
+            <div class="mt-6 border-t border-stone-700 pt-5 text-center">
+                <span id="last-updated" class="text-xs text-stone-500"></span>
+            </div>
+        </aside>
+        <main class="flex-1 p-4 sm:p-6 md:p-8 overflow-y-auto">
+            <div id="main-content" class="max-w-4xl mx-auto"></div>
+        </main>
+    </div>
+
+    <!-- Templates de Visualização (Ocultos) -->
+    <div id="templates" class="hidden">
+        <!-- Template: Página Inicial -->
+        <div id="home-template">
+            <div class="text-center p-8 bg-stone-800 rounded-lg shadow-lg content-fade-in border border-stone-700">
+                <h2 id="home-title" class="text-5xl text-sky-200 mb-4 font-title"></h2>
+                <p class="text-stone-400 max-w-2xl mx-auto">Navegue pelas seções na barra lateral para explorar as histórias e os segredos deste mundo.</p>
+            </div>
+        </div>
+        
+        <!-- Template: Página Simples -->
+        <div id="simple-template-display">
+            <div class="bg-stone-800 rounded-lg shadow-lg p-6 content-fade-in border border-stone-700">
+                <h2 class="text-4xl text-sky-200 font-title mb-2">{titulo}</h2>
+                <p class="text-stone-400 mb-6 italic">"{subtitulo}"</p>
+                <div class="prose prose-invert max-w-none text-stone-300 leading-relaxed">{contentHtml}</div>
+            </div>
+        </div>
+
+        <!-- Template: Ficha de Personagem -->
+        <div id="character-template-display">
+            <div class="bg-stone-800 rounded-lg shadow-lg overflow-hidden content-fade-in border border-stone-700">
+                <div class="p-6">
+                    <div class="flex flex-col sm:flex-row gap-6 items-start">
+                        <img class="w-32 h-32 rounded-2xl border-4 border-stone-600 object-cover flex-shrink-0 bg-stone-700" src="{image_url}" alt="Retrato de {titulo}">
+                        <div class="flex-grow">
+                            <h2 class="text-4xl text-sky-200 font-title">{titulo}</h2>
+                            <p class="text-sky-300 font-semibold mb-4 text-lg">"{subtitulo}"</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-stone-300">
+                                {details_grid}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="px-6 py-4 bg-black/20 prose prose-invert max-w-none text-stone-300 leading-relaxed">{contentHtml}</div>
+            </div>
+        </div>
+
+        <!-- Template: Linha do Tempo -->
+        <div id="timeline-template-display">
+            <div class="bg-stone-800 rounded-lg shadow-lg p-6 content-fade-in border border-stone-700">
+                <h2 class="text-4xl text-sky-200 font-title mb-2">{titulo}</h2>
+                <p class="text-stone-400 mb-6 italic">"{subtitulo}"</p>
+                <div class="prose prose-invert max-w-none text-stone-300 leading-relaxed">{contentHtml}</div>
+            </div>
+        </div>
+
+        <!-- Template: Evento -->
+        <div id="evento-template-display">
+             <div class="bg-stone-800 rounded-lg shadow-lg p-6 content-fade-in border border-stone-700">
+                <h2 class="text-4xl text-sky-200 font-title mb-2">{titulo}</h2>
+                <p class="text-stone-400 mb-6 italic">"{subtitulo}"</p>
+                <div class="prose prose-invert max-w-none text-stone-300 leading-relaxed">{contentHtml}</div>
+                <div class="mt-6 border-t border-stone-600 pt-4">
+                    <h3 class="font-semibold text-sky-200 mb-2">Personagens Envolvidos:</h3>
+                    <div class="flex flex-wrap gap-2">{personagens}</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Template: Termo (Glossário) -->
+        <div id="termo-template-display">
+            <div class="bg-stone-800 rounded-lg shadow-lg p-6 content-fade-in border border-stone-700">
+                <h2 class="text-4xl text-sky-200 font-title mb-2">{titulo}</h2>
+                <p class="text-stone-400 mb-6 italic">"{subtitulo}"</p>
+                <div class="prose prose-invert max-w-none text-stone-300 leading-relaxed">{contentHtml}</div>
+            </div>
+        </div>
+
+        <!-- Template: Mapa -->
+        <div id="mapa-template-display">
+            <div class="bg-stone-800 rounded-lg shadow-lg p-6 content-fade-in border border-stone-700">
+                <h2 class="text-4xl text-sky-200 font-title mb-2">{titulo}</h2>
+                <p class="text-stone-400 mb-6 italic">"{subtitulo}"</p>
+                <div class="my-4"><img src="{image_url}" alt="Mapa de {titulo}" class="rounded-lg w-full h-auto border-2 border-stone-600"></div>
+                <div class="prose prose-invert max-w-none text-stone-300 leading-relaxed">{contentHtml}</div>
+            </div>
+        </div>
+
+        <!-- Template: Grupo/Facção -->
+        <div id="grupo-template-display">
+            <div class="bg-stone-800 rounded-lg shadow-lg p-6 content-fade-in border border-stone-700">
+                <h2 class="text-4xl text-sky-200 font-title mb-2">{titulo}</h2>
+                <p class="text-stone-400 mb-6 italic">"{subtitulo}"</p>
+                <div class="prose prose-invert max-w-none text-stone-300 leading-relaxed">{contentHtml}</div>
+                <div class="mt-6 border-t border-stone-600 pt-4">
+                    <h3 class="font-semibold text-sky-200 mb-2">Membros Notáveis:</h3>
+                    <div class="flex flex-wrap gap-2">{personagens}</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Template: Cutscene -->
+        <div id="cutscene-template-display">
+            <div class="bg-stone-800 rounded-lg shadow-lg p-6 content-fade-in border border-stone-700">
+                <h2 class="text-4xl text-sky-200 font-title mb-2">{titulo}</h2>
+                <p class="text-stone-400 mb-6 italic">"{subtitulo}"</p>
+                <div class="prose prose-invert max-w-none text-stone-300 leading-relaxed bg-black/20 p-4 rounded-md border border-stone-700 font-mono">{contentHtml}</div>
+                 <div class="mt-6 border-t border-stone-600 pt-4">
+                    <h3 class="font-semibold text-sky-200 mb-2">Personagens na Cena:</h3>
+                    <div class="flex flex-wrap gap-2">{personagens}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="js/main.js" type="module"></script>
+</body>
+</html>

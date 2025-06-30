@@ -1,0 +1,91 @@
+{
+  "siteTitle": "Behind Shadows",
+  "lastUpdated": "2025-06-30T18:06:27.430939Z",
+  "sections": [
+    {
+      "id": "02_Personagens",
+      "title": "Personagens",
+      "icon": "fa-hand-fist",
+      "template": "character",
+      "items": [
+        {
+          "id": "alan_dount",
+          "title": "Alan Dount"
+        },
+        {
+          "id": "deniel_mourk",
+          "title": "Deniel Mourk"
+        },
+        {
+          "id": "maicon_jousan",
+          "title": "Maicon Jousan"
+        },
+        {
+          "id": "raika_tirouf",
+          "title": "Raika Tirouf"
+        },
+        {
+          "id": "ritain_mourk",
+          "title": "Ritain Mourk"
+        }
+      ]
+    }
+  ],
+  "topics": {
+    "alan_dount": {
+      "title": "Alan Dount",
+      "subtitle": "Lon",
+      "template": "character",
+      "icon": "fa-user",
+      "image_url": "https://fabriciofkt157.me/Behind-Shadows/game-features/concept-arts/Alan_retrato.png",
+      "age": "17 anos",
+      "birthday": "14/02",
+      "origin": "Eards (realidade)",
+      "contentHtml": "<p>### Personalidade Alan é reservado, um pouco rabugento e geralmente muito inteligente...</p><p>### Sobre Alan é irmão mais velho de Mike...</p>"
+    },
+    "deniel_mourk": {
+      "title": "Deniel Mourk",
+      "subtitle": "Deni",
+      "template": "character",
+      "icon": "fa-user",
+      "image_url": "https://fabriciofkt157.me/Behind-Shadows/game-features/concept-arts/Deni_retrato.png",
+      "age": "16 anos",
+      "birthday": "01/04",
+      "origin": "Median (realidade)",
+      "contentHtml": "<p>### Personalidade Deni é amigável e maduro...</p><p>### Sobre Levado por Rit a Avalest.</p>"
+    },
+    "maicon_jousan": {
+      "title": "Maicon Jousan",
+      "subtitle": "Mike",
+      "template": "character",
+      "icon": "fa-user",
+      "image_url": "https://fabriciofkt157.me/Behind-Shadows/game-features/concept-arts/Mike%20retrato.png",
+      "age": "14 anos",
+      "birthday": "17/12",
+      "origin": "Eards (realidade)",
+      "contentHtml": "<p>### Personalidade Alegre e espontâneo.</p><p>### Sobre Problemas reais reinterpretados no sonho.</p>"
+    },
+    "raika_tirouf": {
+      "title": "Raika Tirouf",
+      "subtitle": "Raika",
+      "template": "character",
+      "icon": "fa-user",
+      "image_url": "https://fabriciofkt157.me/Behind-Shadows/game-features/concept-arts/Raika_retrato.png",
+      "age": "21 anos",
+      "birthday": "15/07",
+      "origin": "Median (realidade)",
+      "contentHtml": "<p>### Personalidade Brava, estrategista.</p><p>### Sobre Foi agente dupla, depois envolveu-se com Alan.</p>"
+    },
+    "ritain_mourk": {
+      "title": "Ritain Mourk",
+      "subtitle": "Rit",
+      "template": "character",
+      "icon": "fa-user",
+      "image_url": "https://fabriciofkt157.me/Behind-Shadows/game-features/concept-arts/Rit-retrato.png",
+      "age": "23 anos",
+      "birthday": "21/02",
+      "origin": "Median (realidade)",
+      "contentHtml": "<p>### Personalidade Empático e equilibrado.</p><p>### Sobre Fugiu com Deni após o massacre.</p>"
+    }
+  }
+}

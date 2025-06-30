@@ -13,7 +13,6 @@ export function initializeEventHandlers(db) {
     // Função para lidar com a navegação
     const handleNavigation = (targetId) => {
         renderContent(db, targetId);
-        // Fecha a barra lateral em telas pequenas após o clique
         if (sidebarEl.classList.contains('open')) {
             sidebarEl.classList.remove('open');
         }

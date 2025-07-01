@@ -1,12 +1,13 @@
 {
   "siteTitle": "Behind Shadows",
-  "lastUpdated": "2025-06-30T18:06:27.430939Z",
+  "lastUpdated": "2025-07-01T01:47:13.476Z",
   "sections": [
     {
       "id": "02_Personagens",
       "title": "Personagens",
       "icon": "fa-hand-fist",
       "template": "character",
+      "parent": "",
       "items": [
         {
           "id": "alan_dount",
@@ -33,59 +34,74 @@
   ],
   "topics": {
     "alan_dount": {
-      "title": "Alan Dount",
-      "subtitle": "Lon",
+      "titulo": "Alan Dount",
+      "subtitulo": "Lon",
+      "icone": "fa-user",
       "template": "character",
-      "icon": "fa-user",
       "image_url": "https://fabriciofkt157.me/Behind-Shadows/game-features/concept-arts/Alan_retrato.png",
       "age": "17 anos",
       "birthday": "14/02",
       "origin": "Eards (realidade)",
-      "contentHtml": "<p>### Personalidade Alan é reservado, um pouco rabugento e geralmente muito inteligente...</p><p>### Sobre Alan é irmão mais velho de Mike...</p>"
+      "title": "Alan Dount",
+      "subtitle": "Lon",
+      "icon": "fa-user",
+      "contentHtml": "<h3>Personalidade</h3>\n<p>Alan é reservado, um pouco rabugento e geralmente muito inteligente. Ele pode parecer sombrio às vezes, mas é, no fundo, uma boa pessoa. No entanto, se algo se colocar entre ele e seus objetivos, Alan não hesitará em mostrar um lado menos amigável. Alan pode se mostrar um pouco “fofinho” em alguns diálogos, contrapondo seu lado rabugento.</p>\n<h3>Sobre</h3>\n<p>Alan é irmão mais velho de Mike. Na vida real está se preparando para viver sua própria vida, o que Mike distorce e enxerga como um &quot;adeus&quot;. Alan foi abusado por seu tio Mark quando tinha 4 anos, mas ao relatar isso à família, todos ignoram. Isso o torna desconfiado e recluso. No sonho de Mike, Mark é o Homem Misterioso — antagonista principal do jogo — que também se infiltra como um aliado.</p>\n<h3>Curiosidade</h3>\n<p>Em uma das cenas com Mike, Alan revela que seu irmão costumava chamá-lo de “Lon” e sugere que Mike também pode usar esse apelido.</p>\n<h3>Notas</h3>\n<p>Após ser corrompido e posteriormente controlar as Sombras, Alan não precisa dormir — mas dorme porque gosta.</p>\n"
     },
     "deniel_mourk": {
-      "title": "Deniel Mourk",
-      "subtitle": "Deni",
+      "titulo": "Deniel Mourk",
+      "subtitulo": "Deni",
+      "icone": "fa-user",
       "template": "character",
-      "icon": "fa-user",
       "image_url": "https://fabriciofkt157.me/Behind-Shadows/game-features/concept-arts/Deni_retrato.png",
       "age": "16 anos",
       "birthday": "01/04",
       "origin": "Median (realidade)",
-      "contentHtml": "<p>### Personalidade Deni é amigável e maduro...</p><p>### Sobre Levado por Rit a Avalest.</p>"
+      "title": "Deniel Mourk",
+      "subtitle": "Deni",
+      "icon": "fa-user",
+      "contentHtml": "<h3>Personalidade</h3>\n<p>Deni é amigável na maior parte do tempo, mostrando maturidade, embora ocasionalmente cometa deslizes.</p>\n<h3>Sobre</h3>\n<p>Deni foi levado por Rit a Avalest após o ataque, mas não tem lembranças disso, pois era muito pequeno.</p>\n<h3>Curiosidade</h3>\n<p>Deni tem o hábito de fazer piadas ruins ou pregar peças em seus companheiros, trazendo humor à jornada.</p>\n"
     },
     "maicon_jousan": {
-      "title": "Maicon Jousan",
-      "subtitle": "Mike",
+      "titulo": "Maicon Jousan",
+      "subtitulo": "Mike",
+      "icone": "fa-user",
       "template": "character",
-      "icon": "fa-user",
       "image_url": "https://fabriciofkt157.me/Behind-Shadows/game-features/concept-arts/Mike%20retrato.png",
       "age": "14 anos",
       "birthday": "17/12",
       "origin": "Eards (realidade)",
-      "contentHtml": "<p>### Personalidade Alegre e espontâneo.</p><p>### Sobre Problemas reais reinterpretados no sonho.</p>"
+      "title": "Maicon Jousan",
+      "subtitle": "Mike",
+      "icon": "fa-user",
+      "contentHtml": "<h3>Personalidade</h3>\n<p>Mike é alegre, espontâneo e extrovertido. Expressa o que pensa, adora socializar e tem facilidade para fazer amigos.</p>\n<h3>Sobre</h3>\n<p>Mike vive situações estressantes na vida real, que são reinterpretadas no sonho com a chance de resolvê-las.</p>\n<h3>Curiosidade</h3>\n<p>Alan e Mike são irmãos por parte de mãe, com sobrenomes diferentes: Dount e Jousan. O Homem Misterioso chama cada um pelo sobrenome da família que representa — Alan pela “Dount” e Mike pela “Jousan”.</p>\n<h3>Notas</h3>\n<p>Mike tem problemas na realidade que se manifestam como desafios solucionáveis no mundo do sonho.</p>\n"
     },
     "raika_tirouf": {
-      "title": "Raika Tirouf",
-      "subtitle": "Raika",
+      "titulo": "Raika Tirouf",
+      "subtitulo": "Raika",
+      "icone": "fa-user",
       "template": "character",
-      "icon": "fa-user",
       "image_url": "https://fabriciofkt157.me/Behind-Shadows/game-features/concept-arts/Raika_retrato.png",
       "age": "21 anos",
       "birthday": "15/07",
       "origin": "Median (realidade)",
-      "contentHtml": "<p>### Personalidade Brava, estrategista.</p><p>### Sobre Foi agente dupla, depois envolveu-se com Alan.</p>"
+      "title": "Raika Tirouf",
+      "subtitle": "Raika",
+      "icon": "fa-user",
+      "contentHtml": "<h3>Personalidade</h3>\n<p>Raika tem temperamento explosivo, ataca impulsivamente, mas é estrategista e inteligente. Geralmente infeliz e raramente sorri — até conhecer Alan.</p>\n<h3>Sobre</h3>\n<p>Raika foi general do Exército das Sombras e agente duplo entre Median e o Exército. Deixa esse papel após a formação da Sky. Tem interesse amoroso por Alan e revela que era a verdadeira General do Submundo.</p>\n<h3>Curiosidade</h3>\n<p>Raika e Alan têm um romance. Em uma das cenas, dançam juntos e se assumem como casal.</p>\n"
     },
     "ritain_mourk": {
-      "title": "Ritain Mourk",
-      "subtitle": "Rit",
+      "titulo": "Ritain Mourk",
+      "subtitulo": "Rit",
+      "icone": "fa-user",
       "template": "character",
-      "icon": "fa-user",
       "image_url": "https://fabriciofkt157.me/Behind-Shadows/game-features/concept-arts/Rit-retrato.png",
       "age": "23 anos",
       "birthday": "21/02",
       "origin": "Median (realidade)",
-      "contentHtml": "<p>### Personalidade Empático e equilibrado.</p><p>### Sobre Fugiu com Deni após o massacre.</p>"
+      "title": "Ritain Mourk",
+      "subtitle": "Rit",
+      "icon": "fa-user",
+      "contentHtml": "<h3>Personalidade</h3>\n<p>Rit é emocionalmente equilibrado. Sente exatamente o necessário para cada momento. Sua empatia o leva a ajudar os outros.</p>\n<h3>Sobre</h3>\n<p>Rit fugiu com Deni para Avalest após um ataque à vila onde moravam. Ele tinha 10 anos na época, e Deni, 3. Os dois perderam seus entes queridos.</p>\n"
     }
   }
 }

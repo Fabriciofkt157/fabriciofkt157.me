@@ -33,6 +33,7 @@ body {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -43,7 +44,6 @@ body {
   display: none;
 }
 
-/* Estilos para layout responsivo da barra lateral */
 @media (max-width: 768px) {
   #sidebar {
     transform: translateX(-100%);

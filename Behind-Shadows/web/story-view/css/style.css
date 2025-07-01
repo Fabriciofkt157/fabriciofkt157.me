@@ -56,21 +56,33 @@ body {
   }
 }
 
-/* --- ESTILOS PARA OS BLOCOS DE CONTEÚDO --- */
-.prose .bloco {
-  margin-bottom: 2rem; /* 32px */
+/* --- ESTILOS PARA OS BLOCOS DE CONTEÚDO (VERSÃO REFORÇADA) --- */
+
+/* Seleciona qualquer elemento que tenha a classe 'prose' e estiliza o .bloco dentro dele */
+[class~="prose"] .bloco {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
-.prose .bloco:last-child {
+[class~="prose"] .bloco:first-child {
+  margin-top: 0;
+}
+
+[class~="prose"] .bloco:last-child {
   margin-bottom: 0;
 }
 
-.prose .bloco h3 {
-  font-family: 'MedievalSharp', cursive;
-  font-size: 1.5rem; /* 24px */
-  line-height: 2rem; /* 32px */
-  color: #bae6fd; /* text-sky-200 */
-  border-bottom: 2px solid rgba(14, 165, 233, 0.3); /* border-sky-500/30 */
-  padding-bottom: 0.5rem; /* 8px */
-  margin-bottom: 1rem; /* 16px */
+/*
+  Força a estilização do h3 dentro de .bloco para sobrescrever o Tailwind.
+  Usamos !important para garantir a prioridade.
+*/
+[class~="prose"] .bloco > h3 {
+  font-family: 'MedievalSharp', cursive !important;
+  font-size: 1.5rem !important;
+  line-height: 2rem !important;
+  color: #bae6fd !important; /* text-sky-200 */
+  border-bottom: 2px solid rgba(14, 165, 233, 0.3) !important;
+  padding-bottom: 0.5rem !important;
+  margin-top: 0 !important;
+  margin-bottom: 1rem !important;
 }

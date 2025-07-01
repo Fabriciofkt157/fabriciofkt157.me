@@ -29,15 +29,8 @@ body {
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 #sidebar-toggle-btn {
@@ -55,12 +48,29 @@ body {
     top: 0;
     transition: transform 0.3s ease;
   }
-
   #sidebar.open {
     transform: translateX(0);
   }
-
   #sidebar-toggle-btn {
     display: block;
   }
+}
+
+/* --- ESTILOS PARA OS BLOCOS DE CONTEÚDO --- */
+.prose .bloco {
+  margin-bottom: 2rem; /* 32px */
+}
+
+.prose .bloco:last-child {
+  margin-bottom: 0;
+}
+
+.prose .bloco h3 {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 1.5rem; /* 24px */
+  line-height: 2rem; /* 32px */
+  color: #bae6fd; /* text-sky-200 */
+  border-bottom: 2px solid rgba(14, 165, 233, 0.3); /* border-sky-500/30 */
+  padding-bottom: 0.5rem; /* 8px */
+  margin-bottom: 1rem; /* 16px */
 }

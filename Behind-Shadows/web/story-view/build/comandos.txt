@@ -1,6 +1,0 @@
-pkg update -y && pkg install -y nodejs && \
-mkdir -p ~/work/story-view/conteudo/02_Personagens && cd ~/work/story-view && \
-npm init -y && npm install gray-matter marked zod fs-extra && \
-curl -o build.js https://fabriciofkt157.me/assets/story-view/build/build.js && \
-echo '{ "siteTitle": "Behind Shadows" }' > conteudo/config.json && \
-echo -e '---\\ntitulo: "Personagens"\\nicone: "fa-hand-fist"\\ntemplate: "character"\\n---\\n\\nTodos os personagens jogáveis.' > conteudo/02_Personagens/_index.md

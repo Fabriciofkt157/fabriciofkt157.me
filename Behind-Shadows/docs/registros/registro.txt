@@ -1,7 +1,0 @@
-v1: site reformulado: 
--removido notas de versões
--adicionado um parecer sobre o que aconteceu com o projeto
--removido downloads do projeto 2D (OBS: vou colocar numa página para versões antigas)
-
-v2: ajuste de links
-- resolvido link para história do jogo via GitHub
